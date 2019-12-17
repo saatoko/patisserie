@@ -1,24 +1,76 @@
-# README
+# DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false, unique: true|
+|gender|integer|null: false|
+|profession|integer|null: false|
+|password|string|null: false|
 
-Things you may want to cover:
+### Association
+- has_many :recipes
+- has_many :comments
 
-* Ruby version
 
-* System dependencies
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|recipe_id|references|null: false, foreign_key: true|
+|text|text|null: false|
 
-* Configuration
+### Association
+- belongs_to :user
+- belongs_to :recipe
 
-* Database creation
 
-* Database initialization
+## recipesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|patisserie_id|references|null: false, foreign_key: true|
+|name|string|null: false|
+|difficulty|string|null: false|
+|cookingtime|string|null:false|
+|bakingtime|string|null:false|
+ingredients|text|null:false|
+instruments|text|null:false|
 
-* How to run the test suite
+### Association
+- belongs_to :user
+- has_many :comments
+- belongs_to :patisserie
+- has_many :recipe-images
+- has_many :recipe-videos
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## patisseriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|recipe_id|references|null: false|
+|genre|integer|nul: false|
 
-* ...
+### Association
+- has_many :recips
+
+
+## recipe-imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|recipe_id|references|null: false|
+|image|text|
+
+### Association
+- belongs_to :recipe
+
+
+## recipe-videosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|recipe_id|references|null: false|
+|video|text|
+
+### Association
+- belongs_to :recipe
