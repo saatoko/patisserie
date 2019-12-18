@@ -9,6 +9,7 @@
 |profession|integer|null: false|
 |password|string|null: false|
 
+
 ### Association
 - has_many :recipes
 - has_many :comments
@@ -35,25 +36,15 @@
 |difficulty|string|null: false|
 |cookingtime|string|null:false|
 |bakingtime|string|null:false|
-ingredients|text|null:false|
-instruments|text|null:false|
+|ingredients|text|null:false|
+|instruments|text|null:false|
+|genre|integer|nul: false|
 
 ### Association
 - belongs_to :user
 - has_many :comments
-- belongs_to :patisserie
 - has_many :recipe-images
 - has_many :recipe-videos
-
-
-## patisseriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|recipe_id|references|null: false|
-|genre|integer|nul: false|
-
-### Association
-- has_many :recips
 
 
 ## recipe-imagesテーブル
