@@ -64,7 +64,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |recipe_id|references|null: false|
-|video|text|
+|video|string|
 
 ### Association
 - belongs_to :recipe
