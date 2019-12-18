@@ -5,8 +5,8 @@
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
-|gender|integer|null: false|
-|profession|integer|null: false|
+|gender_id|integer|null: false|
+|profession_id|integer|null: false|
 |password|string|null: false|
 
 ### Association
