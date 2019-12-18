@@ -54,7 +54,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |recipe_id|references|null: false|
-|image|text|
+|image|string|
 
 ### Association
 - belongs_to :recipe
