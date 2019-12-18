@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20191218051246) do
     t.string   "nickname",               null: false
     t.string   "email",                  null: false
     t.string   "encrypted_password",     null: false
-    t.integer  "gender",                 null: false
-    t.integer  "profession",             null: false
+    t.integer  "gender_id",              null: false
+    t.integer  "profession_id",          null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
