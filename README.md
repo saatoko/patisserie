@@ -31,14 +31,17 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|patisserie_id|references|null: false, foreign_key: true|
 |name|string|null: false|
-|difficulty|string|null: false|
-|cookingtime|string|null:false|
-|bakingtime|string|null:false|
-|ingredients|text|null:false|
-|instruments|text|null:false|
-|genre|integer|nul: false|
+|genre_id|integer|nul: false|
+|difficulty_id|integer|null: false|
+|servers|string|null: false|
+|cookingtime|string|null: false|
+|bakingtime|string|null: false|
+|bakingtemperature|string|null: false|
+|ingredients|text|null: false|
+|instruments|text|null: false|
+|method|text|null: false|
+
 
 ### Association
 - belongs_to :user
@@ -47,7 +50,7 @@
 - has_many :recipe-videos
 
 
-## recipe-imagesテーブル
+## recipe_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |recipe_id|references|null: false|
@@ -57,7 +60,7 @@
 - belongs_to :recipe
 
 
-## recipe-videosテーブル
+## recipe_videosテーブル
 |Column|Type|Options|
 |------|----|-------|
 |recipe_id|references|null: false|
