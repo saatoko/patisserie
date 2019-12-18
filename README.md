@@ -9,7 +9,6 @@
 |profession|integer|null: false|
 |password|string|null: false|
 
-
 ### Association
 - has_many :recipes
 - has_many :comments
@@ -42,7 +41,6 @@
 |instruments|text|null: false|
 |method|text|null: false|
 
-
 ### Association
 - belongs_to :user
 - has_many :comments
@@ -53,8 +51,8 @@
 ## recipe_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|recipe_id|references|null: false|
-|image|string|
+|recipe_id|references|null: false, foreign_key: true|
+|image|string|null: false|
 
 ### Association
 - belongs_to :recipe
@@ -63,8 +61,8 @@
 ## recipe_videosテーブル
 |Column|Type|Options|
 |------|----|-------|
-|recipe_id|references|null: false|
-|video|text|
+|recipe_id|references|null: false, foreign_key: true|
+|video|string|null: false|
 
 ### Association
 - belongs_to :recipe
