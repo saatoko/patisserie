@@ -1,0 +1,88 @@
+.sweets {
+  background-color: black;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  &__left {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    padding: 0 30px;
+    background: linear-gradient(-135deg, rgb(219, 98, 158), rgb(133, 0, 66));
+      &--subtitle {
+        padding: 120px 0 100px;
+        color: $white;
+        letter-spacing: 1px;
+        font-size: 1.7rem;
+        text-align: center;
+        &::before,
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 20%;
+          height: 2px;
+          margin: 0 30px;
+          vertical-align: middle;
+          background-color: $white;
+        }
+      }
+      &--title {
+        color: $white;
+        font-size: 3.3rem;
+        text-align: center;
+        font-weight: bold;
+      }
+      &--buttons {
+        text-align: center;
+        display: block;
+        padding: 160px 40px 0;
+        .button-why {
+          display: inline-block;
+          text-decoration: none;
+          color: $white;
+          letter-spacing: 1px;
+          font-size: 1.2rem;
+          padding: 15px;
+          background-color: #ffba78;
+          text-align: center;
+          font-weight: bold;
+          border-radius: 1.6rem;
+          border-style: dotted;
+          width: 210px;
+          &:hover {
+            opacity: 0.9;
+          } 
+        }
+        .button-signup {
+          display: inline-block;
+          text-decoration: none;
+          color: $white;
+          letter-spacing: 1px;
+          font-size: 1.2rem;
+          padding: 15px;
+          background-color: #ffba78;
+          text-align: center;
+          font-weight: bold;
+          border-radius: 1.6rem;
+          border-style: dotted;
+          width: 210px;
+
+          &:hover {
+            opacity: 0.9;
+          } 
+        }
+      } 
+  }
+  &__right {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    left: 50%;
+  }
+
+  
+}
