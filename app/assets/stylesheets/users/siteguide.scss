@@ -2,10 +2,10 @@
   margin: 0;
   padding: 0;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   .header-guide {
     background-color: black;
-    padding: 80px 30px 80px;
+    padding: 150px 30px 80px;
     height: 240px;
     &__header {
       color: rgb(214, 93, 168);
@@ -24,7 +24,6 @@
         display: block;
         clear: both;
       }
-      
       .aboutme {
         color: $white;
         text-decoration: none;
@@ -38,20 +37,7 @@
           font-size: 1.6rem;
         }
       }
-      // .introduce-site {
-      //   float: left;
-      //   color: $white;
-      //   text-decoration: none;
-      //   margin-right: 40px;
-      //   margin-top: 30px;
-      //   font-size: 1.5rem;
-      //   &:hover {
-      //     color: rgb(214, 93, 168);
-      //     transition: all .3s;
-      //     font-size: 1.6rem;
-      //   }
-      // }
-      .confectionery {
+      .thissite {
         float: left;
         color: $white;
         text-decoration: none;
@@ -64,21 +50,21 @@
           font-size: 1.6rem;
         }
       }
-      .signup {
+      .confectionery {
         float: left;
         color: $white;
         text-decoration: none;
+        margin-right: 40px;
         margin-top: 60px;
         font-size: 1.5rem;
-
         &:hover {
           color: rgb(214, 93, 168);
           transition: all .3s;
           font-size: 1.6rem;
         }
-      } 
-      .back {
-        float: right;
+      }
+      .signup {
+        float: left;
         color: $white;
         text-decoration: none;
         margin-top: 90px;
@@ -91,59 +77,79 @@
       } 
     }
   }
+
   .main-guide {
-    background-color: #383634;
+    background-color: rgb(255, 206, 240);
     padding: 100px 0;
+    .text-title{
+      color: $white;
+      font-size: 2.4rem;
+      text-align: center;
+      padding-bottom: 40px;
+    }
+    &__contents {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      border: 2px solid $white;
+      border-collapse: separate;
+      border-spacing: 100px 50px;
+      .aboutme-box{
+        display: table-cell;
+        // border: 2px solid yellow;
+        &__name {
+          font-size: 2.5rem;
+          color: $white;
+          font-weight: bold;
+          letter-spacing: 1.5rem;
+          position: relative;
+          display: inline-block;
+          text-shadow: rgb(158, 0, 92) 1px 1px 2px, rgb(230, 37, 156) 0 0 20px;
+          padding-bottom: 15px;
+        }
+        &__text {
+          margin: 15px 30px;
+          font-size: 1.5rem;
+          background-color: $white;
+          word-wrap: break-word;
+        }
+      }
+      .thissite-box {
+        display: table-cell;
+        // border: 2px solid yellow;
+        &__description {
+          font-size: 2.5rem;
+          color: $white;
+          font-weight: bold;
+          letter-spacing: 1.5rem;
+          position: relative;
+          display: inline-block;
+          text-shadow: rgb(52, 214, 255) 1px 1px 2px, rgb(37, 40, 230) 0 0 20px;
+          padding-bottom: 15px;
+        }
+        &__text {
+          margin: 15px 30px;
+          font-size: 1.5rem;
+          background-color: $white;
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+  .footer-guide {
+    background-color: black;
+    padding: 50px 30px 50px;
+    height: 100px;
+    text-align: center;
+    .back {
+      color: $white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      &:hover {
+        color: rgb(214, 93, 168);
+        transition: all .3s;
+        font-size: 1.6rem;
+      }
+    } 
   }
 }
-
-
-
-
-
-
-
-
-
-  // .main-guide {
-
-  //   background-color: $white;
-  //   padding: 80px 0;
-  //   width: 100vw;
-  //   height: 100vh;
-  //   background-color: rgb(255, 206, 240);
-  //   &__left {
-  //     float: left;
-  //     width: 70%;
-  //     height: 20px;
-  //   }
-  //   &__right {
-  //     float: right;
-  //     width: 30%;
-  //     .aboutme-box {
-  //       margin: 30px 0 15px;
-    
-  //       &__content {
-  //         width: 100%;
-  //         text-align: center;
-          
-  //         .name {            
-  //           font-size: 1.5rem;
-  //           color: $white;
-  //           font-weight: bold;
-  //           letter-spacing: 1.5rem;
-  //           position: relative;
-  //           display: inline-block;
-  //           text-shadow: rgb(158, 0, 92) 1px 1px 2px, rgb(230, 37, 156) 0 0 20px;
-  //           padding-bottom: 15px;
-  //         }
-  //         .text {
-  //           margin: 15px 30px;
-  //           font-size: 1.2rem;
-  //           background-color: $white;
-            
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
