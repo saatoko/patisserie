@@ -1,0 +1,149 @@
+.site-guide {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  .header-guide {
+    background-color: black;
+    padding: 80px 30px 80px;
+    height: 240px;
+    &__header {
+      color: rgb(214, 93, 168);
+      font-size: 3.4rem;
+      transition: all .3s;
+      &:hover {
+        color: rgb(241, 151, 207);
+        font-size: 3.5rem;
+      }
+    }
+    &__menu {
+      margin: 20px 40px;
+      padding: 0;
+      &::after{
+        content: "";
+        display: block;
+        clear: both;
+      }
+      
+      .aboutme {
+        color: $white;
+        text-decoration: none;
+        float: left;
+        margin-right: 40px;
+        font-size: 1.5rem;
+        top: 0;
+        &:hover {
+          color: rgb(214, 93, 168);
+          transition: all .3s;
+          font-size: 1.6rem;
+        }
+      }
+      // .introduce-site {
+      //   float: left;
+      //   color: $white;
+      //   text-decoration: none;
+      //   margin-right: 40px;
+      //   margin-top: 30px;
+      //   font-size: 1.5rem;
+      //   &:hover {
+      //     color: rgb(214, 93, 168);
+      //     transition: all .3s;
+      //     font-size: 1.6rem;
+      //   }
+      // }
+      .confectionery {
+        float: left;
+        color: $white;
+        text-decoration: none;
+        margin-right: 40px;
+        margin-top: 30px;
+        font-size: 1.5rem;
+        &:hover {
+          color: rgb(214, 93, 168);
+          transition: all .3s;
+          font-size: 1.6rem;
+        }
+      }
+      .signup {
+        float: left;
+        color: $white;
+        text-decoration: none;
+        margin-top: 60px;
+        font-size: 1.5rem;
+
+        &:hover {
+          color: rgb(214, 93, 168);
+          transition: all .3s;
+          font-size: 1.6rem;
+        }
+      } 
+      .back {
+        float: right;
+        color: $white;
+        text-decoration: none;
+        margin-top: 90px;
+        font-size: 1.5rem;
+        &:hover {
+          color: rgb(214, 93, 168);
+          transition: all .3s;
+          font-size: 1.6rem;
+        }
+      } 
+    }
+  }
+  .main-guide {
+    background-color: #383634;
+    padding: 100px 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+  // .main-guide {
+
+  //   background-color: $white;
+  //   padding: 80px 0;
+  //   width: 100vw;
+  //   height: 100vh;
+  //   background-color: rgb(255, 206, 240);
+  //   &__left {
+  //     float: left;
+  //     width: 70%;
+  //     height: 20px;
+  //   }
+  //   &__right {
+  //     float: right;
+  //     width: 30%;
+  //     .aboutme-box {
+  //       margin: 30px 0 15px;
+    
+  //       &__content {
+  //         width: 100%;
+  //         text-align: center;
+          
+  //         .name {            
+  //           font-size: 1.5rem;
+  //           color: $white;
+  //           font-weight: bold;
+  //           letter-spacing: 1.5rem;
+  //           position: relative;
+  //           display: inline-block;
+  //           text-shadow: rgb(158, 0, 92) 1px 1px 2px, rgb(230, 37, 156) 0 0 20px;
+  //           padding-bottom: 15px;
+  //         }
+  //         .text {
+  //           margin: 15px 30px;
+  //           font-size: 1.2rem;
+  //           background-color: $white;
+            
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
