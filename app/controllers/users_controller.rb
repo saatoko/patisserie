@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+    @product = Product.new
+  end
+
   def siteguide
   end
 end

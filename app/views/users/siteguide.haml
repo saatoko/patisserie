@@ -3,27 +3,28 @@
     .header-guide__header
       お菓子づくりが好きな全ての人たちに...
     .header-guide__menu.clearfix
-      = link_to "自己紹介", "#aboutme1", class: "aboutme"
-      -# = link_to "", "#", class: "introduce-site"
-      = link_to "スイーツページへ", "#", class: "confectionery"
-      = link_to "新規登録", "#", class: "signup"
-      = link_to "戻る", "/recipes", class: "back"
-  .main-guide.clearfix
-    サイト内紹介
+      = link_to "自己紹介", "#aboutme-link", class: "aboutme"
+      = link_to "このサイトについて", "#thissite-link", class: "thissite"
+      = link_to "スイーツページへ", "/recipes", class: "confectionery"
+      = link_to "新規登録", "/users/sign_up", class: "signup"
 
-    -# .main-guide__left
-    
-    -# .main-guide__right
-    -#   .aboutme-box{id: "aboutme1"}
-    -#     .aboutme-box__content
-       
-    -#       .name
-    -#         ABOUT ME
-    -#       %p.text
-    -#         はじめまして。
-    -#         %br
-    -#           プログラミングの勉強を2019年10月から始めました。こちらは初めての個人アプリになります。ぜひご覧ください。
-    -#   .introduce-site__box
-    -#     .introduce-site__box--content
-          
-  .footer-siteguide
+  .main-guide
+    %p.text-title
+      サイト内紹介
+    .main-guide__contents
+      .aboutme-box{id: "aboutme-link"}
+        .aboutme-box__name
+          ABOUT ME
+        %p.aboutme-box__text
+          はじめまして。プログラミングの勉強を2019年10月から始めました。こちらは初めてのアプリ製作になります。ぜひご覧ください。
+      .thissite-box{id: "thissite-link"}
+        .thissite-box__description
+          どのような機能を用意したか
+        %p.thissite-box__text
+          このサイトでは、お菓子レシピの閲覧を全てのユーザーがすることができます。そして、ユーザー新規登録後は、レシピに対し、コメントを残すことができるようになっています。
+  
+  .footer-guide
+    = link_to "トップページに戻る", "/users", class: "back"
+
+
+
