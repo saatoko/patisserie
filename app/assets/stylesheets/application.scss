@@ -1,6 +1,19 @@
 @import "config/colors";
 @import "config/reset";
 @import "font-awesome";
+// @import "owl.carousel";
+// @import "owl.theme.default";
+
+// modules
+@import "modules/recipes-header";
+@import "modules/recipes-footer";
+
+// users
 @import "users/users_index";
-@import "recipes/recipes_index";
+// @import "users/users_show"; マイページ用
 @import "users/siteguide";
+
+// recipes
+@import "recipes/recipes_index";
+@import "recipes/recipes_new";
+@import "recipes/recipes_show";

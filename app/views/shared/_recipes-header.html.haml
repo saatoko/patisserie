@@ -1,0 +1,28 @@
+.recipe-header
+  .recipe-header__title
+    SWEETS SITE
+    = link_to "/users/siteguide", class: "coffee-recipesheader" do
+      = fa_icon "coffee"
+
+  .recipe-header__navigation
+    .recipe-header__navigation--inner
+      %ul.inner-left
+        %li
+          = link_to "菓子種類別検索", "#", class: "list-sweetsgenre"
+
+      %ul.inner-right
+        - if user_signed_in?
+          %li
+            = link_to user_path(current_user.id), class: "user-mypage" do
+              = fa_icon "user", class: "icon"
+              マイページ
+          %li
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user-signout"
+          %li
+            = link_to "レシピ投稿", recipe_path, class: "recipe-show"
+
+        - else
+          %li
+            = link_to "ログイン", new_user_session_path, class: 'user-signin'
+          %li
+            = link_to "新規登録", new_user_registration_path, class: "user-signup"
