@@ -4,15 +4,15 @@
   height: 100vh;
   width: 100vw;
   .header-guide {
-    background-color: black;
+    background-color: rgb(41, 26, 26);
     padding: 150px 30px 80px;
     height: 240px;
     &__header {
-      color: rgb(214, 93, 168);
+      color: rgb(167, 144, 80);
       font-size: 3.4rem;
       transition: all .3s;
       &:hover {
-        color: rgb(241, 151, 207);
+        color: rgb(247, 217, 137);
         font-size: 3.5rem;
       }
     }
@@ -32,7 +32,7 @@
         font-size: 1.5rem;
         top: 0;
         &:hover {
-          color: rgb(214, 93, 168);
+          color: rgb(167, 144, 80);
           transition: all .3s;
           font-size: 1.6rem;
         }
@@ -45,7 +45,7 @@
         margin-top: 30px;
         font-size: 1.5rem;
         &:hover {
-          color: rgb(214, 93, 168);
+          color: rgb(167, 144, 80);
           transition: all .3s;
           font-size: 1.6rem;
         }
@@ -58,19 +58,7 @@
         margin-top: 60px;
         font-size: 1.5rem;
         &:hover {
-          color: rgb(214, 93, 168);
-          transition: all .3s;
-          font-size: 1.6rem;
-        }
-      }
-      .signup {
-        float: left;
-        color: $white;
-        text-decoration: none;
-        margin-top: 90px;
-        font-size: 1.5rem;
-        &:hover {
-          color: rgb(214, 93, 168);
+          color: rgb(167, 144, 80);
           transition: all .3s;
           font-size: 1.6rem;
         }
@@ -79,7 +67,10 @@
   }
 
   .main-guide {
-    background-color: rgb(255, 206, 240);
+    background-color: rgba(250, 202, 139, 0.897);
+    background-image: linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%,), linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%, rgba(255, 205, 139, 0.822));
+    background-position: 0 0, 25px 25px;
+    background-size: 50px 50px;
     padding: 100px 0;
     .text-title{
       color: $white;
@@ -137,7 +128,7 @@
     }
   }
   .footer-guide {
-    background-color: black;
+    background-color: rgb(41, 26, 26);
     padding: 50px 30px 50px;
     height: 100px;
     text-align: center;
@@ -146,7 +137,7 @@
       text-decoration: none;
       font-size: 1.5rem;
       &:hover {
-        color: rgb(214, 93, 168);
+        color: rgb(167, 144, 80);
         transition: all .3s;
         font-size: 1.6rem;
       }

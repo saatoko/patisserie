@@ -6,7 +6,6 @@
       = link_to "自己紹介", "#aboutme-link", class: "aboutme"
       = link_to "このサイトについて", "#thissite-link", class: "thissite"
       = link_to "スイーツページへ", "/recipes", class: "confectionery"
-      = link_to "新規登録", "/users/sign_up", class: "signup"
 
   .main-guide
     %p.text-title
@@ -24,7 +23,9 @@
           このサイトでは、お菓子レシピの閲覧を全てのユーザーがすることができます。そして、ユーザー新規登録後は、レシピに対し、コメントを残すことができるようになっています。
   
   .footer-guide
-    = link_to "トップページに戻る", "/users", class: "back"
+    = link_to "/users", class: "back" do
+      = fa_icon "coffee"
+      トップページに戻る
 
 
 

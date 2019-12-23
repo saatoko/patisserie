@@ -1,0 +1,141 @@
+.recipe-header{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  background-color: rgba(250, 202, 139, 0.897);
+  background-image: linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%,), linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%, rgba(255, 205, 139, 0.822));
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+  &__title {
+    width: 100%;
+    color: rgb(122, 105, 89);
+    font-weight: bold;
+    height: 90px;
+    font-size: 3.0rem;
+    text-align: right;
+    letter-spacing: 20px;
+    .coffee-recipesheader {
+      color: rgb(122, 105, 89);
+    }
+  }
+  &__navigation {
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    background-color: rgba(92, 76, 55, 0.897);
+    color: $white;
+    &--inner {
+      justify-content: space-between;
+      max-width: 80%;
+      margin: 0 auto;
+      padding: 0 10%;
+      height: 100%;
+      display: flex;
+      .inner-left {
+        display: flex;
+        li{
+          text-align: center;
+          line-height: 60px;
+          padding: 0 20px;
+          a {
+            color: rgb(122, 105, 89);
+            text-decoration: none;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 20px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: $white;
+            border-image: initial;
+            border-radius: 15px;
+            padding: 8px 10px;
+            &.list-sweetsgenre {
+              background-color: rgba(217, 203, 255, 0.897);
+              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+              background-position: 0 0, 25px 25px;
+              background-size: 50px 50px;
+            }
+          }
+        }
+      }
+      .inner-right {
+        margin:0 0 0 auto;
+        display: flex;
+        li{
+          text-align: center;
+          line-height: 60px;
+          padding: 0 20px;
+          a {
+            color: rgb(122, 105, 89);
+            text-decoration: none;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 20px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: $white;
+            border-image: initial;
+            border-radius: 15px;
+            padding: 8px 10px;
+          
+            &.user-signin {
+              background-color: rgba(255, 195, 237, 0.897);
+              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+              background-position: 0 0, 25px 25px;
+              background-size: 50px 50px;
+            }
+            &.user-signup {
+              background-color: rgba(216, 250, 177, 0.897);
+              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+              background-position: 0 0, 25px 25px;
+              background-size: 50px 50px;
+            }
+            
+
+          }
+        }
+      }
+      
+    }
+
+
+
+   
+    //   &__menus {
+    //     width: 100%;
+    //     display: flex;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     margin: 0;
+    //     height: 100%;
+    //     li {
+    //       height: 100%;
+    //       box-sizing: border-box;
+    //       .list-signup {
+    //         font-size: 17px;
+    //         line-height: 30px;
+    //         display: block;
+    //         padding: 15px 2px;
+    //         color: $white;
+    //         text-decoration: none;
+    //       }
+    //     }
+    //     li {
+    //       height: 100%;
+    //       box-sizing: border-box;
+    //       .list-sweetsgenre {
+    //         font-size: 17px;
+    //         line-height: 30px;
+    //         display: block;
+    //         padding: 15px 2px;
+    //         color: $white;
+    //         text-decoration: none;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}
