@@ -9,6 +9,10 @@
       %ul.inner-left
         %li
           = link_to "菓子種類別検索", "#", class: "list-sweetsgenre"
+        %li
+          %a.sweets-banner.play 再生
+        %li
+          %a.sweets-banner.stop 停止
 
       %ul.inner-right
         - if user_signed_in?

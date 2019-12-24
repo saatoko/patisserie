@@ -1,12 +1,11 @@
 @import "config/colors";
 @import "config/reset";
 @import "font-awesome";
-// @import "owl.carousel";
-// @import "owl.theme.default";
 
 // modules
 @import "modules/recipes-header";
 @import "modules/recipes-footer";
+@import "modules/sweets-banner";
 
 // users
 @import "users/users_index";
@@ -17,3 +16,6 @@
 @import "recipes/recipes_index";
 @import "recipes/recipes_new";
 @import "recipes/recipes_show";
+
+@import "owl.carousel";
+@import "owl.theme.default";
