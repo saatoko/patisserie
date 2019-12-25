@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191218051246) do
+ActiveRecord::Schema.define(version: 20191225025402) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                  null: false
@@ -30,9 +30,25 @@ ActiveRecord::Schema.define(version: 20191218051246) do
     t.index ["recipe_id"], name: "index_recipe_images_on_recipe_id", using: :btree
   end
 
+  create_table "recipe_ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "recipe_id",                 null: false
+    t.text     "ingredients", limit: 65535, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id", using: :btree
+  end
+
+  create_table "recipe_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "recipe_id",                null: false
+    t.text     "method",     limit: 65535, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["recipe_id"], name: "index_recipe_methods_on_recipe_id", using: :btree
+  end
+
   create_table "recipe_videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "recipe_id",  null: false
-    t.string   "video",      null: false
+    t.string   "video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_recipe_videos_on_recipe_id", using: :btree
@@ -45,11 +61,11 @@ ActiveRecord::Schema.define(version: 20191218051246) do
     t.integer  "difficulty_id",                   null: false
     t.string   "servers",                         null: false
     t.string   "cookingtime",                     null: false
+    t.string   "restingtime",                     null: false
     t.string   "bakingtime",                      null: false
     t.string   "bakingtemperature",               null: false
-    t.text     "ingredients",       limit: 65535, null: false
     t.text     "instruments",       limit: 65535, null: false
-    t.text     "method",            limit: 65535, null: false
+    t.text     "cookingpoint",      limit: 65535, null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
@@ -61,6 +77,7 @@ ActiveRecord::Schema.define(version: 20191218051246) do
     t.string   "encrypted_password",     null: false
     t.integer  "gender_id",              null: false
     t.integer  "profession_id",          null: false
+    t.string   "profile",                null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -73,6 +90,8 @@ ActiveRecord::Schema.define(version: 20191218051246) do
   add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
   add_foreign_key "recipe_images", "recipes"
+  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipe_methods", "recipes"
   add_foreign_key "recipe_videos", "recipes"
   add_foreign_key "recipes", "users"
 end
