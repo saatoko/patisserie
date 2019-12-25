@@ -55,18 +55,43 @@
               background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
               background-position: 0 0, 25px 25px;
               background-size: 50px 50px;
+              &:hover {
+                background-color: rgba(127, 81, 255, 0.897);
+                background-image: none;
+                background-position: none;
+                background-size: none;
+                color: $white;
+                transition: all .3s;
+              }
+
             }
             &.sweets-banner.play {
-              background-color: rgba(169, 178, 255, 0.897);
+              background-color: rgba(253, 249, 190, 0.897);
               background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
               background-position: 0 0, 25px 25px;
               background-size: 50px 50px;
+              &:hover {
+                background-color: rgba(216, 202, 0, 0.897);
+                background-image: none;
+                background-position: none;
+                background-size: none;
+                color: $white;
+                transition: all .3s;
+              }
             }
             &.sweets-banner.stop {
-              background-color: rgba(159, 201, 255, 0.897);
+              background-color: rgba(187, 216, 255, 0.897);
               background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
               background-position: 0 0, 25px 25px;
               background-size: 50px 50px;
+              &:hover {
+                background-color: rgba(78, 155, 255, 0.897);
+                background-image: none;
+                background-position: none;
+                background-size: none;
+                color: $white;
+                transition: all .3s;
+              }
             }
           }
         }
@@ -93,23 +118,36 @@
             padding: 8px 10px;
           
             &.user-signin {
-              background-color: rgba(255, 195, 237, 0.897);
+              background-color: rgba(255, 217, 244, 0.897);
               background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
               background-position: 0 0, 25px 25px;
               background-size: 50px 50px;
+              &:hover {
+                background-color: rgba(255, 108, 211, 0.897);
+                background-image: none;
+                background-position: none;
+                background-size: none;
+                color: $white;
+                transition: all .3s;
+              }
             }
             &.user-signup {
-              background-color: rgba(216, 250, 177, 0.897);
+              background-color: rgba(225, 252, 196, 0.897);
               background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
               background-position: 0 0, 25px 25px;
               background-size: 50px 50px;
+              &:hover {
+                background-color: rgba(141, 211, 61, 0.897);
+                background-image: none;
+                background-position: none;
+                background-size: none;
+                color: $white;
+                transition: all .3s;
+              }
             }
-            
-
           }
         }
       }
-      
     }
 
 
