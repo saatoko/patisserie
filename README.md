@@ -8,6 +8,7 @@
 |gender_id|integer|null: false|
 |profession_id|integer|null: false|
 |password|string|null: false|
+|profile|text|
 
 ### Association
 - has_many :recipes
@@ -35,18 +36,21 @@
 |difficulty_id|integer|null: false|
 |servers|string|null: false|
 |cookingtime|string|null: false|
+|restingtime|string|null: false|
 |bakingtime|string|null: false|
 |bakingtemperature|string|null: false|
-|ingredients|text|null: false|
+<!-- |ingredients|text|null: false| -->
 |instruments|text|null: false|
-|method|text|null: false|
+|cookingpoint|text|null: false|
+
 
 ### Association
 - belongs_to :user
 - has_many :comments
-- has_many :recipe-images
-- has_many :recipe-videos
-
+- has_many :recipe_images
+- has_many :recipe_videos
+- has_many :recipe_methods
+- has_many :recipe_ingredients
 
 ## recipe_imagesテーブル
 |Column|Type|Options|
@@ -62,7 +66,27 @@
 |Column|Type|Options|
 |------|----|-------|
 |recipe_id|references|null: false, foreign_key: true|
-|video|string|null: false|
+|video|string|
+
+### Association
+- belongs_to :recipe
+
+
+## recipe_methodsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|recipe_id|references|null: false, foreign_key: true|
+|method|text|null: false|
+
+### Association
+- belongs_to :recipe
+
+
+## recipe_ingredientsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|recipe_id|references|null: false, foreign_key: true|
+|ingredients|text|null: false|
 
 ### Association
 - belongs_to :recipe

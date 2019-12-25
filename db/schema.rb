@@ -72,17 +72,17 @@ ActiveRecord::Schema.define(version: 20191225025402) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "nickname",               null: false
-    t.string   "email",                  null: false
-    t.string   "encrypted_password",     null: false
-    t.integer  "gender_id",              null: false
-    t.integer  "profession_id",          null: false
-    t.string   "profile",                null: false
+    t.string   "nickname",                             null: false
+    t.string   "email",                                null: false
+    t.string   "encrypted_password",                   null: false
+    t.integer  "gender_id",                            null: false
+    t.integer  "profession_id",                        null: false
+    t.text     "profile",                limit: 65535
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
