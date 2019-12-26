@@ -21,9 +21,9 @@
               = fa_icon "user", class: "icon"
               マイページ
           %li
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user-signout"
+            = link_to "ログアウト", "destroy_user_session", method: :delete, class: "user-signout"
           %li
-            = link_to "レシピ投稿", recipe_path, class: "recipe-show"
+            = link_to "レシピ投稿", "/recipes/:id", class: "recipe-show"
 
         - else
           %li

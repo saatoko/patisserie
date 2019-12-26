@@ -2,10 +2,19 @@
 @import "config/reset";
 @import "font-awesome";
 
+// mixin
+@import "mixin/required-btn";
+@import "mixin/account-btn";
+
 // modules
 @import "modules/recipes-header";
 @import "modules/recipes-footer";
 @import "modules/sweets-banner";
+@import "modules/login.scss";
+@import "modules/logout.scss";
+@import "modules/signup.scss";
+@import "modules/account-header.scss";
+@import "modules/account-footer.scss";
 
 // users
 @import "users/users_index";

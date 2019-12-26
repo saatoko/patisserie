@@ -1,0 +1,17 @@
+.account-header{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: $white;
+  box-shadow: 0 0 15px rgb(122, 105, 89);
+  &__inner {
+    width: 100%;
+    line-height: 70px;
+    font-size: 3.0rem;
+    text-align: center;
+    &--coffee {
+      color: rgb(122, 105, 89);
+    }
+  }
+}

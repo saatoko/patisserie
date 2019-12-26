@@ -10,6 +10,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @recipe.recipe_images.build
     @recipe.recipe_videos.build
+    @recipe.recipe_methods.build
+    @recipe.recipe_ingredients.build
   end
 
   def create

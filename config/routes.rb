@@ -1,9 +1,27 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
+
+  # devise_for :users, controllers: {
+  #   registrations: 'users/registrations',
+  #   sessions: 'users/sessions'
+  # } 
+
+  # devise_scope :user do
+  #   get "signup", to: "users/registrations#new"
+  #   get "login", to: "users/sessions#new"
+  #   delete "logout", to: "users/sessions#destroy"
+  # end
+
+  devise_for :users,
+  path: '',
+  path_names: {
+    sign_up: 'signup',
+    sign_in: 'login',
+    sign_out: 'logout',
+  },
+  controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
-  } 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  }
 
   root "users#index"
   # root "recipes#show"
