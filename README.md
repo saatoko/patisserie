@@ -8,7 +8,7 @@
 |gender_id|integer|null: false|
 |profession_id|integer|null: false|
 |password|string|null: false|
-|profile|text|
+|profile|text|null: false|
 
 ### Association
 - has_many :recipes

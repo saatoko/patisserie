@@ -1,21 +1,67 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+-# 新規登録ページ SIGNUP
+
+.wrapper-signup
+
+  = render "shared/account-header"
+  
+  .wrapper-signup__inner
+    .wrapper-signup__inner--content
+      .signup-text
+        新規アカウントの作成
+      .signup-box
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field.clearfix
+            .field-label
+              = f.label :nickname
+              %span 必須
+            .field-input
+              = f.text_field :nickname, autofocus: true, placeholder: "2文字以上、20文字以内で入力してください。", class: "input-signup"
+
+          .field.clearfix
+            .field-label
+              = f.label :email
+              %span 必須
+            .field-input
+              = f.email_field :email, autocomplete: "email", placeholder: "＠を含み、＠の後ろには,.を含むこと。", class: "input-signup"
+
+          .field.clearfix
+            .field-label
+              = f.label :gender_id
+              %span 必須
+            .field-input
+              = f.collection_select :gender_id, Gender.all, :id, :name, prompt: "--", class: "input-signuphash"
+
+          .field.clearfix
+            .field-label
+              = f.label :profession_id
+              %span 必須
+            .field-input
+              = f.collection_select :profession_id, Profession.all, :id, :name, prompt: "--", class: "input-signuphash"
+
+          .field.clearfix
+            .field-label
+              = f.label :profile
+              %span 必須
+            .field-input
+              = f.text_field :profile, placeholder: "100文字以内で入力してください。", class: "input-signup"
+
+          .field.clearfix
+            .field-label
+              = f.label :password
+              %span 必須
+            .field-input
+              = f.password_field :password, autocomplete: "new-password", placeholder: "英数字8文字以上で入力してください。", class: "input-signup"
+
+          .field.clearfix
+            .field-label
+              = f.label :password_confirmation
+              %span 必須
+            .field-input
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワードの確認", class: "input-signup"
+
+          .actions
+            = f.submit "アカウント作成", class: 'account-btn'
+
+
+  = render "shared/account-footer"

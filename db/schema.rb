@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20191225025402) do
     t.string   "encrypted_password",                   null: false
     t.integer  "gender_id",                            null: false
     t.integer  "profession_id",                        null: false
-    t.text     "profile",                limit: 65535
+    t.text     "profile",                limit: 65535, null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
