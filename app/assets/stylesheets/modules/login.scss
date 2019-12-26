@@ -1,8 +1,68 @@
-// span {
-//   @include required;
-// } 
+span {
+  @include required;
+} 
 
-// .account-btn {
-//   @include account;
-// }
+.account-btn {
+  @include account;
+}
 
+.wrapper-login {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  &__inner {
+    padding: 0;
+    width: 100%;
+    height: calc( 100vh - 70px - 70px );
+    &--content {
+      width: 50%;
+      margin: 70px auto;
+      padding: 50px;
+      background-color: $white;
+      border: 1px solid rgb(206, 178, 152);
+      border-radius: 5px;
+      .login-text{
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+      }
+      .login-box {
+        text-align: center;
+        display: block;
+        .field-login {
+          padding-top: 40px;
+          width: 100%;
+          height: 50px;
+          font-size: 1.5rem;
+          &::after {
+            content: "";
+            display: block;
+            clear: both;
+          }
+          &__label {
+            float: left;
+            width: 50%;
+          }
+          &__input {
+            float: right;
+            width: 50%;
+            &--inside {
+              width: 100%;
+              padding: 5px;
+              font-size: 1.0rem;
+              height: 40px;
+            }
+          }
+        }
+        .actions-login {
+          padding-top: 40px;
+          text-align: center;
+        }
+      } 
+    }
+  }
+}

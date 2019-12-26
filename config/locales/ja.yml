@@ -9,7 +9,7 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     attributes:
       user:
-        nickname: アカウント名
+        nickname: ニックネーム
         email: メールアドレス
         gender_id: 性別
         profession_id: 職業

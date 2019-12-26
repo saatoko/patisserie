@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :comments
 
-  validates :nickname,      presence: true, length: { in: 2..20 }
+  validates :nickname,      presence: true, uniqueness: true, length: { in: 2..20 }
   validates :email,         presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :gender_id,     presence: true
   validates :profession_id, presence: true
