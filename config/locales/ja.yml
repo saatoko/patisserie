@@ -10,12 +10,13 @@ ja:
     attributes:
       user:
         nickname: ニックネーム
-        email: メールアドレス
+        email: Eメール
         gender_id: 性別
         profession_id: 職業
         profile: 一言メッセージ
         password: パスワード
         password_confirmation: 確認用パスワード
+        login: ニックネーム or Eメール
   date:
     abbr_day_names:
     - 日

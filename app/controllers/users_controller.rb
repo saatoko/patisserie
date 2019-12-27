@@ -2,11 +2,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit]
 
   def index
+    # @user = current_user
     @users = User.all
   end
 
   def new
-    @product = Product.new
+    @user = User.new
   end
 
   def create

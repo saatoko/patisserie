@@ -12,10 +12,10 @@
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .field-login.clearfix
             .field-login__label
-              = f.label :nickname
+              = f.label :login
               %span 必須
             .field-login__input
-              = f.text_field :nickname, autofocus: true, placeholder: "ニックネームを入力してください。", class: "field-login__input--inside"
+              = f.text_field :login, autofocus: true, placeholder: "ニックネームorメールアドレスを入力してください。", class: "field-login__input--inside"
 
           .field-login.clearfix
             .field-login__label

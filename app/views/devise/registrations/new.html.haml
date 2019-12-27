@@ -16,14 +16,14 @@
               = f.label :nickname
               %span 必須
             .field-input
-              = f.text_field :nickname, autofocus: true, placeholder: "2文字以上、20文字以内で入力してください。", class: "input-signup"
+              = f.text_field :nickname, autofocus: true, placeholder: "2文字以上、20文字以内で入力してください。記号の入力不可。", class: "input-signup"
 
           .field.clearfix
             .field-label
               = f.label :email
               %span 必須
             .field-input
-              = f.email_field :email, autocomplete: "email", placeholder: "＠を含み、＠の後ろには,.を含むこと。", class: "input-signup"
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "＠を含み、＠の後ろには,.を含むこと。", class: "input-signup"
 
           .field.clearfix
             .field-label

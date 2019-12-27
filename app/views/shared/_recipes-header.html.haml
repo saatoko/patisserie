@@ -23,7 +23,7 @@
           %li
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user-signout"
           %li
-            = link_to "レシピ投稿", "/recipes/:id", class: "recipe-show"
+            = link_to "レシピ投稿", new_recipe_path, class: "recipe-show" 
 
         - else
           %li
