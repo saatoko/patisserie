@@ -64,50 +64,50 @@
               = f.text_field :bakingtemperature, class: 'input-bakingtemperature', placeholder: "例) 180"
               ℃
 
-          .recipe__ingredients
-            .recipe__ingredients--text
-              このお菓子の材料と分量
-              %span.require 必須
+          -# .recipe__ingredients
+          -#   .recipe__ingredients--text
+          -#     このお菓子の材料と分量
+          -#     %span.require 必須
 
-            %span.number
-            &#9312;
-            .recipe__ingredients--box
-              = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
-            %span.number
-            &#9313;
-            .recipe__ingredients--box
-              = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
-            %span.number
-            &#9314;
-            .recipe__ingredients--box
-              = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
-            %span.number
-            &#9315;	
-            .recipe__ingredients--box
-              = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
-            %span.number
-            &#9316;
-            .recipe__ingredients--box
-              = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
-            %span.number
-            &#9317;
-            .recipe__ingredients--box
-              = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
-            &#9318;	
-            .recipe__ingredients--box
-              = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
-            &#9319;	
-            .recipe__ingredients--box
-              = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
-            &#9320;	
-            .recipe__ingredients--box
-              = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
-            &#9321;
-            .recipe__ingredients--box
-              = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
-            枠が足りない場合はこちらへ
-            .recipe__ingredients--box
-              = f.text_area :ingredients, placeholder: '', class: "input-ingredients", rows: '8'
+          -#   %span.number
+          -#   &#9312;
+          -#   .recipe__ingredients--box
+          -#     = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
+          -#   %span.number
+          -#   &#9313;
+          -#   .recipe__ingredients--box
+          -#     = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
+          -#   %span.number
+          -#   &#9314;
+          -#   .recipe__ingredients--box
+          -#     = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
+          -#   %span.number
+          -#   &#9315;	
+          -#   .recipe__ingredients--box
+          -#     = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
+          -#   %span.number
+          -#   &#9316;
+          -#   .recipe__ingredients--box
+          -#     = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
+          -#   %span.number
+          -#   &#9317;
+          -#   .recipe__ingredients--box
+          -#     = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
+          -#   &#9318;	
+          -#   .recipe__ingredients--box
+          -#     = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
+          -#   &#9319;	
+          -#   .recipe__ingredients--box
+          -#     = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
+          -#   &#9320;	
+          -#   .recipe__ingredients--box
+          -#     = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
+          -#   &#9321;
+          -#   .recipe__ingredients--box
+          -#     = f.text_field :ingredients, class: 'input-ingredients', placeholder: "例) "
+          -#   枠が足りない場合はこちらへ
+          -#   .recipe__ingredients--box
+          -#     = f.text_area :ingredients, placeholder: '', class: "input-ingredients", rows: '8'
 
           .recipe__instruments
             .recipe__instruments--text
@@ -116,51 +116,51 @@
             .recipe__instruments--box
               = f.text_area :instruments, placeholder: '例) ホイッパー、ボール、カード、ゴムベラ、鍋、波刃包丁、まな板、バット、天板、ベイキングシート、オーブン など。 特殊なものがあればぜひお書きください。', class: "input-instruments", rows: '8'
 
-          .recipe__method
-            .recipe__method--text
-              このお菓子の作り方
-              %span.require 必須
+          -# .recipe__method
+          -#   .recipe__method--text
+          -#     このお菓子の作り方
+          -#     %span.require 必須
            
-            %span.number
-            &#9312;
-            .recipe__method--box
-              = f.text_field :method, class: 'input-method', placeholder: "例) "
-            %span.number
-            &#9313;
-            .recipe__method--box
-              = f.text_field :method, class: 'input-method', placeholder: "例) "
-            %span.number
-            &#9314;
-            .recipe__method--box
-              = f.text_field :method, class: 'input-method', placeholder: "例) "
-            %span.number
-            &#9315;	
-            .recipe__method--box
-              = f.text_field :method, class: 'input-method', placeholder: "例) "
-            %span.number
-            &#9316;
-            .recipe__method--box
-              = f.text_field :method, class: 'input-method', placeholder: "例) "
-            %span.number
-            &#9317;
-            .recipe__method--box
-              = f.text_field :method, class: 'input-method', placeholder: "例) "
-            &#9318;	
-            .recipe__method--box
-              = f.text_field :method, class: 'input-method', placeholder: "例) "
-            &#9319;	
-            .recipe__method--box
-              = f.text_field :method, class: 'input-method', placeholder: "例) "
-            &#9320;	
-            .recipe__method--box
-              = f.text_field :method, class: 'input-method', placeholder: "例) "
-            &#9321;
-            .recipe__method--box
-              = f.text_field :method, class: 'input-method', placeholder: "例) "
-            枠が足りない場合はこちらへ
-            .recipe__method--box
-              = f.text_area :method, placeholder: '', class: "input-method", rows: '8'
+          -#   %span.number
+          -#   &#9312;
+          -#   .recipe__method--box
+          -#     = f.text_field :method, class: 'input-method', placeholder: "例) "
+          -#   %span.number
+          -#   &#9313;
+          -#   .recipe__method--box
+          -#     = f.text_field :method, class: 'input-method', placeholder: "例) "
+          -#   %span.number
+          -#   &#9314;
+          -#   .recipe__method--box
+          -#     = f.text_field :method, class: 'input-method', placeholder: "例) "
+          -#   %span.number
+          -#   &#9315;	
+          -#   .recipe__method--box
+          -#     = f.text_field :method, class: 'input-method', placeholder: "例) "
+          -#   %span.number
+          -#   &#9316;
+          -#   .recipe__method--box
+          -#     = f.text_field :method, class: 'input-method', placeholder: "例) "
+          -#   %span.number
+          -#   &#9317;
+          -#   .recipe__method--box
+          -#     = f.text_field :method, class: 'input-method', placeholder: "例) "
+          -#   &#9318;	
+          -#   .recipe__method--box
+          -#     = f.text_field :method, class: 'input-method', placeholder: "例) "
+          -#   &#9319;	
+          -#   .recipe__method--box
+          -#     = f.text_field :method, class: 'input-method', placeholder: "例) "
+          -#   &#9320;	
+          -#   .recipe__method--box
+          -#     = f.text_field :method, class: 'input-method', placeholder: "例) "
+          -#   &#9321;
+          -#   .recipe__method--box
+          -#     = f.text_field :method, class: 'input-method', placeholder: "例) "
+          -#   枠が足りない場合はこちらへ
+          -#   .recipe__method--box
+          -#     = f.text_area :method, placeholder: '', class: "input-method", rows: '8'
             
-          .recipe__images
+          -# .recipe__images
          
-          .recipe__videos
+          -# .recipe__videos
