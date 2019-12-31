@@ -12,6 +12,7 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       t.string     :bakingtemperature, null: false
       t.text       :instruments,       null: false
       t.text       :cookingpoint,      null: false
+      t.text       :method,            null: false
       t.timestamps
     end
   end

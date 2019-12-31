@@ -1,0 +1,10 @@
+.content
+  %p
+    = recipe.name
+  %p
+    = recipe.genre_id
+    
+  - recipe.images.each do |recipe|
+    = image_tag recipe_images.recipe.url
+
+  = link_to '削除', recipe_path(recipe), method: :delete

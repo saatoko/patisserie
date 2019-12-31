@@ -18,13 +18,16 @@
 
 // users
 @import "users/users_index";
-// @import "users/users_show"; マイページ用
+@import "users/users_show";
 @import "users/siteguide";
 
 // recipes
 @import "recipes/recipes_index";
 @import "recipes/recipes_new";
 @import "recipes/recipes_show";
+@import "recipes/recipes_edit";
+@import "recipes/recipes_form";
+@import "recipes/recipes_recipe";
 
 @import "owl.carousel";
 @import "owl.theme.default";
