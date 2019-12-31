@@ -1,4 +1,4 @@
 class RecipeImage < ApplicationRecord
   belongs_to :recipe
-  mount_uploader :image, ImageUploader
+  mount_uploaders :image, ImageUploader
 end

@@ -39,9 +39,9 @@
 |restingtime|string|null: false|
 |bakingtime|string|null: false|
 |bakingtemperature|string|null: false|
-<!-- |ingredients|text|null: false| -->
 |instruments|text|null: false|
 |cookingpoint|text|null: false|
+|method|text|null: false|
 
 
 ### Association
@@ -86,7 +86,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |recipe_id|references|null: false, foreign_key: true|
-|ingredients|text|null: false|
+|ingredients|string|null: false|
+|quantity|string|null: false|
 
 ### Association
 - belongs_to :recipe

@@ -132,12 +132,54 @@
               }
             }
             &.user-signup {
+              background-color: rgba(252, 196, 208, 0.897);
+              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+              background-position: 0 0, 25px 25px;
+              background-size: 50px 50px;
+              &:hover {
+                background-color: rgba(250, 27, 75, 0.897);
+                background-image: none;
+                background-position: none;
+                background-size: none;
+                color: $white;
+                transition: all .3s;
+              }
+            }
+            &.user-mypage {
               background-color: rgba(225, 252, 196, 0.897);
               background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
               background-position: 0 0, 25px 25px;
               background-size: 50px 50px;
               &:hover {
                 background-color: rgba(141, 211, 61, 0.897);
+                background-image: none;
+                background-position: none;
+                background-size: none;
+                color: $white;
+                transition: all .3s;
+              }
+            }
+            &.user-signout {
+              background-color: rgba(192, 253, 233, 0.897);
+              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+              background-position: 0 0, 25px 25px;
+              background-size: 50px 50px;
+              &:hover {
+                background-color: rgba(49, 138, 108, 0.897);
+                background-image: none;
+                background-position: none;
+                background-size: none;
+                color: $white;
+                transition: all .3s;
+              }
+            }
+            &.ourrecipes-posts {
+              background-color: rgba(255, 226, 189, 0.897);
+              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+              background-position: 0 0, 25px 25px;
+              background-size: 50px 50px;
+              &:hover {
+                background-color: rgba(204, 129, 31, 0.897);
                 background-image: none;
                 background-position: none;
                 background-size: none;
@@ -186,5 +228,6 @@
     //     }
     //   }
     // }
+
   }
 }

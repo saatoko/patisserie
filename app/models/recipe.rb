@@ -2,9 +2,11 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many   :comments
   has_many   :recipe_images,      dependent: :destroy
+  accepts_nested_attributes_for :recipe_images,       allow_destroy: true
   has_many   :recipe_videos,      dependent: :destroy
-  has_many   :recipe_methods,     dependent: :destroy
-  has_many   :recipe_ingredients, dependent: :destroy
+  accepts_nested_attributes_for :recipe_videos,       allow_destroy: true
+  has_many   :recipe_ingredients, dependent: :destroy, inverse_of: :recipe
+  accepts_nested_attributes_for :recipe_ingredients, reject_if: :all_blank, allow_destroy: true
 
   validates :name,              presence: true
   validates :genre_id,          presence: true
@@ -16,11 +18,8 @@ class Recipe < ApplicationRecord
   validates :bakingtemperature, presence: true
   validates :instruments,       presence: true
   validates :cookingpoint,      presence: true
-  accepts_nested_attributes_for :recipe_images
-  accepts_nested_attributes_for :recipe_videos
-  accepts_nested_attributes_for :recipe_methods
-  accepts_nested_attributes_for :recipe_ingredients
-
+  validates :method,            presence: true
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   belongs_to_active_hash :difficulty

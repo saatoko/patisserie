@@ -7,6 +7,13 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      user:
+      recipe:
+      recipe_images:
+      recipe_videos:
+      recipe_methods:
+      recipe_ingredients:
     attributes:
       user:
         nickname: ニックネーム
@@ -17,6 +24,24 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         login: ニックネーム or Eメール
+      recipe:
+        name: お菓子名
+        genre_id: お菓子の種類を選択してください
+        difficulty_id: 難易度を選択してください
+        servers: 何名分のレシピ
+        cookingtime: お菓子の調理時間
+        restingtime: 生地の休憩時間
+        bakingtime: 焼成時間
+        bakingtemperature: 焼成温度
+        instruments: 使用器具
+        cookingpoint: このお菓子作りのポイント
+      recipe_images:
+        image: 写真を投稿してください(複数投稿可)
+      recipe_videos:
+        video: 動画を投稿してください(一つの動画のみ)
+      recipe_ingredients:
+        ingredients: 材料と分量
+    
   date:
     abbr_day_names:
     - 日

@@ -61,3 +61,5 @@ gem 'mini_magick'
 gem 'active_hash'
 gem 'pry-rails'
 gem 'owlcarousel-rails'
+gem 'jquery-rails'
+gem "cocoon"
