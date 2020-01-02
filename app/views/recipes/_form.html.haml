@@ -1,4 +1,5 @@
-= form_for (@recipe) do |f|
+= form_for @recipe, url: recipes_path do |f|
+  = hidden_field_tag :authenticity_token, form_authenticity_token
   .recipe.clearfix
     .recipe-label
       = f.label :name
@@ -57,21 +58,36 @@
       = f.text_field :bakingtemperature, placeholder: "例) 180", class: 'input-recipe'
       ℃
 
+  -# 材料分量
+  .recipe.clearfix
+    .ingredients-title このお菓子の材料と分量
+    %span.require 必須
+    #ingredients
+      = f.fields_for :recipe_ingredients do |ingredient|
+        = render 'recipe_ingredient_fields', f: ingredient
+      .links
+        = link_to_add_association '入力枠を増やす', f, :recipe_ingredients
+
+  .recipe.clearfix
+    .recipe-label
+      = f.label :method
+      %span.require 必須
+    .recipe-input
+      = f.text_area :method, placeholder: '例) 1...2...3...', rows: '8', class: "input-recipebig"
+
+  .recipe.clearfix
+    .recipe-label
+      = f.label :cookingpoint
+      %span.require 必須
+    .recipe-input
+      = f.text_area :cookingpoint, placeholder: '例) 立てすぎないこと。', rows: '4', class: "input-recipebig"
+
   .recipe.clearfix
     .recipe-label
       = f.label :instruments
       %span.require 必須
     .recipe-input
       = f.text_area :instruments, placeholder: '例) ホイッパー、ボール、カード、ゴムベラ、鍋、波刃包丁、まな板、バット、天板、ベイキングシート、オーブン など。 特殊なものがあればぜひお書きください。', rows: '8', class: "input-recipebig"
-
-  -# 動画
-  .recipe.clearfix
-    .recipe-label
-      = f.label :video
-      %span.require 任意
-    .recipe-input
-      = form_for :recipe_videos do |video|
-        = video.file_field :video, class: "post-video"
 
   -# 画像
   .recipe.clearfix
@@ -95,15 +111,20 @@
 
       - if @recipe.persisted?
         .js-file_group{"data-index": "#{@recipe.recipe_images.count}"}
-          = file_field_tag :image, name: "recipe[images_attributes][#{@recipe.recipe_images.count}][src]", class: 'js-file'
+          = file_field_tag :image, name: "recipe[recipe_images_attributes][#{@recipe.recipe_images.count}][image]", class: 'js-file'
           .js-remove 削除
 
-  -# 材料分量
-  %h3 このお菓子の材料と分量
-  #ingredients
-    = f.fields_for :recipe_ingredients do |ingredient|
-      = render 'recipe_ingredient_fields', f: ingredient
-    .links
-      = link_to_add_association '入力枠を増やす', f, :recipe_ingredients
-  = f.submit '登録'
+  -# 動画
+  .recipe.clearfix
+    .recipe-label
+      = f.label :video
+      %span.require 任意
+    .recipe-input
+      = form_for :recipe_videos do |video|
+        = video.file_field :video, class: "post-video"
+
+
+    = f.submit "レシピを投稿する", class: 'account-btn'
+
+  
 

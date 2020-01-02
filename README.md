@@ -72,16 +72,6 @@
 - belongs_to :recipe
 
 
-## recipe_methodsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|recipe_id|references|null: false, foreign_key: true|
-|method|text|null: false|
-
-### Association
-- belongs_to :recipe
-
-
 ## recipe_ingredientsテーブル
 |Column|Type|Options|
 |------|----|-------|

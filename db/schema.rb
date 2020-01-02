@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191230182004) do
+ActiveRecord::Schema.define(version: 20191226063053) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                  null: false
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 20191230182004) do
   end
 
   create_table "recipe_ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "recipe_id",                 null: false
-    t.text     "ingredients", limit: 65535, null: false
-    t.string   "quantity",                  null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "recipe_id",   null: false
+    t.string   "ingredients", null: false
+    t.string   "quantity",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id", using: :btree
   end
 
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20191230182004) do
     t.string   "bakingtemperature",               null: false
     t.text     "instruments",       limit: 65535, null: false
     t.text     "cookingpoint",      limit: 65535, null: false
+    t.text     "method",            limit: 65535, null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree

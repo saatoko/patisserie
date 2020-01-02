@@ -1,0 +1,38 @@
+.nested-fields {
+  width: 100%;
+  .zairyo {
+    width: 100%;
+    ::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .ingredients-field {
+      width: 50%;
+      float: left;
+      &__name {
+        width: 80%;
+        font-weight: bold;
+        text-align: center;
+      }
+      &__block {
+        width: 80%;
+      }
+    }
+    .quantity-field {
+      width: 50%;
+      float: right;
+      &__name {
+        width: 80%;
+        font-weight: bold;
+        text-align: center;
+      }
+      &__block {
+        width: 80%;
+      }
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
