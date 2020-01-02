@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  
   protected
 
   def configure_permitted_parameters
@@ -12,5 +12,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :email, :gender_id, :profession_id, :profile])
     # devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  # def  handle_unverified_request 
+  #   raise ActionController::InvalidAuthenticityToken
+  # end
 
 end

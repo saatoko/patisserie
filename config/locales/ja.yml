@@ -35,6 +35,7 @@ ja:
         bakingtemperature: 焼成温度
         instruments: 使用器具
         cookingpoint: このお菓子作りのポイント
+        method: 作り方
       recipe_images:
         image: 写真を投稿してください(複数投稿可)
       recipe_videos:
