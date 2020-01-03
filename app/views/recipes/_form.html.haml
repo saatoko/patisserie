@@ -1,5 +1,5 @@
-= form_for @recipe, url: recipes_path do |f|
-  = hidden_field_tag :authenticity_token, form_authenticity_token
+= form_for @recipe do |f|
+  -# = hidden_field_tag :authenticity_token, form_authenticity_token
   .recipe.clearfix
     .recipe-label
       = f.label :name
@@ -58,16 +58,13 @@
       = f.text_field :bakingtemperature, placeholder: "例) 180", class: 'input-recipe'
       ℃
 
-  -# 材料分量
-  .recipe.clearfix
-    .ingredients-title このお菓子の材料と分量
-    %span.require 必須
-    #ingredients
-      = f.fields_for :recipe_ingredients do |ingredient|
-        = render 'recipe_ingredient_fields', f: ingredient
-      .links
-        = link_to_add_association '入力枠を増やす', f, :recipe_ingredients
-
+  = f.nested_fields_for :recipe_ingredients do |ff|
+    = ff.remove_nested_fields_link '削除', data: { confirm: '本当に削除しますか?' }
+    = ff.text_field :ingredients
+    = ff.text_field :quantity
+    
+  = f.add_nested_fields_link :recipe_ingredients, '入力枠の追加'
+ 
   .recipe.clearfix
     .recipe-label
       = f.label :method
@@ -120,11 +117,22 @@
       = f.label :video
       %span.require 任意
     .recipe-input
-      = form_for :recipe_videos do |video|
+      = f.fields_for :recipe_videos do |video|
         = video.file_field :video, class: "post-video"
 
+  
+  .actions-recipe
+    = f.submit "レシピを投稿する", class: 'account-btn', data: {disable_with: '送信...'}
 
-    = f.submit "レシピを投稿する", class: 'account-btn'
+-#  -# 材料分量
+-#   .recipe.clearfix
+-#     .ingredients-title このお菓子の材料と分量
+-#     %span.require 必須
+-#     #ingredients
+-#       = f.fields_for :recipe_ingredients do |ingredient|
+-#         = render 'recipe_ingredient_fields', f: ingredient
+-#       .links
+-#         = link_to_add_association '入力枠を増やす', f, :recipe_ingredients
 
   
 

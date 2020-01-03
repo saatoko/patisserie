@@ -11,6 +11,9 @@ class RecipesController < ApplicationController
     @recipe.recipe_images.build
     @recipe.recipe_videos.build
     @recipe.recipe_ingredients.build
+    # @recipe_image = @recipe.recipe_images.build
+    # @recipe_video = @recipe.recipe_videos.build
+    # @recipe_ingredient = @recipe.recipe_ingredients.build
   end
 
   def create
