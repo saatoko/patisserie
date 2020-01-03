@@ -1,40 +1,11 @@
--# .nested-fields
--#   .zairyo.clearfix
--#     .ingredients-field
--#       .ingredients-field__name
--#         = f.label :ingredients
--#       = f.text_field :ingredients, placeholder: "例) 薄力粉", class: 'ingredients-field__block'
--#     .quantity-field
--#       .quantity-field__name
--#         = f.label :quantity
--#       = f.text_field :quantity, placeholder: "例) 500g", class: 'quantity-field__block'
--#     = link_to_remove_association "削除", f
-
-
--# .nested-fields
--#   .recipe.clearfix
--#     .recipe-label
--#       = f.label :ingredients
--#       %span.require 必須
--#     .recipe-input
--#       = f.text_field :ingredients, placeholder: "例) 薄力粉", class: 'input-recipe__half'
--#     .recipe-label
--#       = f.label :quantity
--#       %span.require 必須
--#     .recipe-input
--#       = f.text_field :quantity, placeholder: "例) 500g", class: 'input-recipe__half'
--#     = link_to_remove_association "削除", f
-
-
 .nested-fields
-  .field
-    = f.label :ingredients
-    %br
-    = f.text_field :ingredients
-  .field
-    = f.label :quantity
-    %br
-    = f.text_field :quantity
-  = link_to_remove_association "remove task", f
-
-  
+  .zairyo.clearfix
+    .ingredients-field
+      .ingredients-field__name
+        = f.label :ingredients
+      = f.text_field :ingredients, placeholder: "例) 薄力粉", class: 'ingredients-field__block'
+    .quantity-field
+      .quantity-field__name
+        = f.label :quantity
+      = f.text_field :quantity, placeholder: "例) 500g", class: 'quantity-field__block'
+    = link_to_remove_association "削除", f

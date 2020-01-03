@@ -5,8 +5,10 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :recipe_images,       allow_destroy: true
   has_many   :recipe_videos,      dependent: :destroy
   accepts_nested_attributes_for :recipe_videos,       allow_destroy: true
-  has_many   :recipe_ingredients, dependent: :destroy, inverse_of: :recipe
-  accepts_nested_attributes_for :recipe_ingredients, reject_if: :all_blank, allow_destroy: true
+  # has_many   :recipe_ingredients, dependent: :destroy, inverse_of: :recipe
+  # accepts_nested_attributes_for :recipe_ingredients, reject_if: :all_blank, allow_destroy: true
+  has_many   :recipe_ingredients
+  accepts_nested_attributes_for :recipe_ingredients, allow_destroy: true
 
   validates :name,              presence: true
   validates :genre_id,          presence: true
