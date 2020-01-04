@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipes_path
     else
+      flash.now[:alert] = '投稿に失敗しました'
       render :new
     end
   end

@@ -1,5 +1,7 @@
 = form_for @recipe do |f|
   -# = hidden_field_tag :authenticity_token, form_authenticity_token
+  = render 'layouts/error_messages', model: f.object
+  
   .recipe.clearfix
     .recipe-label
       = f.label :name
@@ -57,13 +59,23 @@
     .recipe-input
       = f.text_field :bakingtemperature, placeholder: "例) 180", class: 'input-recipe'
       ℃
-
-  = f.nested_fields_for :recipe_ingredients do |ff|
-    = ff.remove_nested_fields_link '削除', data: { confirm: '本当に削除しますか?' }
-    = ff.text_field :ingredients
-    = ff.text_field :quantity
-    
-  = f.add_nested_fields_link :recipe_ingredients, '入力枠の追加'
+  
+  -# 材料分量
+  .recipe.clearfix
+    .recipe-quantity
+      このお菓子の材料と分量
+      %span.require 必須
+    %table
+      %tbody 
+        %tr
+          %th 材料
+          %th 分量
+        = f.nested_fields_for :recipe_ingredients, wrapper_tag: :tr do |ff|
+          %td= ff.text_field :ingredients, class: "form-ingredients"
+          %td= ff.text_field :quantity, class: "form-ingredients"
+          %td= ff.remove_nested_fields_link '削除', data: { confirm: '本当に削除しますか?' }, class: "recipe-btn btn-ingredients__delete"
+    .botton-position
+      = f.add_nested_fields_link :recipe_ingredients, '入力枠の追加', class: "recipe-btn btn-ingredients__add"
  
   .recipe.clearfix
     .recipe-label
@@ -122,8 +134,9 @@
 
   
   .actions-recipe
-    = f.submit "レシピを投稿する", class: 'account-btn', data: {disable_with: '送信...'}
+    = f.submit "レシピを投稿する", class: 'account-btn', data: {disable_with: '投稿中...'}
 
+-# cocoon
 -#  -# 材料分量
 -#   .recipe.clearfix
 -#     .ingredients-title このお菓子の材料と分量
@@ -134,5 +147,13 @@
 -#       .links
 -#         = link_to_add_association '入力枠を増やす', f, :recipe_ingredients
 
+-# nested_form_field
+-# = f.nested_fields_for :recipe_ingredients do |ff|
+-#   = ff.remove_nested_fields_link '削除', data: { confirm: '本当に削除しますか?' }
+-#   = ff.label :ingredients
+-#   = ff.text_field :ingredients
+-#   = ff.label :quantity
+-#   = ff.text_field :quantity
+-# = f.add_nested_fields_link :recipe_ingredients, '入力枠の追加'
   
 
