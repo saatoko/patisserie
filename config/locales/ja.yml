@@ -12,7 +12,6 @@ ja:
       recipe:
       recipe_images:
       recipe_videos:
-      recipe_methods:
       recipe_ingredients:
     attributes:
       user:
@@ -36,13 +35,14 @@ ja:
         instruments: 使用器具
         cookingpoint: このお菓子作りのポイント
         method: 作り方
-      recipe_images:
+      recipe/recipe_images:
         image: 写真を投稿してください(複数投稿可)
-      recipe_videos:
+      recipe/recipe_videos:
         video: 動画を投稿してください(一つの動画のみ)
-      recipe_ingredients:
-        ingredients: 材料と分量
-    
+      recipe/recipe_ingredients:
+        ingredients: 材料
+        quantity: 分量
+
   date:
     abbr_day_names:
     - 日

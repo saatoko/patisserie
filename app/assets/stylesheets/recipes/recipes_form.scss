@@ -6,6 +6,10 @@ span {
   @include account;
 }
 
+.recipe-btn {
+  @include recipe;
+}
+
 .recipe {
   width: 100%;
   position: relative;
@@ -38,15 +42,62 @@ span {
       width: 80%;
     }
   }
-}
-.ingredients-title {
-  font-weight: bold;
-  
-}
-a {
-  text-decoration: none;
+
+  .recipe-quantity {
+    font-weight: bold;
+    text-align: left;
+    width: 35%;
+    float: left
+  }
+  table {
+    width: 65%;
+    // position: relative;
+    padding-top: 40px;
+    float: right;
+    tbody {
+      width: 100%;
+      tr {
+        width: 100%;
+        th {
+          text-align: left;
+          padding-bottom: 10px;
+          width: 40%;
+        }
+        td {
+          padding-bottom: 5px;
+          width: 40%;
+          &:last-child{
+            width: 20%;
+            text-align: center;
+          } 
+        }
+      }
+    }
+  }
+  .botton-position {
+    clear: both;
+    width: 87%;
+    text-align: right;
+    padding-right: 13%;
+  }
 }
 .actions-recipe {
-  padding-top: 50px;
+  width: 100%;
+  position: relative;
+  padding-top: 40px;
   text-align: center;
 }
+
+
+// cocoon
+// .ingredients-title {
+//   font-weight: bold;
+  
+// }
+// a {
+//   text-decoration: none;
+// }
+// .actions-recipe {
+//   padding-top: 50px;
+//   text-align: center;
+// }

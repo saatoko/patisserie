@@ -30,7 +30,7 @@
 ## recipesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
 |name|string|null: false|
 |genre_id|integer|nul: false|
 |difficulty_id|integer|null: false|
@@ -55,7 +55,7 @@
 ## recipe_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|recipe_id|references|null: false, foreign_key: true|
+|recipe_id|references|foreign_key: true|
 |image|string|null: false|
 
 ### Association
@@ -65,7 +65,7 @@
 ## recipe_videosテーブル
 |Column|Type|Options|
 |------|----|-------|
-|recipe_id|references|null: false, foreign_key: true|
+|recipe_id|references|foreign_key: true|
 |video|string|
 
 ### Association
@@ -75,7 +75,7 @@
 ## recipe_ingredientsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|recipe_id|references|null: false, foreign_key: true|
+|recipe_id|references|foreign_key: true|
 |ingredients|string|null: false|
 |quantity|string|null: false|
 
