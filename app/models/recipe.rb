@@ -1,15 +1,16 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many   :comments
-  has_many   :recipe_images,      dependent: :destroy
-  accepts_nested_attributes_for :recipe_images,       allow_destroy: true
-  has_many   :recipe_videos,      dependent: :destroy
-  accepts_nested_attributes_for :recipe_videos,       allow_destroy: true
-  # has_many   :recipe_ingredients, dependent: :destroy, inverse_of: :recipe
-  # accepts_nested_attributes_for :recipe_ingredients, reject_if: :all_blank, allow_destroy: true
   has_many   :recipe_ingredients
   accepts_nested_attributes_for :recipe_ingredients, allow_destroy: true
-
+  has_many   :recipe_images,      dependent: :destroy
+  accepts_nested_attributes_for :recipe_images,       allow_destroy: true
+  has_one    :recipe_video,       dependent: :destroy, class_name: RecipeVideo
+  accepts_nested_attributes_for :recipe_video,       allow_destroy: true
+  
+  
+ 
+  validates :user,              presence: true
   validates :name,              presence: true
   validates :genre_id,          presence: true
   validates :difficulty_id,     presence: true
@@ -26,3 +27,7 @@ class Recipe < ApplicationRecord
   belongs_to_active_hash :genre
   belongs_to_active_hash :difficulty
 end
+
+# cocoon
+# has_many   :recipe_ingredients, dependent: :destroy, inverse_of: :recipe
+# accepts_nested_attributes_for :recipe_ingredients, reject_if: :all_blank, allow_destroy: true
