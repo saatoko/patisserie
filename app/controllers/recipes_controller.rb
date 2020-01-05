@@ -8,16 +8,14 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    #has_manyのものを関連付けて作成する場合
     @recipe.recipe_images.build
-    @recipe.recipe_videos.build
     @recipe.recipe_ingredients.build
-    # @recipe_image = @recipe.recipe_images.build
-    # @recipe_video = @recipe.recipe_videos.build
-    # @recipe_ingredient = @recipe.recipe_ingredients.build
+    #has_oneのものを関連付けて作成する場合
+    @recipe.build_recipe_video
   end
 
   def create
-    Recipe.create(recipe_params)
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
       redirect_to recipes_path

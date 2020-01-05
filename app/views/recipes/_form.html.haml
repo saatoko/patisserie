@@ -1,4 +1,4 @@
-= form_for @recipe do |f|
+= form_for @recipe, html: {class: "double", id: "cake", name: "form-main"} do |f|
   -# = hidden_field_tag :authenticity_token, form_authenticity_token
   = render 'layouts/error_messages', model: f.object
   
@@ -73,9 +73,9 @@
         = f.nested_fields_for :recipe_ingredients, wrapper_tag: :tr do |ff|
           %td= ff.text_field :ingredients, class: "form-ingredients"
           %td= ff.text_field :quantity, class: "form-ingredients"
-          %td= ff.remove_nested_fields_link '削除', data: { confirm: '本当に削除しますか?' }, class: "recipe-btn btn-ingredients__delete"
+          %td= ff.remove_nested_fields_link '削除', data: { confirm: '本当に削除しますか?' }, class: "recipe-btn btn-ingredients__delete", role: "button"
     .botton-position
-      = f.add_nested_fields_link :recipe_ingredients, '入力枠の追加', class: "recipe-btn btn-ingredients__add"
+      = f.add_nested_fields_link :recipe_ingredients, '入力枠の追加', class: "recipe-btn btn-ingredients__add", role: "button"
  
   .recipe.clearfix
     .recipe-label
@@ -101,7 +101,7 @@
   -# 画像
   .recipe.clearfix
     .recipe-label
-      = f.label :image
+      = f.label :写真を投稿してください。複数投稿可
       %span.require 必須
     .recipe-input{id: "image-box"}
       .recipe-input__previews{id: "previews"}
@@ -126,13 +126,12 @@
   -# 動画
   .recipe.clearfix
     .recipe-label
-      = f.label :video
+      = f.label :動画を投稿してください。一本のみ可
       %span.require 任意
     .recipe-input
       = f.fields_for :recipe_videos do |video|
         = video.file_field :video, class: "post-video"
 
-  
   .actions-recipe
     = f.submit "レシピを投稿する", class: 'account-btn', data: {disable_with: '投稿中...'}
 

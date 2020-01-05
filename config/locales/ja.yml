@@ -38,7 +38,7 @@ ja:
       recipe/recipe_images:
         image: 写真を投稿してください(複数投稿可)
       recipe/recipe_videos:
-        video: 動画を投稿してください(一つの動画のみ)
+        video: 動画を投稿してください(一本のみ可)
       recipe/recipe_ingredients:
         ingredients: 材料
         quantity: 分量
