@@ -1,1 +1,40 @@
--# idに対するレシピページ用
+// idに対するレシピページ用
+
+.recipe-show
+  .recipe-show__spacetop
+  .recipe-show__contents
+    .recipe-show__contents--spaceside
+      .homemade
+        .homemade__header
+          SWEETS SITE
+          = link_to recipes_path, class: "hotcoffee" do
+            = fa_icon "coffee"
+        -# パンくず入れる
+        .homemade__titleblock.clearfix
+          .homemade__titleblock--image
+          .homemade__titleblock--description
+            .homemade-recipename
+            -#  = @recipe.name
+            .homemade-usernickname
+              -# = @user.nickname
+            .homemade-recipecookingpoint
+              -# = @recipe.cookingpoint
+        
+        .homemade__various-buttons
+          - if user_signed_in? && current_user.id == @recipe.user_id
+            = link_to "レシピを編集する", edit_recipe_path, method: :get, class: "button.hensyu"
+            = link_to "商品を削除する", recipe_path, method: :delete, class: "button.sakujo"
+          - else
+            = link_to "いいね", "#", class: "button.nice"
+            -# イイネボタン
+          
+        
+            
+
+            
+
+
+      
+        .homemade__footer
+          .homemade__footer--text
+            2019.SWEETS SITE
