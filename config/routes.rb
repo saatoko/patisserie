@@ -32,8 +32,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
   }
 
-  root "users#index"
-  # root "recipes#show"
+  # root "users#index"
+  root "recipes#show"
   resources :recipes
   resources :users do
     collection do

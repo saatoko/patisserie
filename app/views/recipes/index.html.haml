@@ -1,10 +1,33 @@
 .recipe-wrapper
   = render "shared/recipes-header"
   = render "shared/sweets-banner"
+  .recipe-index__header
+    -# パンくず機能入れる
+    .recipe-index__header--category
+      カテゴリー名を選択してください。
 
-  .recipe-main
-    .recipe-main__space
-      .recipe-main__space--contents
-        -# = render @recipes
+  .recipe-index__contents
+    .recipe-index__contents--spacetop
+    .recipe-index__contents--spaceside
+      .index-block
+        %section.index-block__grid
+          %article.someone-recipe
+            .pickup-image
+              -# = link_to "#" do
+            .pickup-information
+              .pickup-information__recipename
+                -# = @recipe.name
+                ショコラ
+              .pickup-information__usernickname
+                -# = @user.name
+                tt
 
+    .recipe-index__contents--spacebottom
+
+                
+  
+
+        
   = render "shared/recipes-footer"
+
+-# = render @recipes
