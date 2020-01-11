@@ -42,6 +42,10 @@ ja:
       recipe/recipe_ingredients:
         ingredients: 材料
         quantity: 分量
+      category:
+        name: お菓子名
+        ancestry: 祖先
+
 
   date:
     abbr_day_names:
@@ -177,6 +181,7 @@ ja:
   helpers:
     select:
       prompt: 選択してください
+      include_blank: 選択してください
     submit:
       create: 登録する
       submit: 保存する
