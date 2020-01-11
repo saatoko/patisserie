@@ -10,29 +10,57 @@
           = link_to recipes_path, class: "hotcoffee" do
             = fa_icon "coffee"
         -# パンくず入れる
-        .homemade__titleblock.clearfix
-          .homemade__titleblock--image
-          .homemade__titleblock--description
+        .homemade__topblock.clearfix
+          .homemade__topblock--image
+            -# .fabrication-big
+            = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "fabrication-big"
+            %section.fabrication-small
+              -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真"
+              %article.fabrication-small__grid
+                -# .grid-mini
+                = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-mini"
+                = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-mini"
+              -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真"
+                
+
+          .homemade__topblock--video
+          .homemade__topblock--description
             .homemade-recipename
-            -#  = @recipe.name
+              .homemade-recipename__text
+                ショコラaaaaaaaaaa
+                -# = @recipe.name
+                .homemade-recipename__text--line
             .homemade-usernickname
+              by
+              こっこ
               -# = @user.nickname
             .homemade-recipecookingpoint
+              このお菓子のポイント
+              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbccccccccccccccccccccccccccccccccccccc
+              
               -# = @recipe.cookingpoint
         
         .homemade__various-buttons
-          - if user_signed_in? && current_user.id == @recipe.user_id
-            = link_to "レシピを編集する", edit_recipe_path, method: :get, class: "button.hensyu"
-            = link_to "商品を削除する", recipe_path, method: :delete, class: "button.sakujo"
-          - else
-            = link_to "いいね", "#", class: "button.nice"
-            -# イイネボタン
+          .buttons-grid.homemade-nice
+            高評価
+          .buttons-grid.homemade-tsukutta
+            作りました！
+          .buttons-grid.homemade-okiniiri
+            お気に入り
+          .buttons-grid.homemade-hensyu
+            レシピの編集
+          .buttons-grid.homemade-sakujo
+            レシピの削除
+          -# - if user_signed_in? && current_user.id == @recipe.user_id
+          -#   = link_to "レシピを編集する", edit_recipe_path, method: :get, class: "button.hensyu"
+          -#   = link_to "resipiを削除する", recipe_path, method: :delete, class: "button.sakujo"
+          -# - else
+          -#   = link_to "いいね", "#", class: "button.nice"
+          -#   イイネボタン
+        
+        .homemade__ingredients.clearfix
           
         
-            
-
-            
-
 
       
         .homemade__footer

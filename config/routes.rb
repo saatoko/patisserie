@@ -32,12 +32,20 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
   }
 
+  # ルーティングにAjax用のパスを指定
   # root "users#index"
   root "recipes#show"
-  resources :recipes
+  resources :recipes do
+    collection do
+      get 'select_category'
+      post 'select_category'
+    end
+  end
+
   resources :users do
     collection do
       get 'siteguide'
     end
   end
+  
 end

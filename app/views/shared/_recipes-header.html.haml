@@ -9,6 +9,7 @@
       %ul.inner-left
         %li
           = link_to "菓子種類別検索", "#", class: "list-sweetsgenre"
+
         %li
           %a.sweets-banner.play 再生
         %li
@@ -24,7 +25,7 @@
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user-signout"
           %li
             = link_to "レシピ投稿", new_recipe_path, class: "ourrecipes-posts" 
-
+              
         - else
           %li
             = link_to "ログイン", new_user_session_path, class: 'user-signin'

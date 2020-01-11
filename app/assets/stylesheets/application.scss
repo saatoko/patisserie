@@ -5,7 +5,9 @@
 // mixin
 @import "mixin/required-btn";
 @import "mixin/account-btn";
-@import "mixin/recipe-btn";
+@import "mixin/ingredient-btn";
+@import "mixin/scrollbar";
+@import "mixin/design-line";
 
 // modules
 @import "modules/recipes-header";

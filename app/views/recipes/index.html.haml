@@ -12,15 +12,16 @@
       .index-block
         %section.index-block__grid
           %article.someone-recipe
-            .pickup-image
-              -# = link_to "#" do
-            .pickup-information
-              .pickup-information__recipename
-                -# = @recipe.name
-                ショコラ
-              .pickup-information__usernickname
-                -# = @user.name
-                tt
+            = link_to "/recipes/1", class: "someone-recipe__link" do
+              .grid-image
+                = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
+              .grid-information
+                .grid-information__recipename
+                  -# = @recipe.name
+                  ショコラ
+                .grid-information__usernickname
+                  -# = @user.name
+                  こっこ
 
     .recipe-index__contents--spacebottom
 

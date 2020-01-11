@@ -1,7 +1,15 @@
 // idに対するレシピページ用
 .recipe-show {
+  @include scrollbar
+}
+
+.homemade-recipename__text--line {
+  @include design-line
+}
+
+.recipe-show {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   &__spacetop {
@@ -14,19 +22,16 @@
   &__contents {
     position: relative;
     width: 100%;
-    // height: auto;
-    height: 100%;
+    height: auto;
     background: linear-gradient(180deg, rgb(255, 241, 247), rgb(245, 224, 255));
     &--spaceside {
       background-color: $white;
-      // height: auto;
-      height: 100%;
+      height: auto;
       width: 90%;
       margin: 0 auto;
       .homemade {
         width: 100%;
-        // height: auto;
-        height: 100%;
+        height: auto;
         &__header {
           background-color: rgb(122, 105, 89);
           width: 100%;
@@ -41,21 +46,140 @@
             color: $white;
           }
         }
-        &__titleblock {
+        &__topblock {
           width: 100%;
-          // height: auto;
-          height: 100%;
+          height: 450px;
           background-color: $white;
           &::after {
+            content: "";
+            display: block;
             clear: both;
-            content: '';
-            display: table;
           }
-          .homemade-image {
-            float: right;
-            width: 60%;
+          &--image {
+            float: left;
+            width: 40%;
+            height: 100%;
+            .fabrication-big {
+              width: 100%;
+              height: 80%;
+              margin: 0.3rem;
+            }
+            .fabrication-small {
+              width: 100%;
+              height: 20%;
+              // overflow-x: auto;
+              display: grid;
+              grid-auto-rows: 100%;
+              grid-template-columns: repeat(auto-fill, 20%);
+              grid-auto-flow: rows;
+
+              grid-auto-rows: 100px;
+              grid-template-columns: repeat(auto-fill, 100px);
+              // justify-content: center; /* グリッド全体を中央に寄せる設定 */
+              &__grid {
+                height: 100%;
+                width: 100%;
+                .grid-mini {
+                  height: 100%;
+                  width: 100%;
+                }
+              }
+            }
+          }
+          &--video {
+            float: left;
+            width: 20%;
+            height: 100%;
+          }
+          &--description {
+            float: left;
+            width: 40%;
+            position: relative;
+            height: 100%;
+            color: rgba(73, 61, 44, 0.897);
+            
+            .homemade-recipename {
+              
+              height: 80px;
+              margin: 1.2rem 1.5rem 0.3rem;
+              
+              // overflow-y: scroll;
+              &__text {
+                height: 50px;
+                line-height: 50px;
+                width: auto;
+                word-wrap: break-word;
+                font-size: 2.2rem;
+                display: inline-block;
+              }
+            }
+            .homemade-usernickname {
+              font-size: 1.7rem;
+              height: 45px;
+              margin: 0.5rem 1.5rem 1.0rem 1.5rem;
+              word-wrap: break-word;
+              text-align: right;
+              // overflow-y: scroll;
+            }
+            .homemade-recipecookingpoint {
+              font-size: 2.0rem;
+              height: 249px;
+              margin: 0.5rem 1.5rem 1.0rem 1.5rem;
+              word-wrap: break-word;
+              overflow-y: scroll;
+            }
           }
         }
+        &__various-buttons {
+          width: 100%;
+          display: grid;
+          grid-template-rows: 70px;
+          grid-template-columns: repeat(5, 1fr);
+          border-radius: 10px;
+          // background-color: rgb(199, 149, 188);
+          grid-gap: 1rem;
+          margin-top: 2.0rem;
+          .buttons-grid {
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            display: inline-grid;
+            text-align: center;
+            border-radius: 3px;
+            background-color: $white;
+            // color: rgb(250, 214, 238);
+            font-weight: bold;
+            font-size: 1.4rem;
+            letter-spacing: 0.2rem;
+            background-color: $papayawhip;
+            
+            &.homemade-nice {
+              grid-column: 1 / 2;
+            }
+            &.homemade-tsukutta {
+              grid-column: 2 / 3;
+            }
+            &.homemade-okiniiri {              
+              grid-column: 3 / 4;
+            }
+            &.homemade-hensyu{
+              grid-column: 4 / 5;
+            }
+            &.homemade-sakujo {
+              grid-column: 5 / 6;
+            }
+          }
+        }
+
+
+
+
+
+
+
+
+
+
         &__footer {
           width: 100%;
           height: 120px;
@@ -63,12 +187,11 @@
           bottom: 0;
           background-color: rgb(245, 224, 255);
           &--text {
-            height: 70px;
             font-size: 1.0rem;
             text-align: center;
             width: 100%;
             color: rgb(122, 105, 89);
-            line-height: 70px;
+            line-height: 120px;
           }
         }
       }
