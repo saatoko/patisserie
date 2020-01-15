@@ -7,8 +7,8 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :recipe_images,      allow_destroy: true
   has_one    :recipe_video,       dependent: :destroy, class_name: RecipeVideo
   accepts_nested_attributes_for :recipe_video,       allow_destroy: true
-  belongs_to :category
-  accepts_nested_attributes_for :category,           allow_destroy: true
+  belongs_to :category, optional: true
+  # accepts_nested_attributes_for :category,           allow_destroy: true
   
   validates :user,              presence: true
   validates :category,          presence: true

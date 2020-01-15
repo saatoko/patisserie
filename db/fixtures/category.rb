@@ -1,7 +1,7 @@
 parents = %w[ 洋菓子 和菓子 その他 ]
-yougashi_child = %w[ スポンジケーキ類 バターケーキ類 シュ－菓子類 発酵菓子類 フィユタ－ジュ類 デザート菓子類 クッキー類 マカロン チョコレート類 ジャム類 クリーム類 アイスケーキ メレンゲ菓子類 ]
-wagashi_child = %w[ 生菓子 半生菓子 干菓子 ]
-other_child = %w[ パン ]
+yougashi_child = %w[ スポンジケーキ類 バターケーキ類 シュ－菓子類 発酵菓子類 フィユタ－ジュ類 デザート菓子類 クッキー類 マカロン チョコレート類 ジャム類 クリーム類 アイスケーキ メレンゲ菓子類 その他]
+wagashi_child = %w[ 生菓子 半生菓子 干菓子 その他]
+other_child = %w[ パン その他]
 
 parents.each do |parent|
   Category.seed do |c|

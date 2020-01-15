@@ -38,10 +38,10 @@ Rails.application.routes.draw do
   resources :recipes do
     collection do
       get 'select_category'
-      post 'select_category'
+      get 'category_children', defaults: { format: 'json' }
     end
   end
-
+  resources :categories
   resources :users do
     collection do
       get 'siteguide'

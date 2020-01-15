@@ -31,8 +31,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
 |name|string|null: false|
-|genre_id|integer|nul: false|
 |difficulty_id|integer|null: false|
 |servers|string|null: false|
 |cookingtime|string|null: false|
@@ -43,14 +43,15 @@
 |cookingpoint|text|null: false|
 |method|text|null: false|
 
-
 ### Association
 - belongs_to :user
+- belongs_to :category
 - has_many :comments
 - has_many :recipe_images
 - has_one :recipe_video
 - has_many :recipe_methods
 - has_many :recipe_ingredients
+
 
 ## recipe_imagesテーブル
 |Column|Type|Options|
@@ -81,3 +82,15 @@
 
 ### Association
 - belongs_to :recipe
+
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string|null: false|
+
+### Association
+- has_many :recipes
+- belongs_to :parent, class_name: :Category
+- has_many :children, class_name: :Category, foreign_key: :ancestry

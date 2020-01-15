@@ -9,5 +9,12 @@
       // .owl-item
         // .sweets-banner--images
           // &--item
+    
+  }
+  .owl-dots {
+    display: none;
+    .owl-dot {
+      display: none;
+    }
   }
 }
