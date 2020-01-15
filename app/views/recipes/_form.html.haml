@@ -9,31 +9,13 @@
     .recipe-input
       = f.text_field :name, placeholder: "例) マカロン", class: 'input-recipe'
 
-  -# .recipe.clearfix
-  -#   %select#parent_category
-  -#     - @parent_categories.each do |c|
-  -#       %option{value: "#{c.id}"}= c.name
-  -#   %select#recipe_category_ids{name: "recipe[category_ids]"}
-  -#     - @default_child_categories.each do |c|
-  -#       %option= c.name
-
   .recipe.clearfix
     .recipe-label
       = f.label :お菓子のカテゴリーを選択してください。
       .hissu.required 必須
-    .recipe-input
-      -# 第一引数、第二引数、第三引数、第四引数、オプション、HTML情報
-      = f.fields_for :category_id, remote: true, js: {class: "select_category"}, url: {controller: "recipes", action: "select_category"} do |c|
-        -# = c.collection_select :name, @parent_categories, :id, :name, {prompt: "--"}, { id: "parent_category" }
-        = c.collection_select :ancestry, @parent_categories, :id, :name, {prompt: true}, { id: "parent_category", class: "category-parent"}
-        -# = c.collection_select :name, @default_child_categories, :id, :name, {prompt: "--"}, {id: "recipe_category_ids", name: "recipe[category_ids]"}
-        = c.collection_select :name, @default_child_categories, :id, :name, {prompt: true}, {id: "recipe_category_ids", name: "recipe[category_ids]", class: "category-child"}
-  -# .recipe.clearfix
-  -#   .recipe-label
-  -#     = f.label :genre_id
-  -#     .hissu.require 必須
-  -#   .recipe-input
-      -# = f.collection_select :genre_id, Genre.all, :id, :name, prompt: "--", class: "input-recipehash"
+    .recipe-select-wrapper
+      .recipe-select-wrapper__box
+        = f.select :category, @category_parent_array, {}, {class: 'recipe-select-wrapper__box--select', id: 'parent_category'}
 
   .recipe.clearfix
     .recipe-label
@@ -78,7 +60,7 @@
     .recipe-input
       = f.text_field :bakingtemperature, placeholder: "例) 180", class: 'input-recipe'
       ℃
-  
+
   -# 材料分量
   .recipe.clearfix
     .recipe-quantity
@@ -133,7 +115,6 @@
           = image.file_field :image, class: "js-file"
           .js-remove 削除
             
-
         - if @recipe.persisted?
           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
 
@@ -173,3 +154,14 @@
 -#   = ff.label :quantity
 -#   = ff.text_field :quantity
 -# = f.add_nested_fields_link :recipe_ingredients, '入力枠の追加'
+
+-# カテゴリーjs.erb
+-# .recipe.clearfix
+-#   .recipe-label
+-#     = f.label :お菓子のカテゴリーを選択してください。
+-#     .hissu.required 必須
+-#   .recipe-input
+-#     -# 第一引数、第二引数、第三引数、第四引数、オプション、HTML情報
+-#     = f.fields_for :@categories, remote: true, js: {class: "select_category"}, url: {controller: "recipes", action: "select_category"} do |c|
+-#       = c.collection_select :name, @parent_categories, :id, :name, {prompt: "--"}, { id: "parent_category" }
+-#       = c.collection_select :name, @default_child_categories, :id, :name, {prompt: "--"}, {id: "recipe_category_ids", name: "recipe[category_ids]"}
