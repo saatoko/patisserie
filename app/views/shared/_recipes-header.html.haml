@@ -6,16 +6,16 @@
 
   .recipe-header__navigation
     .recipe-header__navigation--inner
-      %ul.inner-left
-        %li
-          = link_to "菓子種類別検索", "#", class: "list-sweetsgenre"
-
-        %li
-          %a.sweets-banner.play 再生
-        %li
-          %a.sweets-banner.stop 停止
+      -# %ul.inner-left
+      -#   %li.inner-left__drop-down
+      -#     菓子種類別検索
+      = render partial: 'categories/parent_category'
 
       %ul.inner-right
+        %li
+          %a.sweets-banner.play スライド再生
+        %li
+          %a.sweets-banner.stop 停止
         - if user_signed_in?
           %li
             = link_to user_path(current_user.id), class: "user-mypage" do

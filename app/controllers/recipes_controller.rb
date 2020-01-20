@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   before_action :recipe_post, except: :index
   before_action :set_recipe, except: [:index, :new, :create, :show, :edit, :update, :category_children]
-  # before_action :set_categories, only: [:new, :create, :edit, :update]
+  before_action :set_categories
   # before_action :set_category, except: [:index, :new, :create, :show, :edit, :update]
   
   def index
@@ -63,6 +63,25 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @parents = Category.where(ancestry:nil)
+    # 編集する商品を選択
+    @recipe = Recipe.find(params[:id])
+    # 登録されている商品の孫カテゴリーのレコードを取得
+    @selected_child_category = @recipe.category
+    # 子カテゴリー選択肢用の配列作成
+    @category_children_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_child_category.id}").siblings.each do |child|
+      children_hash = {id: "#{child.id}", name: "#{child.name}"}
+      @category_children_array << children_hash
+    end
+    # 選択されている親カテゴリーのレコードを取得
+    @selected_parent_category = @selected_child_category.parent
+    # 親カテゴリー選択肢用の配列作成
+    @category_parents_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+      parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
+      @category_parents_array << parent_hash
+    end
   end
 
   def update
@@ -115,6 +134,13 @@ class RecipesController < ApplicationController
 
   def recipe_post
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def set_categories
+    @categories = Category.where(params[:id])
+    @category_children1 = Category.where(ancestry: 1)
+    @category_children2 = Category.where(ancestry: 2)
+    @category_children3 = Category.where(ancestry: 3)
   end
 
   # def set_categories

@@ -43,7 +43,7 @@ $(document).on('turbolinks:load', function() {
           })
         })
         .fail(function(){
-          alert('カテゴリー取得に失敗しました');
+          alert('カテゴリーを選択して下さい');
         })
       }
     });
