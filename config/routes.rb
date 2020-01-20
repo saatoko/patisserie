@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     collection do
       get 'select_category'
       get 'category_children', defaults: { format: 'json' }
+      get 'set_categories'
     end
   end
   resources :categories

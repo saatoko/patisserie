@@ -1,0 +1,20 @@
+-# 親カテゴリー
+%ul.inner-left
+  %li.inner-left__drop-down
+    菓子種類別検索
+    %ul.parents-category
+      %li.parents-category__parent
+        = link_to "洋菓子", category_path(id: 1)
+        -# 子カテゴリー
+        %ul.children-category
+          = render partial: "categories/child_category", collection: @category_children1, as: "category"
+
+      %li.parents-category__parent
+        = link_to "和菓子", category_path(id: 2)
+        %ul.children-category
+          = render partial: "categories/child_category", collection: @category_children2, as: "category"
+
+      %li.parents-category__parent
+        = link_to "その他", category_path(id: 3)
+        %ul.children-category
+          = render partial: "categories/child_category", collection: @category_children3, as: "category"
