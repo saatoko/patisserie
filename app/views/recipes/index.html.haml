@@ -1,29 +1,25 @@
 .recipe-wrapper
-  = render "shared/recipes-header"
-  = render "shared/sweets-banner"
-  -# %ul.recipe-index__header
-  -#   %li.recipe-index__header--dropdown
-  -#     菓子種類別検索
-  -#     = render partial: 'categories/parent_category'
-
-
+  - @recipes.each do |recipe|
+    = render "shared/recipes-header"
+    = render "shared/sweets-banner"
     -# パンくず機能入れる
-  .recipe-index__contents
-    .recipe-index__contents--spacetop
-    .recipe-index__contents--spaceside
-      .index-block
-        %section.index-block__grid
-          %article.someone-recipe
-            = link_to "/recipes/1", class: "someone-recipe__link" do
-              .grid-image
-                = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
-              .grid-information
-                .grid-information__recipename
-                  -# = @recipe.name
-                  ショコラ
-                .grid-information__usernickname
-                  -# = @user.name
-                  こっこ
+    .recipe-index__contents
+      .recipe-index__contents--spacetop
+      -# = render "categories/show"
+      .recipe-index__contents--spaceside
+        .index-block
+          -# - @recipes.each do |r|
+          %section.index-block__grid
+            %article.someone-recipe
+              -# = link_to "/recipes/1", class: "someone-recipe__link" do
+              = link_to "/recipes/#{recipe.id}", class: "someone-recipe__link" do
+                .grid-image
+                  = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
+                .grid-information
+                  .grid-information__recipename
+                    = recipe.name
+                  .grid-information__usernickname
+                    = recipe.user.nickname
 
     .recipe-index__contents--spacebottom
 

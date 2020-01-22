@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   # ルーティングにAjax用のパスを指定
   # root "users#index"
   root "recipes#show"
+
+  
   resources :recipes do
     collection do
       get 'select_category'
@@ -42,11 +44,15 @@ Rails.application.routes.draw do
       get 'set_categories'
     end
   end
-  resources :categories
+ 
+  # resources :categories
   resources :users do
     collection do
       get 'siteguide'
     end
   end
-  
+
+  resources :categories do  
+    resources :recipes
+  end
 end

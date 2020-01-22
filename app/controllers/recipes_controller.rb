@@ -5,20 +5,47 @@ class RecipesController < ApplicationController
   # before_action :set_category, except: [:index, :new, :create, :show, :edit, :update]
   
   def index
-    # @recipes = Recipe.includes(:recipe_images, :recipe_ingredients, :recipe_videos, :categories).order('created_at DESC')
 
     # urlにcategory_id(params)がある場合
-    if params[:category_id]
+    if params[:category_id].present? then
       # Categoryのデータベースのテーブルから一致するidを取得
+      @category = Category.all.includes(:recipes)
       @category = Category.find(params[:category_id])
-        
+      # @category = recipe.category
+      # @category = Category.find_by(id: params[:id])
       # category_idと紐づく投稿を取得
       @recipes = @category.recipes.order('created_at DESC').all
+      if @recipes.present?
+        flash.now[:alert] = '#{@recipes.category.name}のレシピがあります'
+        render :index
+      else
+        flash.now[:alert] = 'カテゴリーに当てはまるレシピがありません'
+        render :index
+      end
+      # binding.pry
+
+    # ビデオがある場合
+    elsif params[:recipe_videos_attributes].present? then
+      puts "現在、カテゴリーに関するレシピはありません"
+      # カテゴリーなし投稿の全てを取得
+      @recipes = Recipe.includes(:recipe_images, :recipe_ingredients, :recipe_videos).order('created_at DESC')
+      
+      # flash.now[:alert] = 'テスト'
+      # render :index
+    # カテゴリーもビデオもない場合
     else
-      # 投稿すべてを取得
-      @recipes = Recipe.includes(:recipe_images, :recipe_ingredients, :recipe_videos, :categories).order('created_at DESC')
+      puts "現在、カテゴリーに関するレシピはありませんビデオ"
+      # カテゴリー、ビデオなし投稿のすべてを取得
+      @recipes = Recipe.includes(:recipe_images, :recipe_ingredients).order('created_at DESC')
+      flash.now[:alert] = 'koko'
+      render :index
     end
-   
+
+    # if params[:category_id].present? then
+      
+    #   @recipe = Recipe.find(params[:id])
+    #   @category = @recipe.category.find(params[:category_id])
+     
   end
 
   def new
@@ -60,6 +87,7 @@ class RecipesController < ApplicationController
   end
   
   def show
+    # @category = Category.find(params[:id])
   end
 
   def edit
@@ -128,9 +156,18 @@ class RecipesController < ApplicationController
       .merge(user_id: current_user.id)
   end
 
+  def category_params
+    params.require(:category).permit(:name, :ancestry)
+  end
+
+
   def set_recipe
     @recipe = Recipe.find(params[:id])
   end
+
+  # def set_category
+  #   @category = Category.find(params[:id])
+  # end
 
   def recipe_post
     redirect_to action: :index unless user_signed_in?
