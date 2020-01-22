@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   private
 
-  def product_params
+  def user_params
     params.require(:user).permit(:nickname, :email, :gender_id, :profession_id, :password, :profile)
   end
 

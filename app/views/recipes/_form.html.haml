@@ -130,7 +130,7 @@
       .hissu.require 任意
     .recipe-input
       = f.fields_for :recipe_videos do |video|
-        = video.file_field :video, class: "post-video"
+        = video.file_field :video, class: "post-video", id: "upload-video"
 
   .actions-recipe
     = f.submit "レシピを投稿する", class: 'account-btn', data: {disable_with: '投稿中...'}
