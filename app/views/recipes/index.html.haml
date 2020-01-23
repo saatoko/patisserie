@@ -1,32 +1,38 @@
 .recipe-wrapper
-  - @recipes.each do |recipe|
-    = render "shared/recipes-header"
-    = render "shared/sweets-banner"
-    -# パンくず機能入れる
-    .recipe-index__contents
-      .recipe-index__contents--spacetop
-      -# = render "categories/show"
-      .recipe-index__contents--spaceside
-        .index-block
+  = render partial: 'shared/recipes-header', locals: {recipe: @recipes, yougashi: @yougashis, wagashi: @wagashis, other: @others}
+  -# = render partial: 'shared/recipes-header', locals: {recipe: @recipes}
+  
+
+  -# - binding.pry
+
+  = render "shared/sweets-banner"
+  -# パンくず機能入れる
+  .recipe-index__contents
+    .recipe-index__contents--spacetop
+    -# = render "categories/show"
+    .recipe-index__contents--spaceside
+      .index-block
+       
+        %section.index-block__grid
           -# - @recipes.each do |r|
-          %section.index-block__grid
-            %article.someone-recipe
-              -# = link_to "/recipes/1", class: "someone-recipe__link" do
-              = link_to "/recipes/#{recipe.id}", class: "someone-recipe__link" do
-                .grid-image
-                  = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
-                .grid-information
-                  .grid-information__recipename
-                    = recipe.name
-                  .grid-information__usernickname
-                    = recipe.user.nickname
+          %article.someone-recipe
+            
+            = link_to "/recipes/1", class: "someone-recipe__link" do
+              -# = link_to "/recipes/#{recipe.id}", class: "someone-recipe__link" do
+              .grid-image
+                = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
+              .grid-information
+                .grid-information__recipename
+                  レシピ名
+                  -# = recipe.name
+                .grid-information__usernickname
+                  投稿者名
+                  -# = recipe.user.nickname
 
     .recipe-index__contents--spacebottom
 
-                
-  
-
-        
   = render "shared/recipes-footer"
 
 -# = render @recipes
+
+-# - @recipes.each do |recipe|
