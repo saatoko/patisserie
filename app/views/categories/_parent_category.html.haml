@@ -5,23 +5,24 @@
     -# - @recipes.each do |category|
     %ul.parents-category
       %li.parents-category__parent
-        = link_to "洋菓子", category_recipes_path(@recipes, category_id: 1)
-        -# = link_to "洋菓子", category_recipes_path(@category.ancestry)
-        -# = link_to "洋菓子", category_recipes_path(id: 1)
+        -# = link_to "洋菓子", category_recipes_path(@recipes)
+        -# = link_to "洋菓子", category_recipes_path(@category, ancestry: 1)
+        -# = link_to "その他", category_recipes_path(@recipes, category_id: 1)
+        -# = link_to "その他", category_recipes_path(recipe, category_id: 1)
+        = link_to "洋菓子", category_recipes_path(yougashi)
         
-        -# = link_to "洋菓子", recipes_path(category)
         -# 子カテゴリー
         %ul.children-category
           = render partial: "categories/child_category", collection: @category_children1, as: "category"
 
-      %li.parents-category__parent
-        = link_to "和菓子", category_recipes_path(@recipes, category_id: 2)
-       
-        %ul.children-category
-          = render partial: "categories/child_category", collection: @category_children2, as: "category"
 
       %li.parents-category__parent
-        = link_to "その他", category_recipes_path(@recipes, category_id: 3)
-       
+        = link_to "和菓子", category_recipes_path(wagashi)
+        %ul.children-category
+          = render partial: "categories/child_category", collection: @category_children2, as: "category"
+          -# - binding.pry
+
+      %li.parents-category__parent
+        -# = link_to "その他", category_recipes_path(other)
         %ul.children-category
           = render partial: "categories/child_category", collection: @category_children3, as: "category"
