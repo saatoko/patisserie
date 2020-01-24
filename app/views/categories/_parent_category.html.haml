@@ -9,20 +9,22 @@
         -# = link_to "洋菓子", category_recipes_path(@category, ancestry: 1)
         -# = link_to "その他", category_recipes_path(@recipes, category_id: 1)
         -# = link_to "その他", category_recipes_path(recipe, category_id: 1)
-        = link_to "洋菓子", category_recipes_path(yougashi)
-        
-        -# 子カテゴリー
-        %ul.children-category
-          = render partial: "categories/child_category", collection: @category_children1, as: "category"
-
-
-      %li.parents-category__parent
-        = link_to "和菓子", category_recipes_path(wagashi)
-        %ul.children-category
-          = render partial: "categories/child_category", collection: @category_children2, as: "category"
-          -# - binding.pry
+        - unless yougashi.blank?
+          = link_to "洋菓子", category_recipes_path(yougashi)
+          -# 子カテゴリー
+          %ul.children-category
+            = render partial: "categories/child_category", collection: @category_children1, as: "category"
 
       %li.parents-category__parent
-        -# = link_to "その他", category_recipes_path(other)
-        %ul.children-category
-          = render partial: "categories/child_category", collection: @category_children3, as: "category"
+        - unless wagashi.blank?
+          = link_to "和菓子", category_recipes_path(wagashi)
+          %ul.children-category
+            = render partial: "categories/child_category", collection: @category_children2, as: "category"
+            -# - binding.pry
+
+      %li.parents-category__parent
+        -# otherの文字列が空か、そもそもother自体が存在しない場合に処理をスキップ
+        - unless other.blank?
+          = link_to "その他", category_recipes_path(other)
+          %ul.children-category
+            = render partial: "categories/child_category", collection: @category_children3, as: "category"

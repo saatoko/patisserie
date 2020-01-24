@@ -6,14 +6,14 @@
 
   .recipe-header__navigation
     .recipe-header__navigation--inner
-      = render partial: 'categories/parent_category', locals: {recipe: recipe, yougashi: yougashi, wagashi: wagashi, other: other}
+      = render partial: 'categories/parent_category', locals: {category: category, yougashi: yougashi, wagashi: wagashi, other: other}
       -# - binding.pry
       
       %ul.inner-right
         %li
           %a.sweets-banner.play スライド再生
         %li
-          %a.sweets-banner.stop 停止
+          %a.sweets-banner.stop スライドスライド停止
         - if user_signed_in?
           %li
             = link_to user_path(current_user.id), class: "user-mypage" do

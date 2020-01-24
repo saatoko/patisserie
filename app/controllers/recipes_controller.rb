@@ -5,7 +5,9 @@ class RecipesController < ApplicationController
 
   def index
     # urlにcategory_id(params)がある場合
-    if params[:category_id].present? then
+    # if params[:category_id].present? then
+    if params[:category_id].present? || params[:category_id].blank? then
+      
       # Categoryのデータベースのテーブルから一致するidを取得
       # @category = Category.find(params[:category_id])
       # @category = recipe.category
@@ -23,7 +25,7 @@ class RecipesController < ApplicationController
       # @recipes = @category.recipes.order(created_at: :desc).all
       # @recipes = @category.order('created_at DESC').all
 
-      @recipes = Recipe.where(category_id: params[:category_id])
+      @category = Recipe.where(category_id: params[:category_id])
       @yougashis = []
       Recipe.where(category_id: [4,5,6,7,8,9,10,11,12,13,14,15,16,17]).each do |yougashi|
         @yougashis << [yougashi]
@@ -36,6 +38,8 @@ class RecipesController < ApplicationController
       Recipe.where(category_id: [22,23]).each do |other|
         @others << [other]
       end
+
+      @recipes = Recipe.includes(:recipe_images, :recipe_ingredients, :categories).order('created_at DESC').limit(20)
       # binding.pry
 
       # if @recipes || @yougashis || @wagashis || @others.present?
@@ -46,14 +50,15 @@ class RecipesController < ApplicationController
       #   render :index
       # end
 
-      if @recipes.present?
-        flash.now[:alert] = '#{@recipes.category.name}のレシピがあります'
+      if @category.present?
+        flash.now[:alert] = 'カテゴリーに当てはまるのレシピがあります'
         render :index
       else
         flash.now[:alert] = 'カテゴリーに当てはまるレシピがありません'
         render :index
       end
-     
+
+      
 
     # # ビデオがある場合
     # elsif params[:recipe_videos_attributes].present? then
@@ -69,7 +74,6 @@ class RecipesController < ApplicationController
       @recipes = Recipe.includes(:recipe_images, :recipe_ingredients, :categories).order('created_at DESC').limit(20)
       flash.now[:alert] = 'レシピ一覧表示になります'
       render :index
-      
     end
   end
 

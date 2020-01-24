@@ -13,11 +13,14 @@
     height: 60px;
     width: 170px;
     position: relative;
+    // display: block;
     .parents-category {
       display: none; 
+      // display: block;
     }
     &:hover {
       transition: all .3s;
+      // display: block;
       .parents-category {
         height: 50px;
         margin: 0 auto;
