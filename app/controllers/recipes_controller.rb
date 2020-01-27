@@ -4,76 +4,44 @@ class RecipesController < ApplicationController
   before_action :set_categories
 
   def index
-    # urlにcategory_id(params)がある場合
-    # if params[:category_id].present? then
-    if params[:category_id].present? || params[:category_id].blank? then
-      
+    if params[:category_id].present? then
+    # if params[:category_id].present?
       # Categoryのデータベースのテーブルから一致するidを取得
-      # @category = Category.find(params[:category_id])
-      # @category = recipe.category
-      # @category = Category.find_by(id: params[:id])
+      @category = Category.where(id: params[:category_id]).order(created_at: :desc) 
       # category_idと紐づく投稿を取得
-      # @recipes = Category.all.includes(:recipes)
-      # @category = Category.find(params[:id])
-      # @recipes = @category.recipes.order('created_at DESC').all #問題
-      # @recipes = Recipe.where(id: params[:category_id]).order(created_at: :desc)
-      # @recipes = Recipe.@category{"params[:category_id]"}.order(created_at: :desc)
-      # @recipes = Recipe.find_by_category_id(params[:category_id])
-      # @recipes = Recipe.all
-      # @categories = @recipes.category.order('created_at DESC')
-      # # category_idと紐づく投稿を取得
-      # @recipes = @category.recipes.order(created_at: :desc).all
-      # @recipes = @category.order('created_at DESC').all
+      @recipes = Recipe.all.where(category_id: @category).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.where(category_id: @category).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
 
-      @category = Recipe.where(category_id: params[:category_id])
-      @yougashis = []
-      Recipe.where(category_id: [4,5,6,7,8,9,10,11,12,13,14,15,16,17]).each do |yougashi|
-        @yougashis << [yougashi]
-      end
-      @wagashis = []
-      Recipe.where(category_id: [18,19,20,21]).each do |wagashi|
-        @wagashis << [wagashi]
-      end
-      @others = []
-      Recipe.where(category_id: [22,23]).each do |other|
-        @others << [other]
-      end
+      @YOUGASHI = Category.find(1)
+      @YOUGASHIS = @YOUGASHI.children
+      @yougashis =  Recipe.all.where(category_id: @YOUGASHIS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @yougashi = Recipe.all.where(category_id: @YOUGASHIS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
 
-      @recipes = Recipe.includes(:recipe_images, :recipe_ingredients, :categories).order('created_at DESC').limit(20)
-      # binding.pry
+      @WAGASHI = Category.find(2)
+      @WAGASHIS = @WAGASHI.children
+      @wagashis =  Recipe.all.where(category_id: @WAGASHIS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @wagashis = Recipe.all.where(category_id: @WAGASHIS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
 
-      # if @recipes || @yougashis || @wagashis || @others.present?
-      #   flash.now[:alert] = '#{@recipes.category.name}のレシピがあります'
-      #   render :index
-      # else
-      #   flash.now[:alert] = 'カテゴリーに当てはまるレシピがありません'
-      #   render :index
-      # end
+      @OTHER = Category.find(3)
+      @OTHERS = @OTHER.children
+      @others =  Recipe.all.where(category_id: @OTHERS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @others = Recipe.all.where(category_id: @OTHERS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
 
-      if @category.present?
-        flash.now[:alert] = 'カテゴリーに当てはまるのレシピがあります'
-        render :index
+      # @yougashis = @recipes.where(category_id: [4,5,6,7,8,9,10,11,12,13,14,15,16,17])
+      # @wagashis = @recipes.where(category_id: [18,19,20,21])
+      # @others = @recipes.where(category_id: [22,23])
+      @main_categories = Category.eager_load(:children).where(ancestry: nil)
+      if @recipes.present?
+        flash.now[:alert] = 'カテゴリーのレシピがあります'
+      # elsif @yougashis.present?
+      #   flash.now[:alert] = '洋菓子のレシピになります'
+      # elsif @wagashis.present?
+      #   flash.now[:alert] = '和菓子のレシピになります'
+      # elsif @others.present?
+      #   flash.now[:alert] = 'その他のレシピになります'
       else
-        flash.now[:alert] = 'カテゴリーに当てはまるレシピがありません'
-        render :index
+        flash.now[:alert] = "カテゴリーのレシピが投稿されていません"
       end
-
-      
-
-    # # ビデオがある場合
-    # elsif params[:recipe_videos_attributes].present? then
-    #   # カテゴリーなし投稿の全てを取得
-    #   @recipes = Recipe.includes(:recipe_images, :recipe_ingredients, :recipe_videos, :categories).order('created_at DESC')
-    #   # flash.now[:alert] = 'テスト'
-    #   render :index
-      
-
-    # カテゴリーもビデオもない場合
+     
     else
-      # カテゴリー、ビデオなし投稿のすべてを取得
-      @recipes = Recipe.includes(:recipe_images, :recipe_ingredients, :categories).order('created_at DESC').limit(20)
-      flash.now[:alert] = 'レシピ一覧表示になります'
-      render :index
+    # elsif params[:category_id].blank?
+      @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
     end
   end
 
@@ -93,7 +61,7 @@ class RecipesController < ApplicationController
     #データベースから、親カテゴリーのみ抽出し、配列化
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
-   end
+    end
   end
 
   # 以下全て、formatはjsonのみ
@@ -123,7 +91,7 @@ class RecipesController < ApplicationController
   def edit
     @parents = Category.where(ancestry:nil)
     # 編集する商品を選択
-    @recipe = Recipe.find(params[:id])
+    # @recipe = Recipe.find(params[:id])
     # 登録されている商品の孫カテゴリーのレコードを取得
     @selected_child_category = @recipe.category
     # 子カテゴリー選択肢用の配列作成
@@ -182,17 +150,13 @@ class RecipesController < ApplicationController
       recipe_ingredients_attributes: [:id, :ingredients, :quantity, :_destroy], 
       recipe_images_attributes: [:image, :_destroy], 
       recipe_videos_attributes: [:video, :_destroy],
-      categories_attributes: [:id, :name, :ancestry, :_destroy])
+      categories_attributes: [:ids[], :name, :ancestry, :_destroy])
       .merge(user_id: current_user.id)
   end
 
-  def category_params
-    params.require(:category).permit(:name, :ancestry)
-  end
-
-
   def set_recipe
     @recipe = Recipe.find(params[:id])
+    
   end
 
   def recipe_post
@@ -200,7 +164,8 @@ class RecipesController < ApplicationController
   end
 
   def set_categories
-    @categories = Category.where(params[:id])
+    # @categories = Recipe.where(category_id: params[:category_id])
+    # @categories = Category.where(params[:id])
     @category_children1 = Category.where(ancestry: 1)
     @category_children2 = Category.where(ancestry: 2)
     @category_children3 = Category.where(ancestry: 3)
