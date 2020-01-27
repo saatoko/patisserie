@@ -4,10 +4,10 @@ class CategoriesController < ApplicationController
   #   @category = Category.all
   # end
   
-#   private
-#   def category_params
-#     params.require(:category).permit(:name, :ancestry)
-#   end
+  # private
+  # def category_params
+  #   params.require(:category).permit(:name, :ancestry)
+  # end
 
 #   def set_category
 #     @category = Category.find(params[:id])

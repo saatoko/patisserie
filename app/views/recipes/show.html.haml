@@ -12,7 +12,6 @@
         -# パンくず入れる
         .homemade__topblock.clearfix
           .homemade__topblock--image
-            -# .fabrication-big
             = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "fabrication-big"
             %section.fabrication-small
               -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真"
@@ -27,7 +26,7 @@
           .homemade__topblock--description
             .homemade-recipename
               .homemade-recipename__text
-                ショコラaaaaaaaaaa
+                -# = @recipe.name
                 -# = @recipe.name
                 .homemade-recipename__text--line
             .homemade-usernickname
