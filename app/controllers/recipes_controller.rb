@@ -4,43 +4,78 @@ class RecipesController < ApplicationController
   before_action :set_categories
 
   def index
-    if params[:category_id].present? then
-    # if params[:category_id].present?
+    # if params[:category_id].present? then
+    if params[:category_id].present? || params[:category_id].blank? then
+    # if params[:category_id].present? || params[:category_id].blank? && @url == "/categories/:category_id/recipes" then
       # Categoryのデータベースのテーブルから一致するidを取得
       @category = Category.where(id: params[:category_id]).order(created_at: :desc) 
       # category_idと紐づく投稿を取得
       @recipes = Recipe.all.where(category_id: @category).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.where(category_id: @category).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
 
-      @YOUGASHI = Category.find(1)
-      @YOUGASHIS = @YOUGASHI.children
-      @yougashis =  Recipe.all.where(category_id: @YOUGASHIS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @yougashi = Recipe.all.where(category_id: @YOUGASHIS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
+      # @YOUGASHI = Category.find(1)
+      # @YOUGASHIS = @YOUGASHI.children
+      # @yougashis =  Recipe.all.where(category_id: @YOUGASHIS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @yougashi = Recipe.all.where(category_id: @YOUGASHIS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
 
-      @WAGASHI = Category.find(2)
-      @WAGASHIS = @WAGASHI.children
-      @wagashis =  Recipe.all.where(category_id: @WAGASHIS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @wagashis = Recipe.all.where(category_id: @WAGASHIS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
+      # @WAGASHI = Category.find(2)
+      # @WAGASHIS = @WAGASHI.children
+      # @wagashis =  Recipe.all.where(category_id: @WAGASHIS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @wagashis = Recipe.all.where(category_id: @WAGASHIS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
 
-      @OTHER = Category.find(3)
-      @OTHERS = @OTHER.children
-      @others =  Recipe.all.where(category_id: @OTHERS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @others = Recipe.all.where(category_id: @OTHERS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
+      # @OTHER = Category.find(3)
+      # @OTHERS = @OTHER.children
+      # @others =  Recipe.all.where(category_id: @OTHERS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @others = Recipe.all.where(category_id: @OTHERS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
 
       # @yougashis = @recipes.where(category_id: [4,5,6,7,8,9,10,11,12,13,14,15,16,17])
       # @wagashis = @recipes.where(category_id: [18,19,20,21])
       # @others = @recipes.where(category_id: [22,23])
+
+
       @main_categories = Category.eager_load(:children).where(ancestry: nil)
+      @YOUGASHI = @main_categories.find_by name: "洋菓子"
+      @YOUGASHIS = Category.children_of @YOUGASHI
+      @yougashi = @YOUGASHI.subtree
+      @yougashis1 = Recipe.all.where(category_id: @yougashi).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.where(category_id: @yougashi).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
+
+      @WAGASHI = @main_categories.find_by name: "和菓子"
+      @WAGASHIS = Category.children_of @WAGASHI
+      @wagashi = @WAGASHI.subtree
+      @wagashis1 = Recipe.all.where(category_id: @wagashi).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.where(category_id: @wagashi).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
+
+      @OTHER = @main_categories.find_by name: "その他"
+      @OTHERS = Category.children_of @OTHER
+      @other = @OTHER.subtree
+      @others1 = Recipe.all.where(category_id: @other).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @others = Recipe.all.where(category_id: @other).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
+
+      # クエリ文字列は含まれない
+      @url = request.path_info
+
       if @recipes.present?
         flash.now[:alert] = 'カテゴリーのレシピがあります'
-      # elsif @yougashis.present?
-      #   flash.now[:alert] = '洋菓子のレシピになります'
-      # elsif @wagashis.present?
-      #   flash.now[:alert] = '和菓子のレシピになります'
-      # elsif @others.present?
-      #   flash.now[:alert] = 'その他のレシピになります'
+      elsif @url == "/categories/1/recipes"
+        if @yougashis1.present?
+          flash.now[:alert] = '洋菓子カテゴリーのレシピになります'
+        elsif @yougashis1.blank?
+          flash.now[:alert] = '洋菓子の項目にレシピが投稿されていません'
+        end
+      elsif @url == "/categories/2/recipes" 
+        if @wagashis1.present?
+          flash.now[:alert] = '和菓子カテゴリーのレシピになります'
+        elsif @wagashis1.blank?
+          flash.now[:alert] = '和菓子の項目にレシピが投稿されていません'
+        end
+      elsif @url == "/categories/3/recipes" 
+        if @others1.present?
+          flash.now[:alert] = 'その他カテゴリーのレシピになります'
+        elsif @others1.blank?
+          flash.now[:alert] = 'その他の項目にレシピが投稿されていません'
+        end
+      elsif @url == "/recipes"
+        flash.now[:alert] = '菓子種類別検索からレシピを検索してください'
       else
         flash.now[:alert] = "カテゴリーのレシピが投稿されていません"
       end
-     
-    else
+    # elsif @url == "/recipes"
     # elsif params[:category_id].blank?
+    else
       @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
     end
   end

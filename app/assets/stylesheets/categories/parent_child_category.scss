@@ -33,18 +33,7 @@
           position: relative;
           width: 170px;
           display: block;
-          // a {
-          //   background-color: $white;
-          //   color: #7a6959;
-          //   display: block;
-          //   height: 50px;
-          //   line-height: 50px;
-          //   text-align: center;
-          //   text-decoration: none;
-          //   width: 170px;
-          //   border: 1px solid #7a6959;
-          // }
-          .kashi {
+          a {
             background-color: $white;
             color: #7a6959;
             display: block;
@@ -53,8 +42,18 @@
             text-align: center;
             text-decoration: none;
             width: 170px;
-            // border: 1px solid #7a6959;
+            border: 1px solid #7a6959;
           }
+          // .kashi {
+          //   background-color: $white;
+          //   color: #7a6959;
+          //   display: block;
+          //   height: 50px;
+          //   line-height: 50px;
+          //   text-align: center;
+          //   text-decoration: none;
+          //   width: 170px;
+          // }
           .children-category {
             margin: 0 auto;
             width: 280px;
@@ -75,12 +74,11 @@
                 width: 280px;
                 border: 1px solid #7a6959;
 
-                display: block;
-                height: 50px;
-                line-height: 50px;
-                text-align: center;
-                text-decoration: none;
-                // width: 170px;
+                // display: block;
+                // height: 50px;
+                // line-height: 50px;
+                // text-align: center;
+                // text-decoration: none;
               }
             }
           }

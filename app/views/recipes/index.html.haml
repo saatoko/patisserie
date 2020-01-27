@@ -1,5 +1,5 @@
 .recipe-wrapper
-  = render partial: 'shared/recipes-header', locals: {category: @category, yougashi: @yougashis, wagashi: @wagashis, other: @others}
+  = render partial: 'shared/recipes-header', locals: {category: @category, yougashi: @yougashi, wagashi: @wagashi, other: @other}
   -# - binding.pry
   = render "shared/sweets-banner"
   -# パンくず機能入れる
@@ -20,6 +20,46 @@
                     = r.name
                   .grid-information__usernickname
                     = r.user.nickname
+
+          - if @url == "/categories/1/recipes" && @yougashis1.present?
+            - @yougashis1.each do |y|
+              %article.someone-recipe
+                = link_to recipe_path(y.id), method: :get, class: "someone-recipe__link" do
+                  -# = link_to "", class: "someone-recipe__link" do
+                  .grid-image
+                    = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
+                  .grid-information
+                    .grid-information__recipename
+                      = y.name
+                    .grid-information__usernickname
+                      = y.user.nickname
+          - elsif @url == "/categories/2/recipes" && @wagashis1.present?
+            - @wagashis1.each do |w|
+              %article.someone-recipe
+                = link_to recipe_path(w.id), method: :get, class: "someone-recipe__link" do
+                  -# = link_to "", class: "someone-recipe__link" do
+                  .grid-image
+                    = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
+                  .grid-information
+                    .grid-information__recipename
+                      = w.name
+                    .grid-information__usernickname
+                      = w.user.nickname
+
+          - elsif @url == "/categories/3/recipes" && @others1.present?
+            - @others1.each do |o|
+              %article.someone-recipe
+                = link_to recipe_path(o.id), method: :get, class: "someone-recipe__link" do
+                  -# = link_to "", class: "someone-recipe__link" do
+                  .grid-image
+                    = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
+                  .grid-information
+                    .grid-information__recipename
+                      = o.name
+                    .grid-information__usernickname
+                      = o.user.nickname
+
+            -# - binding.pry
          
             -# - if @yougashis.present?
           -# - @yougashis.each do |yougashi|
