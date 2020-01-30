@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
-  before_action :recipe_post, except: :index
-  before_action :set_recipe, except: [:index, :new, :create, :show, :edit, :update, :category_children]
+  before_action :recipe_post, except: [:index, :show]
+  # before_action :set_recipe, except: [:index, :new, :create, :show, :edit, :update, :category_children]
+  before_action :set_recipe, only: [:show, :edit, :update,:destroy]
   before_action :set_categories
 
   def index
     # if params[:category_id].present? then
     if params[:category_id].present? || params[:category_id].blank? then
-    # if params[:category_id].present? || params[:category_id].blank? && @url == "/categories/:category_id/recipes" then
       # Categoryのデータベースのテーブルから一致するidを取得
       @category = Category.where(id: params[:category_id]).order(created_at: :desc) 
       # category_idと紐づく投稿を取得
@@ -49,7 +49,7 @@ class RecipesController < ApplicationController
       @url = request.path_info
 
       if @recipes.present?
-        flash.now[:alert] = 'カテゴリーのレシピがあります'
+        flash.now[:alert] = 'カテゴリーに当てはまるレシピがあります'
       elsif @url == "/categories/1/recipes"
         if @yougashis1.present?
           flash.now[:alert] = '洋菓子カテゴリーのレシピになります'
@@ -73,7 +73,6 @@ class RecipesController < ApplicationController
       else
         flash.now[:alert] = "カテゴリーのレシピが投稿されていません"
       end
-    # elsif @url == "/recipes"
     # elsif params[:category_id].blank?
     else
       @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
@@ -120,18 +119,24 @@ class RecipesController < ApplicationController
   end
   
   def show
-    # @category = Category.find(params[:id])
+    # if params[:image] != nil
+    #   img = MiniMagick::Image.read(params[:image])
+    #   img.resize_to_fill "400x400" #resizeをresize_to_fillに変更
+    #   # img.write "public/images/hoge.jpg"
+      
+    # end
   end
 
   def edit
     @parents = Category.where(ancestry:nil)
     # 編集する商品を選択
     # @recipe = Recipe.find(params[:id])
-    # 登録されている商品の孫カテゴリーのレコードを取得
+    # 登録されている商品の子カテゴリーのレコードを取得
     @selected_child_category = @recipe.category
     # 子カテゴリー選択肢用の配列作成
     @category_children_array = [{id: "---", name: "---"}]
     Category.find("#{@selected_child_category.id}").siblings.each do |child|
+    # Category.find("#{@selected_child_category.id}").each do |child|
       children_hash = {id: "#{child.id}", name: "#{child.name}"}
       @category_children_array << children_hash
     end
@@ -140,6 +145,7 @@ class RecipesController < ApplicationController
     # 親カテゴリー選択肢用の配列作成
     @category_parents_array = [{id: "---", name: "---"}]
     Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+    # Category.find("#{@selected_parent_category.id}").each do |parent|
       parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
       @category_parents_array << parent_hash
     end
@@ -147,15 +153,16 @@ class RecipesController < ApplicationController
 
   def update
     if @recipe.update(recipe_params)
-      redirect_to root_path
+      render :edit
     else
+      flash.now[:alert] = '編集に失敗しました'
       render :edit
     end
   end
 
   def destroy
     @recipe.destroy
-    redirect_to root_path
+      redirect_to recipes_path
   end
 
   # def select_category
@@ -183,15 +190,15 @@ class RecipesController < ApplicationController
       :method, 
       :category_id,
       recipe_ingredients_attributes: [:id, :ingredients, :quantity, :_destroy], 
-      recipe_images_attributes: [:image, :_destroy], 
-      recipe_videos_attributes: [:video, :_destroy],
-      categories_attributes: [:ids[], :name, :ancestry, :_destroy])
+      recipe_images_attributes: [:image, :_destroy, :id], 
+      recipe_videos_attributes: [:video, :_destroy, :id],
+      # categories_attributes: [:ids[], :name, :ancestry, :_destroy]) :ids[]だとレシピ変更の時にエラーが出る
+      categories_attributes: [:id, :name, :ancestry, :_destroy])
       .merge(user_id: current_user.id)
   end
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
-    
   end
 
   def recipe_post

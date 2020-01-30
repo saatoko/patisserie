@@ -12,56 +12,100 @@
         -# パンくず入れる
         .homemade__topblock.clearfix
           .homemade__topblock--image
-            = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "fabrication-big"
+            .fabrication-big
+              - @recipe.recipe_images.each do |image|
+                = image_tag "#{image.image}", class: "fabrication-big__image", alt: "#{@recipe.name}"
+            -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "fabrication-big"
             %section.fabrication-small
               -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真"
               %article.fabrication-small__grid
-                -# .grid-mini
                 = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-mini"
                 = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-mini"
-              -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真"
+                -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-mini"
                 
-
           .homemade__topblock--video
           .homemade__topblock--description
             .homemade-recipename
               .homemade-recipename__text
-                -# = @recipe.name
-                -# = @recipe.name
+                = @recipe.name
                 .homemade-recipename__text--line
             .homemade-usernickname
               by
-              こっこ
-              -# = @user.nickname
+              = @recipe.user.nickname
             .homemade-recipecookingpoint
               このお菓子のポイント
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbccccccccccccccccccccccccccccccccccccc
-              
-              -# = @recipe.cookingpoint
+              = @recipe.cookingpoint
         
         .homemade__various-buttons
-          .buttons-grid.homemade-nice
-            高評価
-          .buttons-grid.homemade-tsukutta
-            作りました！
-          .buttons-grid.homemade-okiniiri
-            お気に入り
-          .buttons-grid.homemade-hensyu
-            レシピの編集
-          .buttons-grid.homemade-sakujo
-            レシピの削除
-          -# - if user_signed_in? && current_user.id == @recipe.user_id
-          -#   = link_to "レシピを編集する", edit_recipe_path, method: :get, class: "button.hensyu"
-          -#   = link_to "resipiを削除する", recipe_path, method: :delete, class: "button.sakujo"
-          -# - else
-          -#   = link_to "いいね", "#", class: "button.nice"
-          -#   イイネボタン
-        
-        .homemade__ingredients.clearfix
-          
-        
+          - if user_signed_in? && current_user.id == @recipe.user_id
+            = link_to "レシピの編集", edit_recipe_path(@recipe), method: :get, class: "homemade-hensyu", data: {confirm: "修正を行いますか?" }
+            = link_to "レシピの削除", recipe_path(@recipe), method: :delete, class: "homemade-sakujo", data: {confirm: "本当に削除してもよろしいですか?" }
+          - else
+            = link_to "高評価", "#", class: "homemade-nice"
+            = link_to "作りました！", "#", class: "homemade-tsukutta"
+            = link_to "お気に入り", "#", class: "homemade-okiniiri"
 
-      
+        .homemade__detail-icons
+          = link_to "#method-link", class: "homemade-difficulty" do
+            難易度
+            = fa_icon "line-chart", class: "homemade-icons"
+            .homemade-difficulty__detail
+              = @recipe.difficulty.name
+
+          = link_to "#ingredient-link", class: "homemade-servers" do
+            何名分
+            = fa_icon "pie-chart", class: "homemade-icons"
+            .homemade-servers__detail
+              = @recipe.servers
+              名分
+
+          = link_to "#method-link", class: "homemade-cookingtime" do
+            調理時間
+            = fa_icon "hourglass-half", class: "homemade-icons"
+            .homemade-cookingtime__detail
+              = @recipe.cookingtime
+
+          = link_to "#method-link", class: "homemade-restingtime" do
+            生地の休憩時間
+            = fa_icon "hourglass-half", class: "homemade-icons"
+            .homemade-restingtime__detail
+              = @recipe.restingtime
+
+          = link_to "#method-link", class: "homemade-bakingtime" do
+            焼成時間/蒸し時間
+            = fa_icon "hourglass-half", class: "homemade-icons"
+            .homemade-bakingtime__detail
+              = @recipe.bakingtime
+
+          = link_to "#method-link", class: "homemade-bakingtemperature" do
+            焼成温度
+            = fa_icon "signal", class: "homemade-icons"
+            .homemade-bakingtemperature__detail
+              = @recipe.bakingtemperature
+              ℃
+        .homemade__part.clearfix
+          .homemade__part--left
+            .homemade-ingredients.clearfix
+              .homemade-ingredients__text{id: "ingredient-link"}
+                材料と分量
+              .homemade-ingredients__content
+                
+                  
+        
+          .homemade__part--right
+            .homemade-instruments
+              .homemade-instruments__text
+                使用器具
+              .homemade-instruments__content
+                = @recipe.instruments
+                
+        .homemade__method
+          .homemade__method--inner
+            .method--text{id: "method-link"}
+              作り方
+            .method--content
+              = @recipe.method
+ 
         .homemade__footer
           .homemade__footer--text
             2019.SWEETS SITE
