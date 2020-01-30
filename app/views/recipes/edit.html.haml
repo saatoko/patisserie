@@ -1,3 +1,16 @@
--# = render partial: 'form'
+.recipe-post
+  .recipe-post__title
+    .recipe-post__title--text
+      レシピ編集ページ
+      = link_to recipes_path do
+        = fa_icon "coffee", class: "coffee-new"
 
--# 画像の編集をかけるかも
+  .recipe-post__main
+    .recipe-post__main--content
+      .head
+        レシピ編集フォーム
+    
+      .my-recipe
+        = render partial: 'form'
+
+  = render "shared/recipes-footer"  

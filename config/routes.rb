@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
   
   resources :recipes do
+    # resources :images, controller: "recipe_images"
     collection do
       get 'select_category'
       get 'category_children', defaults: { format: 'json' }
@@ -55,4 +56,5 @@ Rails.application.routes.draw do
   resources :categories do  
     resources :recipes
   end
+  resources :images, controller: "recipe_images" 
 end

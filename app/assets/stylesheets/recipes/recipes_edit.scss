@@ -1,0 +1,62 @@
+.recipe-post {
+  position: relative;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  // overflow: scroll;
+  height: auto;
+  &__title {
+    height: 130px;
+    background-color: rgba(250, 202, 139, 0.897);
+    background-image: linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%,), linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%, rgba(255, 205, 139, 0.822));
+    background-position: 0 0, 25px 25px;
+    background-size: 50px 50px;
+    &--text {
+      text-align: center;
+      color: rgb(122, 105, 89);
+      font-weight: bold;
+      line-height: 130px;
+      font-size: 3.0rem;
+      letter-spacing: 20px;
+      display: inline-block;
+    }
+    .coffee-new {
+      display: inline-block;
+      color: $white;
+    }
+  }
+  &__main {
+    background-color: rgba(250, 202, 139, 0.897);
+    background-image: linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%,), linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%, rgba(255, 205, 139, 0.822));
+    background-position: 0 0, 25px 25px;
+    background-size: 50px 50px;
+    height: auto;
+    position: relative;
+    padding: 100px;
+    &--content {
+      padding: 50px;
+      margin: 0 auto;
+      width: 80%;
+      height: auto;
+      background-color: $white;
+      border-top-right-radius: 150px 210px;
+      border-bottom-left-radius: 150px 210px;
+      box-shadow: 4px 4px rgb(80, 68, 57), 10px 5px 10px 10px rgb(122, 105, 89);
+      .head {
+        padding: 50px 20px;
+        font-size: 2.5rem;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 3px;
+        color: rgb(122, 105, 89);
+        position: relative;
+      }
+      .my-recipe {
+        padding: 50px 20px;
+        font-size: 1.6rem;
+        color: rgb(87, 73, 60);
+        position: relative;
+      }
+    }
+  }
+}
