@@ -48,7 +48,7 @@
                     .grid-information__usernickname
                       = o.user.nickname
           
-          - else 
+          - else
             - @recipes.each do |r|
               %article.someone-recipe
                 = link_to recipe_path(r.id), method: :get, class: "someone-recipe__link" do

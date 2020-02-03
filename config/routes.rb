@@ -33,12 +33,9 @@ Rails.application.routes.draw do
   }
 
   # ルーティングにAjax用のパスを指定
-  # root "users#index"
-  root "recipes#show"
-
+  root "users#index"
   
   resources :recipes do
-    # resources :images, controller: "recipe_images"
     collection do
       get 'select_category'
       get 'category_children', defaults: { format: 'json' }

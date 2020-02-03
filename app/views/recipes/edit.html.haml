@@ -11,6 +11,150 @@
         レシピ編集フォーム
     
       .my-recipe
-        = render partial: 'form'
+        -# = form_for(@recipe,url: {controler: "recipes", action: "update" },  html: {class: "double", id: "cake", name: "form-main"} ) do |f| 
+        -# = render partial: 'form', locals: {f: f}
+        = form_for @recipe, html: {class: "double", id: "cake", name: "form-main"} do |f|
+
+          = render 'layouts/error_messages', model: f.object
+
+          .recipe.clearfix
+            .recipe-label
+              = f.label :name
+        
+            .recipe-input
+              = f.text_field :name, placeholder: "例) マカロン", class: 'input-recipe'
+
+          .recipe.clearfix
+            .recipe-label
+              = f.label :お菓子のカテゴリーを選択してください。
+            
+            .recipe-select-wrapper
+              .recipe-select-wrapper__box
+                -# = f.select :category, options_for_select(@category_parents_array.map{|c| [c[:name], c[:id]]}, selected: params[:category_id].to_i), {}
+                
+                -# = f.select :category, options_for_select(@category_children_array.map{|c|[c[:name], c[:id]]}, selected: params[:category_id].to_i), {}
+
+                -# - binding.pry
+                -# {class: 'recipe-select-wrapper__box--select', id: 'parent_category'}
+          .recipe.clearfix
+            .recipe-label
+              = f.label :difficulty_id
+    
+            .recipe-input
+              = f.collection_select :difficulty_id, Difficulty.all, :id, :name, prompt: true, class: "input-recipehash"
+
+          .recipe.clearfix
+            .recipe-label
+              = f.label :servers
+           
+            .recipe-input
+              = f.text_field :servers, placeholder: "例) 4", class: 'input-recipe'
+              人分
+
+          .recipe.clearfix
+            .recipe-label
+              = f.label :cookingtime
+            
+            .recipe-input
+              = f.text_field :cookingtime, placeholder: "例) 1時間40分", class: 'input-recipe'
+
+          .recipe.clearfix
+            .recipe-label
+              = f.label :restingtime
+         
+            .recipe-input
+              = f.text_field :restingtime, placeholder: "例) 一日", class: 'input-recipe'
+
+          .recipe.clearfix
+            .recipe-label
+              = f.label :bakingtime
+            
+            .recipe-input
+              = f.text_field :bakingtime, placeholder: "例) 10分", class: 'input-recipe'
+
+          .recipe.clearfix
+            .recipe-label
+              = f.label :bakingtemperature
+         
+            .recipe-input
+              = f.text_field :bakingtemperature, placeholder: "例) 180", class: 'input-recipe'
+              ℃
+
+          -# 材料分量
+          .recipe.clearfix
+            .recipe-quantity
+              このお菓子の材料と分量
+            
+            %table
+              %tbody 
+                %tr
+                  %th 材料
+                  %th 分量
+                = f.nested_fields_for :recipe_ingredients, wrapper_tag: :tr do |ff|
+                  %td= ff.text_field :ingredients, class: "form-ingredients"
+                  %td= ff.text_field :quantity, class: "form-ingredients"
+                  %td= ff.remove_nested_fields_link '削除', data: { confirm: '本当に削除しますか?' }, class: "recipe-btn btn-ingredients__delete", role: "button"
+            .botton-position
+              = f.add_nested_fields_link :recipe_ingredients, '入力枠の追加', class: "recipe-btn btn-ingredients__add", role: "button"
+
+          .recipe.clearfix
+            .recipe-label
+              = f.label :method
+            
+            .recipe-input
+              = f.text_area :method, placeholder: '例) 1...2...3...', rows: '8', class: "input-recipebig"
+
+          .recipe.clearfix
+            .recipe-label
+              = f.label :cookingpoint
+          
+            .recipe-input
+              = f.text_area :cookingpoint, placeholder: '例) 立てすぎないこと。', rows: '4', class: "input-recipebig"
+
+          .recipe.clearfix
+            .recipe-label
+              = f.label :instruments
+          
+            .recipe-input
+              = f.text_area :instruments, placeholder: '例) ホイッパー、ボール、カード、ゴムベラ、鍋、波刃包丁、まな板、バット、天板、ベイキングシート、オーブン など。 特殊なものがあればぜひお書きください。', rows: '8', class: "input-recipebig"
+
+          -# 画像
+          .recipe.clearfix
+            .recipe-label
+              = f.label :写真を投稿してください。複数投稿可。画像を添付していない入力枠は削除してください。
+      
+            .recipe-input{id: "image-box"}
+              .recipe-input__previews{id: "previews"}
+                
+                - if @recipe.persisted?
+                  - @recipe.recipe_images.each do |image|
+                    -# = image_tag @recipe.recipe_images.ids, data: { index: i }, width: "100", height: '100'
+                    = image_tag "#{image.image}", width: "100", height: '100', alt: "投稿された画像"
+                    -# = image_tag "#{image.image}", data: { index: i }, width: "100", height: '100', alt: "投稿された画像"
+
+              = f.fields_for :recipe_images do |image|
+                .js-file_group{"data-index": "#{image.index}"}
+                  = image.file_field :image, class: "js-file"
+                  .js-remove 削除
+                
+                - if @recipe.persisted?
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+
+              - if @recipe.persisted?
+                .js-file_group{"data-index": "#{@recipe.recipe_images.count}"}
+                  = file_field_tag :image, name: "recipe[recipe_images_attributes][#{@recipe.recipe_images.count}][image]", class: 'js-file'
+                  .js-remove 削除
+
+          -# 動画
+          .recipe.clearfix
+            .recipe-label
+              = f.label :動画を投稿してください。一本のみ可
+            
+            .recipe-input
+              = f.fields_for :recipe_videos do |video|
+                = video.file_field :video, class: "post-video", id: "upload-video"
+
+          .actions-recipe
+            = f.submit "レシピを変更する", class: 'account-btn', data: {disable_with: '修正中...'}
 
   = render "shared/recipes-footer"  

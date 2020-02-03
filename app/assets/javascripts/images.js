@@ -4,11 +4,12 @@ $(document).on('turbolinks:load', function() {
     const html = `<div data-index="${num}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="recipe[recipe_images_attributes][${num}][src]"
-                    id="recipe_recipe_images_attributes_${num}_src"><br>
+                    id="recipe_recipe_images_attributes_${num}_src">
                     <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
+
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
@@ -55,6 +56,4 @@ $(document).on('turbolinks:load', function() {
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
-  
-
 });

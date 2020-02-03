@@ -13,16 +13,16 @@
         .homemade__topblock.clearfix
           .homemade__topblock--image
             .fabrication-big
-              - @recipe.recipe_images.each do |image|
-                = image_tag "#{image.image}", class: "fabrication-big__image", alt: "#{@recipe.name}"
-            -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "fabrication-big"
-            %section.fabrication-small
-              -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真"
-              %article.fabrication-small__grid
-                = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-mini"
-                = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-mini"
-                -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-mini"
-                
+              .fabrication-big__inner
+                - @recipe.recipe_images.each do |image|
+                  = image_tag "#{image.image}", class: "big-photo", alt: "#{@recipe.name}"
+
+            .fabrication-small
+              %ul.fabrication-small__inner
+                - @recipe.recipe_images.each do |image|
+                  %li.fabrication-small__inner--list
+                    = image_tag "#{image.image}", class: "small-photo", alt: "#{@recipe.name}"
+                  
           .homemade__topblock--video
           .homemade__topblock--description
             .homemade-recipename
@@ -88,9 +88,16 @@
             .homemade-ingredients.clearfix
               .homemade-ingredients__text{id: "ingredient-link"}
                 材料と分量
-              .homemade-ingredients__content
-                
-                  
+              - @recipe.recipe_ingredients.each do |i|
+                .homemade-ingredients__content
+                  .homemade-ingredients__content--checkbox
+                    %label
+                      %input{type: "checkbox", class: "checkbox"}
+                      %span.checkbox-icon
+                  .homemade-ingredients__content--ingredient
+                    = i.ingredients
+                  .homemade-ingredients__content--quantity
+                    = i.quantity
         
           .homemade__part--right
             .homemade-instruments
