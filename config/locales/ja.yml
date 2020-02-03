@@ -25,8 +25,8 @@ ja:
         login: ニックネーム or Eメール
       recipe:
         name: お菓子名
-        genre_id: お菓子の種類を選択してください
-        difficulty_id: 難易度を選択してください
+        category: お菓子のカテゴリー
+        difficulty_id: 作業の難易度
         servers: 何名分のレシピ
         cookingtime: お菓子の調理時間
         restingtime: 生地の休憩時間
@@ -37,12 +37,12 @@ ja:
         method: 作り方
       recipe/recipe_images:
         image: 写真を投稿してください(複数投稿可)
-      recipe/recipe_videos:
+      recipe/recipe_video:
         video: 動画を投稿してください(一本のみ可)
       recipe/recipe_ingredients:
         ingredients: 材料
         quantity: 分量
-      category:
+      recipe/category:
         name: お菓子名
         ancestry: 祖先
 

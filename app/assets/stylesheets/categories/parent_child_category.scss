@@ -13,10 +13,10 @@
     height: 60px;
     width: 170px;
     position: relative;
-    // display: block;
+
     .parents-category {
       display: none; 
-      // display: block;
+     
     }
     &:hover {
       transition: all .3s;
@@ -91,3 +91,5 @@
     }
   }
 }
+
+

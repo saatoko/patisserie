@@ -62,29 +62,45 @@
             .fabrication-big {
               width: 100%;
               height: 80%;
-              padding: 0.3rem;
-              &__image {
-                width: auto;
+              overflow: hidden;
+              position: relative;
+              text-align: center;
+              box-sizing: border-box;
+              &__inner {
                 height: 100%;
+                width: 100%;
+                background-color: $papayawhip;
+                .big-photo {
+                  width: auto;
+                  height: 100%;
+                  margin: 0 auto;
+                  display: block;
+                }
               }
             }
             .fabrication-small {
               width: 100%;
               height: 20%;
-              // overflow-x: auto;
-              display: grid;
-              grid-auto-rows: 100%;
-              grid-template-columns: repeat(auto-fill, 20%);
-              grid-auto-flow: rows;
-              grid-auto-rows: 100px;
-              grid-template-columns: repeat(auto-fill, 100px);
-              // justify-content: center; /* グリッド全体を中央に寄せる設定 */
-              &__grid {
-                height: 100%;
+              overflow-x: auto;
+              position: relative;
+              margin-top: 2px;
+              &__inner {
+                display: flex;
+                overflow: hidden;
                 width: 100%;
-                .grid-mini {
+                height: 100%;
+                overflow-x: auto;
+                &--list {
                   height: 100%;
-                  width: 100%;
+                  width: auto;
+                  .small-photo {
+                    border: 1px solid #fafafa;
+                    cursor: pointer;
+                    opacity: 0.7;
+                    &:hover {
+                      opacity: 1;
+                    }
+                  }
                 }
               }
             }
@@ -138,7 +154,7 @@
           grid-template-columns: repeat(5, 1fr);
           background-color: rgb(199, 149, 188);
           grid-gap: 1rem;
-          margin-top: 2.0rem;
+          margin-top: 1.0rem;
           text-align: center;
           height: 100%;
           font-weight: bold;
@@ -337,11 +353,43 @@
               &__content {
                 color: rgba(73, 61, 44, 0.897);
                 font-size: 1.4rem;
-                padding: 0.5rem 3rem 1rem 3rem;
-                
-
-
-                
+                padding: 0 12rem 0 3rem;
+                display: grid;
+                grid-gap: 10px; 
+                grid-template-columns: 100px 2fr 2fr;
+                grid-auto-flow: row;
+                align-items: center;
+                justify-content: center;
+                &--checkbox {
+                  grid-column: 1 / 2;
+                  text-align: right;
+                  label {
+                    .checkbox{
+                      display: none;
+                    }
+                    .checkbox + .checkbox-icon {
+                      position: relative;
+                      vertical-align: middle;
+                      cursor: pointer;
+                    }
+                    .checkbox + .checkbox-icon:before {
+                      content: "\f372";
+                      content: "\f1a5";
+                      color: #ccc;
+                      font-size: 30px;
+                    }
+                    .checkbox:checked + .checkbox-icon:before {
+                      content: "\f374";
+                      color: #0f95b3;
+                    }
+                  }
+                }
+                &--ingredient {
+                  grid-column: 2 / 3;   
+                }
+                &--quantity {
+                  grid-column: 3 / 4;               
+                }
               }
             }
           }

@@ -3,10 +3,12 @@ class RecipesController < ApplicationController
   # before_action :set_recipe, except: [:index, :new, :create, :show, :edit, :update, :category_children]
   before_action :set_recipe, only: [:show, :edit, :update,:destroy]
   before_action :set_categories
+  before_action :category_post, only: [:new, :create]
 
   def index
-    # if params[:category_id].present? then
+    # unless params[:category_id].blank? then
     if params[:category_id].present? || params[:category_id].blank? then
+
       # Categoryのデータベースのテーブルから一致するidを取得
       @category = Category.where(id: params[:category_id]).order(created_at: :desc) 
       # category_idと紐づく投稿を取得
@@ -73,7 +75,7 @@ class RecipesController < ApplicationController
       else
         flash.now[:alert] = "カテゴリーのレシピが投稿されていません"
       end
-    # elsif params[:category_id].blank?
+
     else
       @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
     end
@@ -81,21 +83,10 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-
-    #has_manyまたはhas_and_belongs_to_manyに使用されるassociation.buildメソッド
     @recipe.recipe_images.build
     @recipe.recipe_ingredients.build
-
-    #has_oneまたはbelongs_toの関連付けをする際、build_接頭辞を関連付けのbuildに使用
     @recipe.build_recipe_video
     @recipe.build_category
-
-    #セレクトボックスの初期値設定
-    @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
   end
 
   # 以下全て、formatはjsonのみ
@@ -109,13 +100,20 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    # @recipe = Recipe.create(recipe_params)
+    
     if @recipe.save
       flash.now[:alert] = 'レシピを投稿しました'
       redirect_to recipes_path
+      # render template: "recipes/index.html.haml"
     else
       flash.now[:alert] = '投稿に失敗しました'
-      render :new
+      render action: "new" 
+      # render template: "recipes/new.html.haml"
+      return
     end
+    
+    
   end
   
   def show
@@ -129,40 +127,51 @@ class RecipesController < ApplicationController
 
   def edit
     @parents = Category.where(ancestry:nil)
-    # 編集する商品を選択
-    # @recipe = Recipe.find(params[:id])
     # 登録されている商品の子カテゴリーのレコードを取得
     @selected_child_category = @recipe.category
+
     # 子カテゴリー選択肢用の配列作成
     @category_children_array = [{id: "---", name: "---"}]
+    # @category_children_array = [{id: @selected_child_category.id, name: @selected_child_category.name}]
     Category.find("#{@selected_child_category.id}").siblings.each do |child|
-    # Category.find("#{@selected_child_category.id}").each do |child|
-      children_hash = {id: "#{child.id}", name: "#{child.name}"}
-      @category_children_array << children_hash
+      @children_hash = {id: "#{child.id}", name: "#{child.name}"}
+      @category_children_array << @children_hash
     end
     # 選択されている親カテゴリーのレコードを取得
     @selected_parent_category = @selected_child_category.parent
+
     # 親カテゴリー選択肢用の配列作成
     @category_parents_array = [{id: "---", name: "---"}]
+    # @category_parents_array = [{id: @selected_parent_category.id, name: @selected_parent_category.name}] 
     Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
-    # Category.find("#{@selected_parent_category.id}").each do |parent|
-      parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
-      @category_parents_array << parent_hash
+      @parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
+      @category_parents_array << @parent_hash
+
     end
+
+    # @selected_parent_category = @selected_child_category.parent
+    # Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+    # @category_parents_array = [id: "#{parent.id}", name: "#{parent.name}"]
+    # end
+
   end
 
   def update
     if @recipe.update(recipe_params)
-      render :edit
+      # redirect_to controller: 'recipes', action: 'index'
+      # redirect_to action: 'index'
+      flash.now[:alert] = 'レシピを編集しました'
+      redirect_to "/recipes"
     else
       flash.now[:alert] = '編集に失敗しました'
-      render :edit
+      render :edit and return
     end
+    
   end
 
   def destroy
     @recipe.destroy
-      redirect_to recipes_path
+    redirect_to controller: 'recipes', action: 'index'
   end
 
   # def select_category
@@ -188,11 +197,14 @@ class RecipesController < ApplicationController
       :instruments, 
       :cookingpoint, 
       :method, 
+      # category_ids: [],
       :category_id,
       recipe_ingredients_attributes: [:id, :ingredients, :quantity, :_destroy], 
       recipe_images_attributes: [:image, :_destroy, :id], 
-      recipe_videos_attributes: [:video, :_destroy, :id],
-      # categories_attributes: [:ids[], :name, :ancestry, :_destroy]) :ids[]だとレシピ変更の時にエラーが出る
+      # recipe_videos_attributes: [:video, :_destroy, :id],
+      recipe_video_attributes: [:video, :_destroy, :id],
+      # categories_attributes: [:ids, :name, :ancestry, :_destroy]) 
+      # :ids[]だとレシピ変更の時にエラーが出る
       categories_attributes: [:id, :name, :ancestry, :_destroy])
       .merge(user_id: current_user.id)
   end
@@ -213,6 +225,14 @@ class RecipesController < ApplicationController
     @category_children3 = Category.where(ancestry: 3)
   end
 
+  def category_post
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
   # def set_categories
   #   # @categories = Category.eager_load(children: :children).where(ancestry: nil)  
   #   # @categories = Category.all

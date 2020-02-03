@@ -9,7 +9,7 @@
         -# .kashi 洋菓子
         %ul.children-category
           = render partial: "categories/child_category", collection: @category_children1, as: "category"
-            
+              
       %li.parents-category__parent
         -# - unless wagashi.blank?
         = link_to "和菓子", category_recipes_path(wagashi.ids.first)
