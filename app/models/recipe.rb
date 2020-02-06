@@ -7,9 +7,14 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :recipe_images,      allow_destroy: true
   has_one    :recipe_video,       dependent: :destroy
   accepts_nested_attributes_for :recipe_video,       allow_destroy: true
-
   belongs_to :category, optional: true
-  
+
+  has_many :votes, dependent: :destroy
+  # レシピをいいねする
+  def vote_user(user_id)
+    votes.find_by(user_id: user_id)
+  end
+
   validates :user,              presence: true
   validates :category,          presence: true
   validates :name,              presence: true
@@ -22,9 +27,9 @@ class Recipe < ApplicationRecord
   validates :instruments,       presence: true
   validates :cookingpoint,      presence: true
   validates :method,            presence: true
+  validates :votes_count,       presence: true
   
   extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :genre
   belongs_to_active_hash :difficulty
 end
 

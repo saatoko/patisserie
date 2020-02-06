@@ -7,29 +7,15 @@ class RecipesController < ApplicationController
 
   def index
     # unless params[:category_id].blank? then
-    if params[:category_id].present? || params[:category_id].blank? then
+    
+    # if params[:category_id].present? || params[:category_id].blank? then
 
       # Categoryのデータベースのテーブルから一致するidを取得
       @category = Category.where(id: params[:category_id]).order(created_at: :desc) 
       # category_idと紐づく投稿を取得
       @recipes = Recipe.all.where(category_id: @category).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.where(category_id: @category).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
 
-      # @YOUGASHI = Category.find(1)
-      # @YOUGASHIS = @YOUGASHI.children
-      # @yougashis =  Recipe.all.where(category_id: @YOUGASHIS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @yougashi = Recipe.all.where(category_id: @YOUGASHIS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
-
-      # @WAGASHI = Category.find(2)
-      # @WAGASHIS = @WAGASHI.children
-      # @wagashis =  Recipe.all.where(category_id: @WAGASHIS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @wagashis = Recipe.all.where(category_id: @WAGASHIS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
-
-      # @OTHER = Category.find(3)
-      # @OTHERS = @OTHER.children
-      # @others =  Recipe.all.where(category_id: @OTHERS).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @others = Recipe.all.where(category_id: @OTHERS).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
-
-      # @yougashis = @recipes.where(category_id: [4,5,6,7,8,9,10,11,12,13,14,15,16,17])
-      # @wagashis = @recipes.where(category_id: [18,19,20,21])
-      # @others = @recipes.where(category_id: [22,23])
-
+      @RECIPES = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
 
       @main_categories = Category.eager_load(:children).where(ancestry: nil)
       @YOUGASHI = @main_categories.find_by name: "洋菓子"
@@ -76,9 +62,9 @@ class RecipesController < ApplicationController
         flash.now[:alert] = "カテゴリーのレシピが投稿されていません"
       end
 
-    else
-      @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
-    end
+    # else
+    #   @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').limit(20) || @recipes = Recipe.all.includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').limit(20)
+    # end
   end
 
   def new
@@ -187,7 +173,6 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(
       :name, 
-      # :genre_id, 
       :difficulty_id, 
       :servers, 
       :cookingtime, 
@@ -197,14 +182,13 @@ class RecipesController < ApplicationController
       :instruments, 
       :cookingpoint, 
       :method, 
-      # category_ids: [],
       :category_id,
+      :votes_count,
+      votes_attributes: [:id, :user_id, :recipes_id, :_destroy],
       recipe_ingredients_attributes: [:id, :ingredients, :quantity, :_destroy], 
       recipe_images_attributes: [:image, :_destroy, :id], 
       # recipe_videos_attributes: [:video, :_destroy, :id],
       recipe_video_attributes: [:video, :_destroy, :id],
-      # categories_attributes: [:ids, :name, :ancestry, :_destroy]) 
-      # :ids[]だとレシピ変更の時にエラーが出る
       categories_attributes: [:id, :name, :ancestry, :_destroy])
       .merge(user_id: current_user.id)
   end

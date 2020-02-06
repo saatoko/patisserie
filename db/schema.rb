@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200106105437) do
+ActiveRecord::Schema.define(version: 20200204125610) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -56,20 +56,21 @@ ActiveRecord::Schema.define(version: 20200106105437) do
   end
 
   create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",                         null: false
-    t.string   "name",                            null: false
-    t.integer  "difficulty_id",                   null: false
-    t.string   "servers",                         null: false
-    t.string   "cookingtime",                     null: false
-    t.string   "restingtime",                     null: false
-    t.string   "bakingtime",                      null: false
-    t.string   "bakingtemperature",               null: false
-    t.text     "instruments",       limit: 65535, null: false
-    t.text     "cookingpoint",      limit: 65535, null: false
-    t.text     "method",            limit: 65535, null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer  "user_id",                                     null: false
+    t.string   "name",                                        null: false
+    t.integer  "difficulty_id",                               null: false
+    t.string   "servers",                                     null: false
+    t.string   "cookingtime",                                 null: false
+    t.string   "restingtime",                                 null: false
+    t.string   "bakingtime",                                  null: false
+    t.string   "bakingtemperature",                           null: false
+    t.text     "instruments",       limit: 65535,             null: false
+    t.text     "cookingpoint",      limit: 65535,             null: false
+    t.text     "method",            limit: 65535,             null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "category_id"
+    t.integer  "votes_count",                     default: 0, null: false
     t.index ["category_id"], name: "index_recipes_on_category_id", using: :btree
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
   end
@@ -91,6 +92,16 @@ ActiveRecord::Schema.define(version: 20200106105437) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "recipe_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_votes_on_recipe_id", using: :btree
+    t.index ["user_id", "recipe_id"], name: "index_votes_on_user_id_and_recipe_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_votes_on_user_id", using: :btree
+  end
+
   add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
   add_foreign_key "recipe_images", "recipes"
@@ -98,4 +109,6 @@ ActiveRecord::Schema.define(version: 20200106105437) do
   add_foreign_key "recipe_videos", "recipes"
   add_foreign_key "recipes", "categories"
   add_foreign_key "recipes", "users"
+  add_foreign_key "votes", "recipes"
+  add_foreign_key "votes", "users"
 end
