@@ -1,5 +1,3 @@
-// idに対するレシピページ用
-
 .recipe-show
   .recipe-show__spacetop
   .recipe-show__contents
@@ -37,13 +35,15 @@
               = @recipe.cookingpoint
         
         .homemade__various-buttons
+          %li.homemade-nice
+            いいね!
+            %span{id: "like-buttons_#{@recipe.id}"}
+              = render partial: "votes/votes", locals: { recipe: @recipe }
+
           - if user_signed_in? && current_user.id == @recipe.user_id
             = link_to "レシピの編集", edit_recipe_path(@recipe), method: :get, class: "homemade-hensyu", data: {confirm: "修正を行いますか?" }
             = link_to "レシピの削除", recipe_path(@recipe), method: :delete, class: "homemade-sakujo", data: {confirm: "本当に削除してもよろしいですか?" }
-          - else
-            = link_to "高評価", "#", class: "homemade-nice"
-            = link_to "作りました！", "#", class: "homemade-tsukutta"
-            = link_to "お気に入り", "#", class: "homemade-okiniiri"
+           
 
         .homemade__detail-icons
           = link_to "#method-link", class: "homemade-difficulty" do
@@ -87,7 +87,7 @@
           .homemade__part--left
             .homemade-ingredients.clearfix
               .homemade-ingredients__text{id: "ingredient-link"}
-                材料と分量
+                材料と分量(用意したらチェック)
               - @recipe.recipe_ingredients.each do |i|
                 .homemade-ingredients__content
                   .homemade-ingredients__content--checkbox
@@ -113,6 +113,6 @@
             .method--content
               = @recipe.method
  
-        .homemade__footer
-          .homemade__footer--text
-            2019.SWEETS SITE
+  .recipe-show__footer
+    .recipe-show__footer--text
+      2019.SWEETS SITE

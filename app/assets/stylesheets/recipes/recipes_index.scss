@@ -45,7 +45,7 @@
             border: 1px solid #e6e6e6;
             display: block;
             height: 435px;
-            // padding: 0;
+            padding: 0;
             margin: 10px 10px 20px;
             position: relative;
             &__link {
@@ -75,20 +75,55 @@
               padding-top: 0;
               width: auto;
               height: 20%;
-              padding: 5px;
-              &__recipename {
-                // padding: 6px 5px 8px 5px;
-                text-align: left;
-                height: 50%;
-                width: 100%;
-                text-decoration: none;
+              &::after {
+                content: "";
+                display: block;
+                clear: both;
               }
-              &__usernickname {
-                // padding: 6px 5px 8px 5px;
-                padding-bottom: 0;
-                width: 100%;
+              &__content {
+                float: left;
                 text-align: left;
-                height: 50%;
+                height: 100%;
+                width: 50%;
+                text-decoration: none;
+                &--recipename {
+                  height: 50%;
+                  width: 100%;
+                  .recipename-text {
+                    padding: 5px 10px;
+                    box-sizing: border-box;
+                    height: 100%;
+                    width: 100%;
+                    font-size: 1.5rem;
+                  }
+                }
+                &--usernickname {
+                  height: 50%;
+                  width: 100%;
+                  top: 50%;
+                  .usernickname-text {
+                    padding: 5px 10px;
+                    box-sizing: border-box;
+                    height: 100%;
+                    width: 100%;
+                    font-size: 1.2rem;
+                  }
+                }
+              }
+              &__heart {
+                float: right;
+                height: 100%;
+                width: 50%;
+                &--content {
+                  box-sizing: border-box;
+                  height: 100%;
+                  width: 100%;
+                  padding: 5px 10px;
+                  color: pink;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
               }
             }
           }

@@ -14,12 +14,20 @@
                   .grid-image
                     - y.recipe_images.each do |image|
                       = image_tag "#{image.image}", class: "grid-image__inner", alt: "#{y.name}"
-                      -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
-                  .grid-information
-                    .grid-information__recipename
-                      = y.name
-                    .grid-information__usernickname
-                      = y.user.nickname
+                  .grid-information.clearfix
+                    .grid-information__content
+                      .grid-information__content--recipename
+                        .recipename-text
+                          = y.name
+                      .grid-information__content--usernickname
+                        .usernickname-text
+                          by.
+                          = y.user.nickname
+                    .grid-information__heart
+                      - if y.votes_count > 0 then
+                        %i.fa.fa-heart.fa-3x{class: "grid-information__heart--content"}
+                          = y.votes_count
+
           - elsif @url == "/categories/2/recipes" && @wagashis1.present?
             - @wagashis1.each do |w|
               %article.someone-recipe
@@ -27,12 +35,19 @@
                   .grid-image
                     - w.recipe_images.each do |image|
                       = image_tag "#{image.image}", class: "grid-image__inner", alt: "#{w.name}"
-                      -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
-                  .grid-information
-                    .grid-information__recipename
-                      = w.name
-                    .grid-information__usernickname
-                      = w.user.nickname
+                  .grid-information.clearfix
+                    .grid-information__content
+                      .grid-information__content--recipename
+                        .recipename-text
+                          = w.name
+                      .grid-information__content--usernickname
+                        .usernickname-text
+                          by.
+                          = w.user.nickname
+                    .grid-information__heart
+                      - if w.votes_count > 0 then
+                        %i.fa.fa-heart.fa-3x{class: "grid-information__heart--content"}
+                          = w.votes_count
 
           - elsif @url == "/categories/3/recipes" && @others1.present?
             - @others1.each do |o|
@@ -41,26 +56,61 @@
                   .grid-image
                     - o.recipe_images.each do |image|
                       = image_tag "#{image.image}", class: "grid-image__inner", alt: "#{o.name}"
-                      -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
-                  .grid-information
-                    .grid-information__recipename
-                      = o.name
-                    .grid-information__usernickname
-                      = o.user.nickname
+                  .grid-information.clearfix
+                    .grid-information__content
+                      .grid-information__content--recipename
+                        .recipename-text
+                          = o.name
+                      .grid-information__content--usernickname
+                        .usernickname-text
+                          by.
+                          = o.user.nickname
+                    .grid-information__heart
+                      - if o.votes_count > 0 then
+                        %i.fa.fa-heart.fa-3x{class: "grid-information__heart--content"}
+                          = o.votes_count
           
-          - else
-            - @recipes.each do |r|
+          - elsif @url == "/recipes" 
+            - @RECIPES.each do |r|
               %article.someone-recipe
                 = link_to recipe_path(r.id), method: :get, class: "someone-recipe__link" do
                   .grid-image
                     - r.recipe_images.each do |image|
                       = image_tag "#{image.image}", class: "grid-image__inner", alt: "#{r.name}"
-                      -# = image_tag "IMG_20190106_182431553.jpg", alt: "お菓子の写真", class: "grid-image__inner"
-                  .grid-information
-                    .grid-information__recipename
-                      = r.name
-                    .grid-information__usernickname
-                      = r.user.nickname
+                  .grid-information.clearfix
+                    .grid-information__content
+                      .grid-information__content--recipename
+                        .recipename-text
+                          = r.name
+                      .grid-information__content--usernickname
+                        .usernickname-text
+                          by.
+                          = r.user.nickname
+                    .grid-information__heart
+                      - if r.votes_count > 0 then
+                        %i.fa.fa-heart.fa-3x{class: "grid-information__heart--content"}
+                          = r.votes_count
+          
+          - else
+            - @recipes.each do |c|
+              %article.someone-recipe
+                = link_to recipe_path(c.id), method: :get, class: "someone-recipe__link" do
+                  .grid-image
+                    - c.recipe_images.each do |image|
+                      = image_tag "#{image.image}", class: "grid-image__inner", alt: "#{c.name}"
+                  .grid-information.clearfix
+                    .grid-information__content
+                      .grid-information__content--recipename
+                        .recipename-text
+                          = c.name
+                      .grid-information__content--usernickname
+                        .usernickname-text
+                          by.
+                          = c.user.nickname
+                    .grid-information__heart
+                      - if c.votes_count > 0 then
+                        %i.fa.fa-heart.fa-3x{class: "grid-information__heart--content"}
+                          = c.votes_count
 
     .recipe-index__contents--spacebottom
     

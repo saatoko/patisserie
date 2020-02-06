@@ -41,6 +41,7 @@ Rails.application.routes.draw do
       get 'category_children', defaults: { format: 'json' }
       get 'set_categories'
     end
+    resources :votes, only: [:create, :destroy]
   end
  
   # resources :categories

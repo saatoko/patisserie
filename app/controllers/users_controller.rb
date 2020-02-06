@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit]
 
   def index
-    # @user = current_user
     @users = User.all
   end
 
@@ -15,6 +14,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by(id: params[:id])
+    @votes = Vote.where(user_id: @user.id)
   end
 
   def edit
@@ -30,7 +31,14 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :gender_id, :profession_id, :password, :profile)
+    params.require(:user).permit(
+      :nickname, 
+      :email, 
+      :gender_id, 
+      :profession_id, 
+      :password, 
+      :profile,
+      votes_attributes: [:id, :user_id, :recipes_id])
   end
 
   def set_user
