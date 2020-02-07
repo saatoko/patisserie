@@ -62,7 +62,6 @@ gem 'active_hash'
 gem 'pry-rails'
 gem 'owlcarousel-rails'
 gem 'jquery-rails'
-gem "cocoon"
 gem 'nested_form_fields'
 gem 'ancestry'
 gem 'seed-fu'
