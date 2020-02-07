@@ -22,6 +22,8 @@
                     = image_tag "#{image.image}", class: "small-photo", alt: "#{@recipe.name}"
                   
           .homemade__topblock--video
+            
+
           .homemade__topblock--description
             .homemade-recipename
               .homemade-recipename__text
@@ -43,7 +45,6 @@
           - if user_signed_in? && current_user.id == @recipe.user_id
             = link_to "レシピの編集", edit_recipe_path(@recipe), method: :get, class: "homemade-hensyu", data: {confirm: "修正を行いますか?" }
             = link_to "レシピの削除", recipe_path(@recipe), method: :delete, class: "homemade-sakujo", data: {confirm: "本当に削除してもよろしいですか?" }
-           
 
         .homemade__detail-icons
           = link_to "#method-link", class: "homemade-difficulty" do
@@ -105,13 +106,23 @@
                 使用器具
               .homemade-instruments__content
                 = @recipe.instruments
-                
+        
+        
         .homemade__method
           .homemade__method--inner
             .method--text{id: "method-link"}
               作り方
             .method--content
               = @recipe.method
+
+        .homemade__video
+          .homemade__video--inner
+            .video--text
+              動画
+            .video--content
+              - if @recipe.recipe_video.present?
+
+                = video_tag "#{@recipe.recipe_video.video}", class: "show-video"
  
   .recipe-show__footer
     .recipe-show__footer--text

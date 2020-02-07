@@ -1,4 +1,3 @@
--# = form_for [@recipe], html: {class: "double", id: "cake", name: "form-main"} do |f|
 = form_for [@recipe], html: {id: "cake"} do |f|
   -# = hidden_field_tag :authenticity_token, form_authenticity_token
 
@@ -116,7 +115,7 @@
 
       = f.fields_for :recipe_images do |image|
         .js-file_group.clearfix{"data-index": "#{image.index}"}
-          = image.file_field :image, class: "js-file"
+          = image.file_field :image, accept: "image/*", class: "js-file"
           .js-remove 削除
 
         - if @recipe.persisted?
@@ -132,13 +131,14 @@
     .recipe-label
       = f.label :動画を投稿してください。一本のみ可
       .hissu.require 任意
-    .recipe-input
-      = f.fields_for :recipe_videos do |video|
-        = video.file_field :video, class: "post-video", id: "upload-video"
-   
+    .recipe-input{id: "video-box"}
+      = f.fields_for :recipe_video do |video|
+        = video.file_field :video, accept: "video/*", class: "post-video", id: "upload-video"
+        = fa_icon "file-video-o", id: "video-icon", class: "video_choice"
+  
   .actions-recipe
     = f.submit "レシピを投稿する", class: 'account-btn', data: {disable_with: '投稿中...'}
-
+  
 -# cocoon
 -# 材料分量
 -# .recipe.clearfix

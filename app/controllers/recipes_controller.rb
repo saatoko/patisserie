@@ -139,7 +139,7 @@ class RecipesController < ApplicationController
     # Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
     # @category_parents_array = [id: "#{parent.id}", name: "#{parent.name}"]
     # end
-
+    @recipe.build_recipe_video
   end
 
   def update
@@ -187,7 +187,6 @@ class RecipesController < ApplicationController
       votes_attributes: [:id, :user_id, :recipes_id, :_destroy],
       recipe_ingredients_attributes: [:id, :ingredients, :quantity, :_destroy], 
       recipe_images_attributes: [:image, :_destroy, :id], 
-      # recipe_videos_attributes: [:video, :_destroy, :id],
       recipe_video_attributes: [:video, :_destroy, :id],
       categories_attributes: [:id, :name, :ancestry, :_destroy])
       .merge(user_id: current_user.id)

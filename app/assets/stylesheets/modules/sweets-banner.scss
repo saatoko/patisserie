@@ -3,13 +3,18 @@
   // position: sticky;
   .owl-stage-outer {
     height: 20rem;
+    height: 320px;
     .owl-stage {
       height: 20rem;
+      .sweets-banner__images {
+        background-color: black;
+        &--item {
+          height: 20rem;
+          width: auto;
+          margin: 0 auto;
+        }
+      }
     }
-      // .owl-item
-        // .sweets-banner--images
-          // &--item
-    
   }
   .owl-dots {
     display: none;

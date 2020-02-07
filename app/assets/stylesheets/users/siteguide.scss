@@ -72,57 +72,96 @@
     background-position: 0 0, 25px 25px;
     background-size: 50px 50px;
     padding: 100px 0;
+    width: 100%;
+    height: 100%;
+    
     .text-title{
       color: $white;
       font-size: 2.4rem;
       text-align: center;
       padding-bottom: 40px;
+      letter-spacing: 2rem;
+      font-weight: bold;
+      border-bottom: 2px solid $white;
+      text-shadow: #6b5c33 1px 1px 2px, #a79050 0 0 20px;
     }
     &__contents {
-      display: table;
-      table-layout: fixed;
+      display: grid;
+      grid-template-columns: 25% 1fr;
+      grid-template-rows: 300px;
       width: 100%;
-      border: 2px solid $white;
-      border-collapse: separate;
-      border-spacing: 100px 50px;
-      .aboutme-box{
-        display: table-cell;
-        // border: 2px solid yellow;
+      height: 100%;
+      font-size: 1.5rem;
+      text-align: center;
+      color: #291a1a;
+      .aboutme-box {
+        grid-column: 1 / 2;
+        display: inline-grid;
+        grid-template-rows: 100px auto;
+
         &__name {
-          font-size: 2.5rem;
+          grid-row: 1 / 2;
+          grid-column: 1 / 2;
+          letter-spacing: 1.2rem;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          text-shadow: #6b5c33 1px 1px 2px, #a79050 0 0 20px;
           color: $white;
-          font-weight: bold;
-          letter-spacing: 1.5rem;
-          position: relative;
-          display: inline-block;
-          text-shadow: rgb(158, 0, 92) 1px 1px 2px, rgb(230, 37, 156) 0 0 20px;
-          padding-bottom: 15px;
+          border-bottom: 2px solid $white;
+          font-size: 1.8rem;
+          
         }
         &__text {
-          margin: 15px 30px;
-          font-size: 1.5rem;
-          background-color: $white;
-          word-wrap: break-word;
+          grid-row: 2 / 3;
+          font-size: 1.2rem;
+          white-space: pre-line;
+          padding: 2rem;
+          box-sizing: border-box;
+
         }
       }
+
       .thissite-box {
-        display: table-cell;
-        // border: 2px solid yellow;
+        grid-column: 2 / 3;
+        display: inline-grid;
+        grid-template-rows: 100px auto;
+        grid-template-columns: 1fr 1fr 1fr;
         &__description {
-          font-size: 2.5rem;
+          grid-row: 1 / 2;
+          grid-column: 1 / 4;
+          letter-spacing: 1.2rem;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          text-shadow: #6b5c33 1px 1px 2px, #a79050 0 0 20px;
           color: $white;
-          font-weight: bold;
-          letter-spacing: 1.5rem;
-          position: relative;
-          display: inline-block;
-          text-shadow: rgb(52, 214, 255) 1px 1px 2px, rgb(37, 40, 230) 0 0 20px;
-          padding-bottom: 15px;
+          border-bottom: 2px solid $white;
+          font-size: 1.8rem;
         }
-        &__text {
-          margin: 15px 30px;
-          font-size: 1.5rem;
-          background-color: $white;
-          word-wrap: break-word;
+        &__user {
+          grid-row: 2 / 3;
+          grid-column: 1 / 2;
+          white-space: pre-line;
+          font-size: 1.2rem;
+          padding: 2rem;
+          box-sizing: border-box;
+        }
+        &__recipe {
+          grid-row: 2 / 3;
+          grid-column: 2 / 3;
+          white-space: pre-line;
+          font-size: 1.2rem;
+          padding: 2rem;
+          box-sizing: border-box;
+        }
+        &__gem {
+          grid-row: 2 / 3;
+          grid-column: 3 / 4;
+          white-space: pre-line;
+          font-size: 1.2rem;
+          padding: 2rem;
+          box-sizing: border-box;
         }
       }
     }
