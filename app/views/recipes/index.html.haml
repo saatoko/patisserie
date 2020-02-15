@@ -1,7 +1,7 @@
 .recipe-wrapper
   = render partial: 'shared/recipes-header', locals: {category: @category, yougashi: @yougashi, wagashi: @wagashi, other: @other}
   = render "shared/sweets-banner"
-  -# パンくず機能入れる
+
   .recipe-index__contents
     .recipe-index__contents--spacetop
     .recipe-index__contents--spaceside
@@ -25,7 +25,7 @@
                           = y.user.nickname
                     .grid-information__heart
                       - if y.votes_count > 0 then
-                        %i.fa.fa-heart.fa-3x{class: "grid-information__heart--content"}
+                        %i.fa.fa-heart.fa-2x{class: "grid-information__heart--content"}
                           = y.votes_count
 
           - elsif @url == "/categories/2/recipes" && @wagashis1.present?
@@ -46,7 +46,7 @@
                           = w.user.nickname
                     .grid-information__heart
                       - if w.votes_count > 0 then
-                        %i.fa.fa-heart.fa-3x{class: "grid-information__heart--content"}
+                        %i.fa.fa-heart.fa-2x{class: "grid-information__heart--content"}
                           = w.votes_count
 
           - elsif @url == "/categories/3/recipes" && @others1.present?
@@ -67,7 +67,7 @@
                           = o.user.nickname
                     .grid-information__heart
                       - if o.votes_count > 0 then
-                        %i.fa.fa-heart.fa-3x{class: "grid-information__heart--content"}
+                        %i.fa.fa-heart.fa-2x{class: "grid-information__heart--content"}
                           = o.votes_count
           
           - elsif @url == "/recipes" 
@@ -88,7 +88,7 @@
                           = r.user.nickname
                     .grid-information__heart
                       - if r.votes_count > 0 then
-                        %i.fa.fa-heart.fa-3x{class: "grid-information__heart--content"}
+                        %i.fa.fa-heart.fa-2x{class: "grid-information__heart--content"}
                           = r.votes_count
           
           - else
@@ -109,9 +109,23 @@
                           = c.user.nickname
                     .grid-information__heart
                       - if c.votes_count > 0 then
-                        %i.fa.fa-heart.fa-3x{class: "grid-information__heart--content"}
+                        %i.fa.fa-heart.fa-2x{class: "grid-information__heart--content"}
                           = c.votes_count
 
+    = render partial: 'shared/pagetop-btn'
+
+    .pagenation-wrapper
+      - if @url == "/categories/1/recipes" && @yougashis1.present?
+        = paginate @yougashis1
+      - elsif @url == "/categories/2/recipes" && @wagashis1.present?
+        = paginate @wagashis1
+      - elsif @url == "/categories/3/recipes" && @others1.present?
+        = paginate @others1
+      - elsif @url == "/recipes" 
+        = paginate @RECIPES
+      - else
+        = paginate @recipes
+
     .recipe-index__contents--spacebottom
-    
+
   = render "shared/recipes-footer"

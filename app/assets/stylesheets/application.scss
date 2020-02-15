@@ -8,18 +8,20 @@
 @import "mixin/ingredient-btn";
 @import "mixin/scrollbar";
 @import "mixin/design-line";
+@import "mixin/left-in-right";
 
 // modules
 @import "modules/recipes-header";
 @import "modules/recipes-footer";
 @import "modules/sweets-banner";
 @import "modules/login.scss";
-@import "modules/logout.scss";
 @import "modules/signup.scss";
 @import "modules/account-header.scss";
 @import "modules/account-footer.scss";
 @import "modules/error_messages.scss";
 @import "modules/flash.scss";
+@import "modules/pagetop-btn.scss";
+@import "modules/pagenation.scss";
 
 // users
 @import "users/users_index";

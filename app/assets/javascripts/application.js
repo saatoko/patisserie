@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require owl.carousel
-//= require cocoon
 //= require nested_form_fields
 
 

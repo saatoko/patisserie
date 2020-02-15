@@ -1,14 +1,13 @@
 .recipe-header
-  .recipe-header__title
+  .recipe-header__title{id: "pagetop-link"}
     SWEETS SITE
     = link_to "/users/siteguide", class: "coffee-recipesheader" do
-      = fa_icon "coffee"
+      = fa_icon "coffee", class: "coffee-index"
 
   .recipe-header__navigation
     .recipe-header__navigation--inner
       = render partial: 'categories/parent_category', locals: {category: category, yougashi: yougashi, wagashi: wagashi, other: other}
-      -# - binding.pry
-      
+
       %ul.inner-right
         %li
           %a.sweets-banner.play スライド再生

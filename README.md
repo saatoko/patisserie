@@ -71,6 +71,7 @@
 |------|----|-------|
 |recipe_id|references|foreign_key: true|
 |video|string|
+|description|text|
 
 ### Association
 - belongs_to :recipe

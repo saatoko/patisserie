@@ -3,4 +3,5 @@ class RecipeVideo < ApplicationRecord
   mount_uploader :video, VideoUploader
 
   validates :video, presence: true
+  validates :description, presence: true
 end

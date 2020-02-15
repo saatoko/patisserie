@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200204125610) do
+ActiveRecord::Schema.define(version: 20200209164843) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 20200204125610) do
   create_table "recipe_videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "recipe_id"
     t.string   "video"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.text     "description", limit: 65535
     t.index ["recipe_id"], name: "index_recipe_videos_on_recipe_id", using: :btree
   end
 

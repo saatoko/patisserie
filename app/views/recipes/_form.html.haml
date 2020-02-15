@@ -1,19 +1,19 @@
 = form_for [@recipe], html: {id: "cake"} do |f|
-  -# = hidden_field_tag :authenticity_token, form_authenticity_token
+  -# = %spanhidden_field_tag :authenticity_token, form_authenticity_token
 
   = render 'layouts/error_messages', model: f.object
 
   .recipe.clearfix
     .recipe-label
       = f.label :name
-      .hissu.required 必須
+      %span.hissu.required 必須
     .recipe-input
       = f.text_field :name, placeholder: "例) マカロン", class: 'input-recipe'
 
   .recipe.clearfix
     .recipe-label
       = f.label :お菓子のカテゴリーを選択してください。
-      .hissu.required 必須
+      %span.hissu.required 必須
     .recipe-select-wrapper
       .recipe-select-wrapper__box
         = f.select :category, @category_parent_array, {}, {class: 'recipe-select-wrapper__box--select', id: 'parent_category'} 
@@ -21,14 +21,14 @@
   .recipe.clearfix
     .recipe-label
       = f.label :difficulty_id
-      .hissu.require 必須
+      %span.hissu.require 必須
     .recipe-input
       = f.collection_select :difficulty_id, Difficulty.all, :id, :name, prompt: true, class: "input-recipehash"
 
   .recipe.clearfix
     .recipe-label
       = f.label :servers
-      .hissu.require 必須
+      %span.hissu.require 必須
     .recipe-input
       = f.text_field :servers, placeholder: "例) 4", class: 'input-recipe'
       人分
@@ -36,28 +36,28 @@
   .recipe.clearfix
     .recipe-label
       = f.label :cookingtime
-      .hissu.requere 必須
+      %span.hissu.requere 必須
     .recipe-input
       = f.text_field :cookingtime, placeholder: "例) 1時間40分", class: 'input-recipe'
 
   .recipe.clearfix
     .recipe-label
       = f.label :restingtime
-      .hissu.requere 必須
+      %span.hissu.requere 必須
     .recipe-input
       = f.text_field :restingtime, placeholder: "例) 一日", class: 'input-recipe'
 
   .recipe.clearfix
     .recipe-label
       = f.label :bakingtime
-      .hissu.requere 必須
+      %span.hissu.requere 必須
     .recipe-input
       = f.text_field :bakingtime, placeholder: "例) 10分", class: 'input-recipe'
 
   .recipe.clearfix
     .recipe-label
       = f.label :bakingtemperature
-      .hissu.require 必須
+      %span.hissu.require 必須
     .recipe-input
       = f.text_field :bakingtemperature, placeholder: "例) 180", class: 'input-recipe'
       ℃
@@ -66,7 +66,7 @@
   .recipe.clearfix
     .recipe-quantity
       このお菓子の材料と分量
-      .hissu.require 必須
+      %span.hissu.require 必須
     %table
       %tbody 
         %tr
@@ -82,21 +82,21 @@
   .recipe.clearfix
     .recipe-label
       = f.label :method
-      .hissu.require 必須
+      %span.hissu.require 必須
     .recipe-input
       = f.text_area :method, placeholder: '例) 1...2...3...', rows: '8', class: "input-recipebig"
 
   .recipe.clearfix
     .recipe-label
       = f.label :cookingpoint
-      .hissu.require 必須
+      %span.hissu.require 必須
     .recipe-input
       = f.text_area :cookingpoint, placeholder: '例) 立てすぎないこと。', rows: '4', class: "input-recipebig"
 
   .recipe.clearfix
     .recipe-label
       = f.label :instruments
-      .hissu.require 必須
+      %span.hissu.require 必須
     .recipe-input
       = f.text_area :instruments, placeholder: '例) ホイッパー、ボール、カード、ゴムベラ、鍋、波刃包丁、まな板、バット、天板、ベイキングシート、オーブン など。 特殊なものがあればぜひお書きください。', rows: '8', class: "input-recipebig"
 
@@ -105,7 +105,7 @@
     .recipe-label
       .recipe-label__image
         = f.label :写真を投稿してください。複数投稿可。画像を添付していない入力枠は削除してください。
-      .hissu.require 必須
+        %span.hissu.require 必須
     .recipe-input{id: "image-box"}
       .recipe-input__previews{id: "previews"}
         
@@ -126,16 +126,26 @@
           = file_field_tag :image, name: "recipe[recipe_images_attributes][#{@recipe.recipe_images.count}][image]", class: 'js-file'
           .js-remove 削除
 
+  .border-line
+
   -# 動画
   .recipe.clearfix
     .recipe-label
       = f.label :動画を投稿してください。一本のみ可
-      .hissu.require 任意
+      %span.ninni.require 任意
     .recipe-input{id: "video-box"}
       = f.fields_for :recipe_video do |video|
         = video.file_field :video, accept: "video/*", class: "post-video", id: "upload-video"
         = fa_icon "file-video-o", id: "video-icon", class: "video_choice"
-  
+    
+  .recipe.clearfix
+    .recipe-label
+      = f.label :動画説明文
+      %span.ninni.require 任意
+    .recipe-input
+      = f.fields_for :recipe_video do |video|
+        = video.text_area :description, placeholder: "投稿した動画の解説を入力してください", rows: '4', class: "input-recipebig"
+
   .actions-recipe
     = f.submit "レシピを投稿する", class: 'account-btn', data: {disable_with: '投稿中...'}
   
@@ -149,15 +159,6 @@
 -#       = render 'recipe_ingredient_fields', f: ingredient
 -#     .links
 -#       = link_to_add_association '入力枠を増やす', f, :recipe_ingredients
-
--# nested_form_field
--# = f.nested_fields_for :recipe_ingredients do |ff|
--#   = ff.remove_nested_fields_link '削除', data: { confirm: '本当に削除しますか?' }
--#   = ff.label :ingredients
--#   = ff.text_field :ingredients
--#   = ff.label :quantity
--#   = ff.text_field :quantity
--# = f.add_nested_fields_link :recipe_ingredients, '入力枠の追加'
 
 -# カテゴリーjs.erb
 -# .recipe.clearfix

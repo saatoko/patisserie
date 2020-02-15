@@ -2,9 +2,11 @@ $(document).on('turbolinks:load', function() {
   $(function(){
     var owl = $('.sweets-banner.owl-carousel');
     owl.owlCarousel({
-      items:4,
+      items: 8,
+      autoWidth:true, //幅を指定したサイズにする
+      autoHeight:true, //高さを指定したサイズにする
       loop:true,
-      // margin:10,
+      margin:30,
       autoplay:true,
       autoplayTimeout:5000,
       autoplayHoverPause:true

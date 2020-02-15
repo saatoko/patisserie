@@ -1,5 +1,3 @@
--# 新規登録ページ SIGNUP
-
 .wrapper-signup
 
   = render "shared/account-header"
@@ -14,54 +12,53 @@
           .field.clearfix
             .field-label
               = f.label :nickname
-              .hissu 必須
+              %span.hissu 必須
             .field-input
               = f.text_field :nickname, autofocus: true, placeholder: "2文字以上、20文字以内で入力してください。記号の入力不可。", class: "input-signup"
 
           .field.clearfix
             .field-label
               = f.label :email
-              .hissu 必須
+              %span.hissu 必須
             .field-input
-              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "＠を含み、＠の後ろには,.を含むこと。", class: "input-signup"
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例)a@a.com", class: "input-signup"
 
           .field.clearfix
             .field-label
               = f.label :gender_id
-              .hissu 必須
+              %span.hissu 必須
             .field-input
               = f.collection_select :gender_id, Gender.all, :id, :name, prompt: "--", class: "input-signuphash"
 
           .field.clearfix
             .field-label
               = f.label :profession_id
-              .hissu 必須
+              %span.hissu 必須
             .field-input
               = f.collection_select :profession_id, Profession.all, :id, :name, prompt: "--", class: "input-signuphash"
 
           .field.clearfix
             .field-label
               = f.label :profile
-              .hissu 必須
+              %span.hissu 必須
             .field-input
               = f.text_field :profile, placeholder: "100文字以内で入力してください。", class: "input-signup"
 
           .field.clearfix
             .field-label
               = f.label :password
-              .hissu 必須
+              %span.hissu 必須
             .field-input
               = f.password_field :password, autocomplete: "new-password", placeholder: "英数字8文字以上で入力してください。", class: "input-signup"
 
           .field.clearfix
             .field-label
               = f.label :password_confirmation
-              .hissu 必須
+              %span.hissu 必須
             .field-input
               = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワードの確認", class: "input-signup"
 
           .actions
             = f.submit "アカウント作成", class: 'account-btn'
-
 
   = render "shared/account-footer"
