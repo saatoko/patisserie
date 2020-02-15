@@ -39,6 +39,7 @@ ja:
         image: 写真を投稿してください(複数投稿可)
       recipe/recipe_video:
         video: 動画を投稿してください(一本のみ可)
+        description: 動画説明文
       recipe/recipe_ingredients:
         ingredients: 材料
         quantity: 分量
@@ -258,6 +259,13 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
 
 
 

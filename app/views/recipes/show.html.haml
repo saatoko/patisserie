@@ -5,9 +5,9 @@
       .homemade
         .homemade__header
           SWEETS SITE
-          = link_to recipes_path, class: "hotcoffee" do
-            = fa_icon "coffee"
-        -# パンくず入れる
+          = link_to recipes_path do
+            = fa_icon "coffee", class: "coffee-show"
+            
         .homemade__topblock.clearfix
           .homemade__topblock--image
             .fabrication-big
@@ -20,22 +20,29 @@
                 - @recipe.recipe_images.each do |image|
                   %li.fabrication-small__inner--list
                     = image_tag "#{image.image}", class: "small-photo", alt: "#{@recipe.name}"
-                  
-          .homemade__topblock--video
             
-
           .homemade__topblock--description
             .homemade-recipename
               .homemade-recipename__text
                 = @recipe.name
                 .homemade-recipename__text--line
             .homemade-usernickname
-              by
-              = @recipe.user.nickname
+              .homemade-usernickname__text
+                by.
+              .homemade-usernickname__content
+                = @recipe.user.nickname
+
+            .homemade-userprofile
+              .homemade-userprofile__text
+                プロフィール
+              .homemade-userprofile__content
+                = @recipe.user.profile
             .homemade-recipecookingpoint
-              このお菓子のポイント
-              = @recipe.cookingpoint
-        
+              .homemade-recipecookingpoint__text
+                レシピのポイント
+              .homemade-recipecookingpoint__content
+                = @recipe.cookingpoint
+            
         .homemade__various-buttons
           %li.homemade-nice
             いいね!
@@ -43,6 +50,7 @@
               = render partial: "votes/votes", locals: { recipe: @recipe }
 
           - if user_signed_in? && current_user.id == @recipe.user_id
+          
             = link_to "レシピの編集", edit_recipe_path(@recipe), method: :get, class: "homemade-hensyu", data: {confirm: "修正を行いますか?" }
             = link_to "レシピの削除", recipe_path(@recipe), method: :delete, class: "homemade-sakujo", data: {confirm: "本当に削除してもよろしいですか?" }
 
@@ -117,13 +125,19 @@
 
         .homemade__video
           .homemade__video--inner
-            .video--text
+            .video-text
               動画
-            .video--content
-              - if @recipe.recipe_video.present?
+            .vodeo-main.clearfix
+              .vodeo-main__content
+                - if @recipe.recipe_video.present?
+                  = video_tag "#{@recipe.recipe_video.video}", class: "show-video", controls: true, autoplay: false, size: 20*20
+              .vodeo-main__description
+                .vodeo-main__description--text
+                  (動画説明)
+                .vodeo-main__description--content
+                  - if @recipe.recipe_video.present?
+                    = @recipe.recipe_video.description
 
-                = video_tag "#{@recipe.recipe_video.video}", class: "show-video"
- 
   .recipe-show__footer
     .recipe-show__footer--text
       2019.SWEETS SITE

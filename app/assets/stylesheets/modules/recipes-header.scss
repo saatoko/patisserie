@@ -1,40 +1,48 @@
 .recipe-header{
   position: relative;
   top: 0;
+  left: 0px;  
   width: 100%;
   height: 150px;
-  background-color: rgba(250, 202, 139, 0.897);
-  background-image: linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%,), linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%, rgba(255, 205, 139, 0.822));
+  background-color: #6f4b3e;
+  background-image: linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%,), linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%, #664539);
   background-position: 0 0, 25px 25px;
   background-size: 50px 50px;
   &__title {
     width: 100%;
-    color: rgb(122, 105, 89);
+    color: $white;
     font-weight: bold;
     height: 90px;
     line-height: 90px;
     font-size: 3.0rem;
     text-align: right;
     letter-spacing: 20px;
+    text-shadow: 1px 1px 0 #83753a;
     .coffee-recipesheader {
-      color: rgb(122, 105, 89);
+      color: $white;
+      .coffee-index {
+        transition: 1s;
+        -webkit-transition: 1s;
+        &:hover {
+          transform: scale(1.5);
+        }
+      }
     }
   }
   &__navigation {
     width: 100%;
     height: 60px;
     box-sizing: border-box;
-    // background-color: rgba(92, 76, 55, 0.897);
     background-color: $white;
+    box-shadow: 0 0 15px #7a6959;
+    
+    position: relative;
     &--inner {
       justify-content: space-between;
       max-width: 80%;
       margin: 0 auto;
       height: 100%;
       display: flex;
-      
- 
-      
       .inner-right {
         margin:0 0 0 auto;
         display: flex;
@@ -42,116 +50,63 @@
           text-align: center;
           line-height: 60px;
           padding: 0 10px;
-          
           a {
-            color: rgb(122, 105, 89);
             text-decoration: none;
-            // padding: 20px;
             cursor: pointer;
             font-weight: bold;
             font-size: 20px;
-            border-width: 1px;
-            border-style: solid;
-            border-color: $white;
-            border-image: initial;
-            border-radius: 10px;
-            padding: 8px 10px;
+            border: solid 1px $white;
+            padding: 0.5rem 0.5rem;
+            transition: all .5s ease;
+            box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
             &.sweets-banner.play {
-              background-color: rgba(253, 249, 190, 0.897);
-              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
-              background-position: 0 0, 25px 25px;
-              background-size: 50px 50px;
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
               &:hover {
-                background-color: rgba(216, 202, 0, 0.897);
-                background-image: none;
-                background-position: none;
-                background-size: none;
-                color: $white;
-                transition: all .3s;
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
               }
             }
             &.sweets-banner.stop {
-              background-color: rgba(187, 216, 255, 0.897);
-              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
-              background-position: 0 0, 25px 25px;
-              background-size: 50px 50px;
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
               &:hover {
-                background-color: rgba(78, 155, 255, 0.897);
-                background-image: none;
-                background-position: none;
-                background-size: none;
-                color: $white;
-                transition: all .3s;
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
               }
             }
             &.user-signin {
-              background-color: rgba(255, 217, 244, 0.897);
-              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
-              background-position: 0 0, 25px 25px;
-              background-size: 50px 50px;
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
               &:hover {
-                background-color: rgba(255, 108, 211, 0.897);
-                background-image: none;
-                background-position: none;
-                background-size: none;
-                color: $white;
-                transition: all .3s;
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
               }
             }
             &.user-signup {
-              background-color: rgba(252, 196, 208, 0.897);
-              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
-              background-position: 0 0, 25px 25px;
-              background-size: 50px 50px;
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
               &:hover {
-                background-color: rgba(250, 27, 75, 0.897);
-                background-image: none;
-                background-position: none;
-                background-size: none;
-                color: $white;
-                transition: all .3s;
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
               }
             }
             &.user-mypage {
-              background-color: rgba(225, 252, 196, 0.897);
-              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
-              background-position: 0 0, 25px 25px;
-              background-size: 50px 50px;
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
               &:hover {
-                background-color: rgba(141, 211, 61, 0.897);
-                background-image: none;
-                background-position: none;
-                background-size: none;
-                color: $white;
-                transition: all .3s;
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
               }
             }
             &.user-signout {
-              background-color: rgba(192, 253, 233, 0.897);
-              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
-              background-position: 0 0, 25px 25px;
-              background-size: 50px 50px;
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
               &:hover {
-                background-color: rgba(49, 138, 108, 0.897);
-                background-image: none;
-                background-position: none;
-                background-size: none;
-                color: $white;
-                transition: all .3s;
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
               }
             }
             &.ourrecipes-posts {
-              background-color: rgba(255, 226, 189, 0.897);
-              background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%,), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
-              background-position: 0 0, 25px 25px;
-              background-size: 50px 50px;
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
               &:hover {
-                background-color: rgba(204, 129, 31, 0.897);
-                background-image: none;
-                background-position: none;
-                background-size: none;
-                color: $white;
-                transition: all .3s;
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
               }
             }
           }
@@ -160,40 +115,3 @@
     }
   }
 }
-
-
-   
-    //   &__menus {
-    //     width: 100%;
-    //     display: flex;
-    //     justify-content: space-between;
-    //     align-items: center;
-    //     margin: 0;
-    //     height: 100%;
-    //     li {
-    //       height: 100%;
-    //       box-sizing: border-box;
-    //       .list-signup {
-    //         font-size: 17px;
-    //         line-height: 30px;
-    //         display: block;
-    //         padding: 15px 2px;
-    //         color: $white;
-    //         text-decoration: none;
-    //       }
-    //     }
-    //     li {
-    //       height: 100%;
-    //       box-sizing: border-box;
-    //       .list-sweetsgenre {
-    //         font-size: 17px;
-    //         line-height: 30px;
-    //         display: block;
-    //         padding: 15px 2px;
-    //         color: $white;
-    //         text-decoration: none;
-    //       }
-    //     }
-    //   }
-    // }
-

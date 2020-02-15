@@ -1,185 +1,206 @@
 .site-guide {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   .header-guide {
-    background-color: rgb(41, 26, 26);
     padding: 150px 30px 80px;
     height: 240px;
+    background: -moz-linear-gradient(180deg, #ffd700 , $white 20%); 
+    background: -webkit-linear-gradient(180deg, #ffd700 , $white 20%); 
+    background: linear-gradient(180deg, #ffd700 , $white 20%); 
     &__header {
-      color: rgb(167, 144, 80);
+      color: rgb(172, 140, 52);
       font-size: 3.4rem;
       transition: all .3s;
-      &:hover {
-        color: rgb(247, 217, 137);
-        font-size: 3.5rem;
+      padding: 0.5rem;
+      box-sizing: border-box;
+      animation: bound .7s ease infinite alternate;
+      @keyframes bound {
+        0% {transform: translateY(0px);}
+        100% {transform: translateY(-10px);}
       }
     }
     &__menu {
-      margin: 20px 40px;
-      padding: 0;
+      padding: 0.5rem 2rem;
+      box-sizing: border-box;
       &::after{
         content: "";
         display: block;
         clear: both;
       }
       .aboutme {
-        color: $white;
+        color: rgb(226, 182, 61);
+        font-weight: bold;
         text-decoration: none;
         float: left;
         margin-right: 40px;
         font-size: 1.5rem;
         top: 0;
-        &:hover {
-          color: rgb(167, 144, 80);
-          transition: all .3s;
-          font-size: 1.6rem;
-        }
+        @include hover-underline;
       }
       .thissite {
         float: left;
-        color: $white;
+        color: rgb(226, 182, 61);
+        font-weight: bold;
         text-decoration: none;
         margin-right: 40px;
         margin-top: 30px;
         font-size: 1.5rem;
-        &:hover {
-          color: rgb(167, 144, 80);
-          transition: all .3s;
-          font-size: 1.6rem;
-        }
+        @include hover-underline;
       }
       .confectionery {
         float: left;
-        color: $white;
+        color: rgb(226, 182, 61);
+        font-weight: bold;
         text-decoration: none;
         margin-right: 40px;
         margin-top: 60px;
         font-size: 1.5rem;
-        &:hover {
-          color: rgb(167, 144, 80);
-          transition: all .3s;
-          font-size: 1.6rem;
-        }
+        @include hover-underline;
       } 
     }
   }
 
   .main-guide {
-    background-color: rgba(250, 202, 139, 0.897);
-    background-image: linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%,), linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%, rgba(255, 205, 139, 0.822));
-    background-position: 0 0, 25px 25px;
-    background-size: 50px 50px;
-    padding: 100px 0;
     width: 100%;
     height: 100%;
-    
-    .text-title{
-      color: $white;
-      font-size: 2.4rem;
-      text-align: center;
-      padding-bottom: 40px;
-      letter-spacing: 2rem;
-      font-weight: bold;
-      border-bottom: 2px solid $white;
-      text-shadow: #6b5c33 1px 1px 2px, #a79050 0 0 20px;
+    &__text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+      width: 100%;
+      padding: 40px 0;
+      box-sizing: border-box;
+      border-top: 2rem double pink;
+      border-bottom: 1rem solid rgb(70, 19, 10);
+      background-color: #6f4b3e;
+      background-image: linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%), linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%, #664539);
+      background-position: 0 0, 25px 25px;
+      background-size: 50px 50px;
+      &--title {
+        color: $white;
+        height: 50px;
+        font-size: 2.4rem;
+        letter-spacing: 2rem;
+        font-weight: bold;
+        text-shadow: #6b5c33 1px 1px 2px, #a79050 0 0 20px;
+      }
     }
     &__contents {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      height: 700px;
+      &--inner {
       display: grid;
       grid-template-columns: 25% 1fr;
       grid-template-rows: 300px;
-      width: 100%;
       height: 100%;
+      width: 100%;
       font-size: 1.5rem;
       text-align: center;
       color: #291a1a;
-      .aboutme-box {
-        grid-column: 1 / 2;
-        display: inline-grid;
-        grid-template-rows: 100px auto;
-
-        &__name {
-          grid-row: 1 / 2;
+      background-color: #FFE4E1;
+        .aboutme-box {
           grid-column: 1 / 2;
-          letter-spacing: 1.2rem;
-          align-items: center;
-          display: flex;
-          justify-content: center;
-          text-shadow: #6b5c33 1px 1px 2px, #a79050 0 0 20px;
-          color: $white;
-          border-bottom: 2px solid $white;
-          font-size: 1.8rem;
-          
+          display: inline-grid;
+          grid-template-rows: 100px auto;
+          height: 100%;
+          &__name {
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+            letter-spacing: 1.2rem;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            text-shadow: #5e1108 1px 1px 2px, $white 0 0 20px;
+            color: #d49992;
+            font-weight: bold;
+            border-top: 0.5rem double pink;
+            border-bottom: 0.5rem double rgb(70, 19, 10);
+            font-size: 1.8rem;
+            background-color: rgb(253, 236, 234);
+          }
+          &__text {
+            grid-row: 2 / 3;
+            font-size: 1.2rem;
+            white-space: pre-line;
+            padding: 2rem;
+            box-sizing: border-box;
+          }
         }
-        &__text {
-          grid-row: 2 / 3;
-          font-size: 1.2rem;
-          white-space: pre-line;
-          padding: 2rem;
-          box-sizing: border-box;
 
-        }
-      }
-
-      .thissite-box {
-        grid-column: 2 / 3;
-        display: inline-grid;
-        grid-template-rows: 100px auto;
-        grid-template-columns: 1fr 1fr 1fr;
-        &__description {
-          grid-row: 1 / 2;
-          grid-column: 1 / 4;
-          letter-spacing: 1.2rem;
-          align-items: center;
-          display: flex;
-          justify-content: center;
-          text-shadow: #6b5c33 1px 1px 2px, #a79050 0 0 20px;
-          color: $white;
-          border-bottom: 2px solid $white;
-          font-size: 1.8rem;
-        }
-        &__user {
-          grid-row: 2 / 3;
-          grid-column: 1 / 2;
-          white-space: pre-line;
-          font-size: 1.2rem;
-          padding: 2rem;
-          box-sizing: border-box;
-        }
-        &__recipe {
-          grid-row: 2 / 3;
+        .thissite-box {
           grid-column: 2 / 3;
-          white-space: pre-line;
-          font-size: 1.2rem;
-          padding: 2rem;
-          box-sizing: border-box;
-        }
-        &__gem {
-          grid-row: 2 / 3;
-          grid-column: 3 / 4;
-          white-space: pre-line;
-          font-size: 1.2rem;
-          padding: 2rem;
-          box-sizing: border-box;
+          display: inline-grid;
+          grid-template-rows: 100px 600px;
+          grid-template-columns: 1fr 1fr 1fr;
+          &__description {
+            grid-row: 1 / 2;
+            grid-column: 1 / 4;
+            letter-spacing: 1.2rem;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            text-shadow: #5e1108 1px 1px 2px, $white 0 0 20px;
+            color: #d49992;
+            font-weight: bold;
+            border-top: 0.5rem double pink;
+            border-bottom: 0.5rem double rgb(70, 19, 10);
+            font-size: 1.8rem;
+            background-color: rgb(253, 236, 234);
+
+          }
+          &__user {
+            grid-row: 2 / 3;
+            grid-column: 1 / 2;
+            white-space: pre-line;
+            font-size: 1.2rem;
+            padding: 2rem;
+            box-sizing: border-box;
+          }
+          &__recipe {
+            grid-row: 2 / 3;
+            grid-column: 2 / 3;
+            white-space: pre-line;
+            font-size: 1.2rem;
+            padding: 2rem;
+            box-sizing: border-box;
+          }
+          &__gem {
+            grid-row: 2 / 3;
+            grid-column: 3 / 4;
+            white-space: pre-line;
+            font-size: 1.2rem;
+            padding: 2rem;
+            box-sizing: border-box;
+          }
         }
       }
     }
   }
+
   .footer-guide {
-    background-color: rgb(41, 26, 26);
-    padding: 50px 30px 50px;
-    height: 100px;
+    background-color: rgb(253, 236, 234);
+    padding: 40px 30px 40px;
+    height: auto;
     text-align: center;
+    width: 100%;
+    bottom: 0; 
+    left: 0;
+    box-sizing: border-box;
+    border-top: 0.5rem double #d49992;
+    border-bottom: 0.5rem double #d49992;
     .back {
-      color: $white;
+      color: rgb(70, 19, 10);
+      letter-spacing: 1rem;
       text-decoration: none;
-      font-size: 1.5rem;
-      &:hover {
-        color: rgb(167, 144, 80);
-        transition: all .3s;
-        font-size: 1.6rem;
-      }
+      font-size: 1.7rem;
+      font-weight: bold;
+      height: auto;
+      @include hover-underline;
     } 
   }
 }

@@ -8,14 +8,14 @@
   margin: 40px;
   cursor: pointer;
   letter-spacing: 5px;
-  background-color: rgb(255, 186, 37);
+  background-color: #b8860b;
   &:hover {
     background-color: $white;
-    color: rgb(255, 186, 37);
+    color: #b8860b;
     background-image: none;
     background-position: none;
     background-size: none;
     transition: all .3s;
-    box-shadow: 0 0 10px rgb(255, 186, 37);
+    box-shadow: 0 0 10px #b8860b;
   }
 }

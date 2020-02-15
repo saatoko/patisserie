@@ -18,7 +18,6 @@ $(document).on('turbolinks:load', function() {
           autoplay: "autoplay",
           loop: "loop",
           playsinline: "true",
-          // title: file.name 
         }));
       };
     })(file);

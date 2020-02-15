@@ -1,5 +1,3 @@
--# ログインページ
-
 .wrapper-login
 
   = render "shared/account-header"
@@ -13,17 +11,17 @@
           .field-login.clearfix
             .field-login__label
               = f.label :login
-              .hissu 必須
+              %span.hissu 必須
             .field-login__input
               = f.text_field :login, autofocus: true, placeholder: "ニックネームorメールアドレスを入力してください。", class: "field-login__input--inside"
 
           .field-login.clearfix
             .field-login__label
               = f.label :password
-              .hissu 必須
+              %span.hissu 必須
             .field-login__input
               = f.password_field :password, autocomplete: "current-password", placeholder: "パスワードを入力してください。", class: "field-login__input--inside"
-          
+
           .actions-login
             = f.submit "ログイン", class: 'account-btn'
 

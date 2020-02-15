@@ -7,10 +7,7 @@
   height: auto;
   &__title {
     height: 130px;
-    background-color: rgba(250, 202, 139, 0.897);
-    background-image: linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%,), linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%, rgba(255, 205, 139, 0.822));
-    background-position: 0 0, 25px 25px;
-    background-size: 50px 50px;
+    background-color: #FFE4E1;
     &--text {
       text-align: center;
       color: rgb(122, 105, 89);
@@ -23,13 +20,15 @@
     .coffee-new {
       display: inline-block;
       color: $white;
+      transition: 1s;
+      -webkit-transition: 1s;
+      &:hover {
+        transform: scale(1.5);
+      }
     }
   }
   &__main {
-    background-color: rgba(250, 202, 139, 0.897);
-    background-image: linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%,), linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%, rgba(255, 205, 139, 0.822));
-    background-position: 0 0, 25px 25px;
-    background-size: 50px 50px;
+    background-color: #FFE4E1;
     height: auto;
     position: relative;
     padding: 100px;
@@ -53,7 +52,7 @@
       }
       .my-recipe {
         padding: 50px 20px;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         color: rgb(87, 73, 60);
         position: relative;
       }

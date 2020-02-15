@@ -1,5 +1,6 @@
 .hissu {
   @include required;
+  background-color: #ea352d;
 } 
 
 .account-btn {
@@ -20,7 +21,7 @@
       margin: 70px auto;
       padding: 50px;
       background-color: $white;
-      border: 1px solid rgb(206, 178, 152);
+      border: 1px solid #b95c52;
       border-radius: 5px;
       .login-text{
         height: 50px;

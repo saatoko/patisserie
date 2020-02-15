@@ -8,48 +8,51 @@
       = link_to "スイーツページへ", "/recipes", class: "confectionery"
 
   .main-guide
-    .text-title
-      サイト内紹介
+    .main-guide__text
+      .main-guide__text--title
+        サイト内紹介
     .main-guide__contents
-      .aboutme-box{id: "aboutme-link"}
-        .aboutme-box__name
-          ABOUT ME 
-        .aboutme-box__text
-          はじめまして。プログラミングの学習を2019年10月から始めました。ぜひご覧ください。
-      .thissite-box{id: "thissite-link"}
-        .thissite-box__description
-          サイトの機能
-        .thissite-box__user
-          (ユーザー系)
-          新規登録
-          ログイン
-          ログアウト
-          <使用したgem>
-          devise 
-        .thissite-box__recipe
-          (レシピ系)
-          (未ログイン時)
-          レシピ閲覧
-          いいね数閲覧
-          (ログイン後)
-          レシピ投稿
-          レシピ編集
-          レシピ削除
+      .main-guide__contents--inner
+        .aboutme-box{id: "aboutme-link"}
+          .aboutme-box__name
+            ABOUT ME 
+          .aboutme-box__text
+            はじめまして。ぜひご覧ください。
+        .thissite-box{id: "thissite-link"}
+          .thissite-box__description
+            サイトの機能
+          .thissite-box__user
+            (ユーザー系)
+            新規登録
+            ログイン
+            ログアウト
+            <使用したgem>
+            devise 
+          .thissite-box__recipe
+            (レシピ系)
+            (未ログイン時)
+            レシピ閲覧
+            いいね数閲覧
+            (ログイン後)
+            レシピ投稿
+            レシピ編集
+            レシピ削除
 
-          <使用したgem>
-          nested_form_fields
-          ancestry
-          seed-fu 
-          jquery-rails
-          carrierwave
-          mini_magick
-          active_hash
-        .thissite-box__gem
-          (その他、使用したgem)
-          haml-rails 
-          font-awesome-rails
-          pry-rails
-          owlcarousel-rails
+            <使用したgem>
+            nested_form_fields
+            ancestry
+            seed-fu 
+            jquery-rails
+            carrierwave
+            mini_magick
+            active_hash
+          .thissite-box__gem
+            (その他、使用したgem)
+            haml-rails 
+            font-awesome-rails
+            pry-rails
+            owlcarousel-rails
+            kaminari(レシピページ、１ページ15レシピまで表示)
 
   .footer-guide
     = link_to "/users", class: "back" do

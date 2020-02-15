@@ -1,26 +1,23 @@
 .inner-left {
   display: flex;
-  padding: 8px 10px;
   align-items: center;
+  padding: 0.5rem 0.5rem;
   height: 46px;
   &__drop-down {
     text-align: center;
     line-height: 60px;
     cursor: pointer;
     font-weight: bold;
-    color: rgb(131, 22, 22);
+    color: #b95c52;
     font-size: 20px;
     height: 60px;
     width: 170px;
     position: relative;
-
     .parents-category {
       display: none; 
-     
     }
     &:hover {
       transition: all .3s;
-      // display: block;
       .parents-category {
         height: 50px;
         margin: 0 auto;
@@ -35,7 +32,7 @@
           display: block;
           a {
             background-color: $white;
-            color: #7a6959;
+            color: #a79050;
             display: block;
             height: 50px;
             line-height: 50px;
@@ -44,16 +41,6 @@
             width: 170px;
             border: 1px solid #7a6959;
           }
-          // .kashi {
-          //   background-color: $white;
-          //   color: #7a6959;
-          //   display: block;
-          //   height: 50px;
-          //   line-height: 50px;
-          //   text-align: center;
-          //   text-decoration: none;
-          //   width: 170px;
-          // }
           .children-category {
             margin: 0 auto;
             width: 280px;
@@ -61,7 +48,6 @@
             position: absolute;
             left: 170px;
             top: 0;
-            
             &__child {
               height: 0;
               overflow: hidden;
@@ -70,15 +56,14 @@
               list-style: none;
               a {
                 background-color: $white;
-                color: #7a6959;
+                color: #a79050;
                 width: 280px;
                 border: 1px solid #7a6959;
-
-                // display: block;
-                // height: 50px;
-                // line-height: 50px;
-                // text-align: center;
-                // text-decoration: none;
+                display: block;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                text-decoration: none;
               }
             }
           }
