@@ -1,5 +1,5 @@
 = form_for [@recipe], html: {id: "cake"} do |f|
-  -# = %spanhidden_field_tag :authenticity_token, form_authenticity_token
+  -# = hidden_field_tag :authenticity_token, form_authenticity_token
 
   = render 'layouts/error_messages', model: f.object
 
@@ -62,7 +62,6 @@
       = f.text_field :bakingtemperature, placeholder: "例) 180", class: 'input-recipe'
       ℃
 
-  -# 材料分量
   .recipe.clearfix
     .recipe-quantity
       このお菓子の材料と分量
@@ -100,7 +99,6 @@
     .recipe-input
       = f.text_area :instruments, placeholder: '例) ホイッパー、ボール、カード、ゴムベラ、鍋、波刃包丁、まな板、バット、天板、ベイキングシート、オーブン など。 特殊なものがあればぜひお書きください。', rows: '8', class: "input-recipebig"
 
-  -# 画像
   .recipe.clearfix
     .recipe-label
       .recipe-label__image
@@ -118,6 +116,9 @@
           = image.file_field :image, accept: "image/*", class: "js-file"
           .js-remove 削除
 
+          -# 投稿エラー時入力枠と内容の保持
+          = image.hidden_field :image_cache 
+          
         - if @recipe.persisted?
           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
 
@@ -128,16 +129,22 @@
 
   .border-line
 
-  -# 動画
   .recipe.clearfix
     .recipe-label
       = f.label :動画を投稿してください。一本のみ可
       %span.ninni.require 任意
-    .recipe-input{id: "video-box"}
+    .recipe-input
       = f.fields_for :recipe_video do |video|
         = video.file_field :video, accept: "video/*", class: "post-video", id: "upload-video"
+
+        -# 投稿エラー時入力内容の保持
+        = video.hidden_field :video_cache 
+
         = fa_icon "file-video-o", id: "video-icon", class: "video_choice"
-    
+        .video-cancel
+          = video.check_box :remove_video
+          投稿した動画を送信しない場合はチェック
+      
   .recipe.clearfix
     .recipe-label
       = f.label :動画説明文

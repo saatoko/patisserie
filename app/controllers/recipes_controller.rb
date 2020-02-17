@@ -77,11 +77,10 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    
     if @recipe.save
       redirect_to recipe_path(@recipe.id), notice: 'レシピを投稿しました' 
     else
-      render action: "new" 
+      render action: "new"
       flash.now[:alert] = '投稿に失敗しました'
       return
     end
@@ -113,19 +112,16 @@ class RecipesController < ApplicationController
       @category_parents_array << @parent_hash
 
     end
-    
-    # Recipe.all.each do |recipe|
-    #   @recipe.build_recipe_video(recipe: recipe) 
-    # end
-    @recipe.build_recipe_video
+
   end
 
   def update
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe.id), notice: 'レシピを編集しました' 
     else
+      render action: "edit"
       flash.now[:alert] = '編集に失敗しました'
-      render :edit and return
+      return
     end
   end
 
@@ -160,9 +156,9 @@ class RecipesController < ApplicationController
       :votes_count,
       votes_attributes: [:id, :user_id, :recipes_id, :_destroy],
       recipe_ingredients_attributes: [:id, :ingredients, :quantity, :_destroy], 
-      recipe_images_attributes: [:image, :_destroy, :id], 
-      recipe_video_attributes: [:video, :description, :_destroy, :id],
-      categories_attributes: [:id, :name, :ancestry, :_destroy])
+      recipe_images_attributes: [:image, :_destroy, :id, :image_cache], 
+      recipe_video_attributes: [:id, :video, :description, :_destroy, :remove_video, :video_cache],
+      category_attributes: [:id, :name, :ancestry, :_destroy])
       .merge(user_id: current_user.id)
   end
 
@@ -175,8 +171,6 @@ class RecipesController < ApplicationController
   end
 
   def set_categories
-    # @categories = Recipe.where(category_id: params[:category_id])
-    # @categories = Category.where(params[:id])
     @category_children1 = Category.where(ancestry: 1)
     @category_children2 = Category.where(ancestry: 2)
     @category_children3 = Category.where(ancestry: 3)
@@ -190,12 +184,6 @@ class RecipesController < ApplicationController
       @category_parent_array << parent.name
     end
   end
-  # def set_categories
-  #   # @categories = Category.eager_load(children: :children).where(ancestry: nil)  
-  #   # @categories = Category.all
-  #   @parent_categories = Category.roots
-  #   @default_child_categories = @parent_categories.first.children
-  # end
 
 end
 

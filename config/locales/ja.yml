@@ -10,9 +10,10 @@ ja:
     models:
       user:
       recipe:
-      recipe_images:
-      recipe_videos:
-      recipe_ingredients:
+      recipe_image:
+      recipe_video:
+      recipe_ingredient:
+      category:
     attributes:
       user:
         nickname: ニックネーム

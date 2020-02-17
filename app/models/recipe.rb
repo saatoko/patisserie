@@ -36,5 +36,3 @@ end
 # cocoon
 # has_many   :recipe_ingredients, dependent: :destroy, inverse_of: :recipe
 # accepts_nested_attributes_for :recipe_ingredients, reject_if: :all_blank, allow_destroy: true
-
-# validates :genre_id,          presence: true

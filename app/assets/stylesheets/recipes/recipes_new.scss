@@ -3,7 +3,6 @@
   width: 100vw;
   margin: 0;
   padding: 0;
-  // overflow: scroll;
   height: auto;
   &__title {
     height: 130px;
@@ -19,7 +18,7 @@
     }
     .coffee-new {
       display: inline-block;
-      color: $white;
+      color: #d49992;
       transition: 1s;
       -webkit-transition: 1s;
       &:hover {
@@ -41,8 +40,6 @@
       border-top-right-radius: 150px 210px;
       border-bottom-left-radius: 150px 210px;
       box-shadow: 4px 4px rgb(80, 68, 57), 10px 5px 10px 10px rgb(122, 105, 89);
-      // box-shadow: 4px 4px #7F6A00, 10px 5px 10px 10px #b8860b;
-      
       .head {
         padding: 50px 20px;
         font-size: 2.5rem;

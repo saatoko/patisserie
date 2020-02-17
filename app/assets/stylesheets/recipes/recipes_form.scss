@@ -5,7 +5,7 @@
 
 .ninni {
   @include required;
-  background-color: #2d85ea;
+  background-color: #67a700;
 } 
 
 .account-btn {
@@ -86,6 +86,7 @@
         cursor: pointer;
       }
     }
+    
   }
   .recipe-select-wrapper {
     float: right;

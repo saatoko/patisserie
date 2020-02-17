@@ -503,6 +503,11 @@
                 display: block;
                 clear: both;
               }
+              &__emptypost {
+                text-align: center;
+                font-size: 1.4rem;
+                color: rgba(73, 61, 44, 0.897);
+              }
               &__content {
                 float: left;
                 width: 60%;
