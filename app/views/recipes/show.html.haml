@@ -128,14 +128,19 @@
             .video-text
               動画
             .vodeo-main.clearfix
-              .vodeo-main__content
-                - if @recipe.recipe_video.present?
+              - if @recipe.recipe_video.video.file.nil? 
+                .vodeo-main__emptypost
+                  動画は投稿されていません。
+              - else
+                .vodeo-main__content
                   = video_tag "#{@recipe.recipe_video.video}", class: "show-video", controls: true, autoplay: false, size: 20*20
-              .vodeo-main__description
-                .vodeo-main__description--text
-                  (動画説明)
-                .vodeo-main__description--content
-                  - if @recipe.recipe_video.present?
+
+              - if @recipe.recipe_video.video.file.nil? 
+              - else
+                .vodeo-main__description
+                  .vodeo-main__description--text
+                    (動画説明)
+                  .vodeo-main__description--content
                     = @recipe.recipe_video.description
 
   .recipe-show__footer

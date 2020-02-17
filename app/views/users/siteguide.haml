@@ -15,9 +15,18 @@
       .main-guide__contents--inner
         .aboutme-box{id: "aboutme-link"}
           .aboutme-box__name
-            ABOUT ME 
+            ABOUT ME
           .aboutme-box__text
-            はじめまして。ぜひご覧ください。
+            ぜひご覧ください。
+            コーヒーアイコンで、1ページ戻ります
+            (開発環境)
+            ・Rubyのヴァージョン
+            ruby 2.5.1
+            ・Railsのヴァージョン
+            Rails 5.0.7.2
+            ・データベース
+            MySQL
+            Sequel Pro
         .thissite-box{id: "thissite-link"}
           .thissite-box__description
             サイトの機能
@@ -26,7 +35,7 @@
             新規登録
             ログイン
             ログアウト
-            <使用したgem>
+            ・使用したgem
             devise 
           .thissite-box__recipe
             (レシピ系)
@@ -37,22 +46,23 @@
             レシピ投稿
             レシピ編集
             レシピ削除
-
-            <使用したgem>
+            いいね機能
+            ・使用したgem
             nested_form_fields
             ancestry
             seed-fu 
-            jquery-rails
             carrierwave
             mini_magick
             active_hash
           .thissite-box__gem
-            (その他、使用したgem)
+            (その他)
+            ・使用したgem
             haml-rails 
             font-awesome-rails
             pry-rails
+            jquery-rails
             owlcarousel-rails
-            kaminari(レシピページ、１ページ15レシピまで表示)
+            kaminari(１ページにつき、15レシピまで表示)
 
   .footer-guide
     = link_to "/users", class: "back" do

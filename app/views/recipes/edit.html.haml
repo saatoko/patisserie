@@ -11,8 +11,6 @@
         レシピ編集フォーム
     
       .my-recipe
-        -# = form_for(@recipe,url: {controler: "recipes", action: "update" },  html: {class: "double", id: "cake", name: "form-main"} ) do |f| 
-        -# = render partial: 'form', locals: {f: f}
         = form_for @recipe, html: {class: "double", id: "cake", name: "form-main"} do |f|
 
           = render 'layouts/error_messages', model: f.object
@@ -24,6 +22,7 @@
             .recipe-input
               = f.text_field :name, placeholder: "例) マカロン", class: 'input-recipe'
 
+          -# カテゴリー編集未実装
           .recipe.clearfix
             .recipe-label
               = f.label :お菓子のカテゴリーを選択してください。
@@ -34,7 +33,7 @@
                 
                 -# = f.select :category, options_for_select(@category_children_array.map{|c|[c[:name], c[:id]]}, selected: params[:category_id].to_i), {}
 
-                -# {class: 'recipe-select-wrapper__box--select', id: 'parent_category'}
+
           .recipe.clearfix
             .recipe-label
               = f.label :difficulty_id
@@ -79,7 +78,6 @@
               = f.text_field :bakingtemperature, placeholder: "例) 180", class: 'input-recipe'
               ℃
 
-          -# 材料分量
           .recipe.clearfix
             .recipe-quantity
               このお菓子の材料と分量
@@ -117,7 +115,6 @@
             .recipe-input
               = f.text_area :instruments, placeholder: '例) ホイッパー、ボール、カード、ゴムベラ、鍋、波刃包丁、まな板、バット、天板、ベイキングシート、オーブン など。 特殊なものがあればぜひお書きください。', rows: '8', class: "input-recipebig"
 
-          -# 画像
           .recipe.clearfix
             .recipe-label
               = f.label :写真の変更ができます。複数投稿可。画像を添付していない入力枠は削除してください。
@@ -127,12 +124,15 @@
                 
                 - if @recipe.persisted?
                   - @recipe.recipe_images.each do |image, i|
-                    = image_tag "#{image.image}", data: { index: i }, width: "100", height: '100', alt: "投稿された画像"
+                    = image_tag "#{image.image.url}", data: { index: i }, width: "100", height: '100', alt: "投稿された画像"
                   
               = f.fields_for :recipe_images do |image|
                 .js-file_group{"data-index": "#{image.index}"}
                   = image.file_field :image, accept: "image/*", class: "js-file"
                   .js-remove 削除
+
+                  -# 編集エラー時入力内容の保持
+                  = image.hidden_field :image_cache 
                 
                 - if @recipe.persisted?
                   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
@@ -142,27 +142,32 @@
                   = file_field_tag :image, accept: "image/*", name: "recipe[recipe_images_attributes][#{@recipe.recipe_images.count}][image]", class: 'js-file'
                   .js-remove 削除
 
-          -# 動画
           .recipe.clearfix
             .recipe-label
               = f.label :動画を投稿してください。一本のみ可
-              %span.ninni.require 任意
             .recipe-input{id: "video-box"}
               = f.fields_for :recipe_video do |video|
                 = video.file_field :video, accept: "video/*", class: "post-video", id: "upload-video"
+
+                -# 編集エラー時入力内容の保持
+                = video.hidden_field :video_cache 
+
                 = fa_icon "file-video-o", id: "video-icon", class: "video_choice"
-                
-
-
+                - if @recipe.recipe_video.video.file.present?
+                  動画が投稿されています(現在の動画)
+                  = video_tag "#{@recipe.recipe_video.video}", controls: true, autoplay: false, size: 15*15
+                  
+                  .video-delete
+                    = video.check_box :remove_video 
+                    動画を削除したい場合はチェック
 
           .recipe.clearfix
             .recipe-label
               = f.label :動画説明文
-              %span.ninni.require 任意
             .recipe-input
               = f.fields_for :recipe_video do |video|
                 = video.text_area :description, placeholder: "投稿した動画の解説を入力してください", rows: '4', class: "input-recipebig"
-                = video_tag "#{video.object.description}"
+
           .actions-recipe
             = f.submit "レシピを変更する", class: 'account-btn', data: {disable_with: '修正中...'}
 
