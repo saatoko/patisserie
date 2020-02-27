@@ -92,7 +92,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|null: false|
+|ancestry|integer|null: false|
 
 ### Association
 - has_many :recipes
