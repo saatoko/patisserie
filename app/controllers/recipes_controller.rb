@@ -16,16 +16,13 @@ class RecipesController < ApplicationController
 
     @main_categories = Category.eager_load(:children).where(ancestry: nil)
     @YOUGASHI = @main_categories.find_by name: "洋菓子"
-    @YOUGASHIS = Category.children_of @YOUGASHI
     @yougashi = @YOUGASHI.subtree
     @yougashis1 = Recipe.all.where(category_id: @yougashi).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').page(params[:page]).per(PER) || @recipes = Recipe.all.where(category_id: @yougashi).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').page(params[:page]).per(PER)
 
     @WAGASHI = @main_categories.find_by name: "和菓子"
-    @WAGASHIS = Category.children_of @WAGASHI
     @wagashi = @WAGASHI.subtree
     @wagashis1 = Recipe.all.where(category_id: @wagashi).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').page(params[:page]).per(PER) || @recipes = Recipe.all.where(category_id: @wagashi).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').page(params[:page]).per(PER)
     @OTHER = @main_categories.find_by name: "その他"
-    @OTHERS = Category.children_of @OTHER
     @other = @OTHER.subtree
     @others1 = Recipe.all.where(category_id: @other).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').page(params[:page]).per(PER) || @others = Recipe.all.where(category_id: @other).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').page(params[:page]).per(PER)
 
