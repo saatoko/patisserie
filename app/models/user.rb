@@ -35,7 +35,6 @@ class User < ApplicationRecord
   end
 
   has_many :recipes
-  has_many :comments
 
   has_many :votes, dependent: :destroy
   

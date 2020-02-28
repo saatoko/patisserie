@@ -12,20 +12,7 @@
 
 ### Association
 - has_many :recipes
-- has_many :comments
 - has_many :votes
-
-
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|recipe_id|references|null: false, foreign_key: true|
-|text|text|null: false|
-
-### Association
-- belongs_to :user
-- belongs_to :recipe
 
 
 ## recipesテーブル
@@ -48,7 +35,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :category
-- has_many :comments
 - has_many :recipe_images
 - has_one :recipe_video
 - has_many :recipe_methods
