@@ -46,7 +46,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 end
 
 group :development do
@@ -75,3 +75,6 @@ gem 'nested_form_fields'
 gem 'ancestry'
 gem 'seed-fu'
 gem 'kaminari'
+
+
+
