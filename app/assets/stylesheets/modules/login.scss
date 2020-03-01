@@ -31,6 +31,44 @@
         font-size: 1.5rem;
         letter-spacing: 4px;
       }
+      .test-user {
+        height: auto;
+        text-align: left;
+        margin: 0.5rem;
+        font-size: 1rem;
+        &__block {
+          border: solid 2px #b8860b;
+          margin: 0.5rem;
+          display: inline-block;
+          &--nickname {
+            padding: 0.3rem;
+            .nickname-strong {
+              display: inline-block;
+              font-weight: bold;
+              color: #b8860b;
+              font-size: 1.2rem;
+            }
+          }
+          &--email {
+            padding: 0.3rem;
+            .email-strong {
+              display: inline-block;
+              font-weight: bold;
+              font-size: 1.2rem;
+              color: #b8860b;
+            }
+          }
+          &--password {
+            padding: 0.3rem;
+            .password-strong {
+              display: inline-block;
+              font-weight: bold;
+              font-size: 1.2rem;
+              color: #b8860b;
+            }
+          }
+        }
+      }
       .login-box {
         text-align: center;
         display: block;
@@ -38,7 +76,6 @@
           padding-top: 40px;
           width: 100%;
           height: 50px;
-          font-size: 1.5rem;
           &::after {
             content: "";
             display: block;
@@ -47,6 +84,7 @@
           &__label {
             float: left;
             width: 50%;
+            font-size: 1.2rem;
           }
           &__input {
             float: right;
@@ -54,14 +92,14 @@
             &--inside {
               width: 100%;
               padding: 5px;
-              font-size: 1.0rem;
+              font-size: 0.8rem;
               height: 40px;
             }
           }
         }
         .actions-login {
           padding-top: 40px;
-          text-align: center;
+          text-align: left;
         }
       } 
     }

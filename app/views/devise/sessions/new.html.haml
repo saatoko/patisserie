@@ -6,21 +6,39 @@
     .wrapper-login__inner--content
       .login-text
         登録しているユーザーでログイン
+
+      .test-user
+        %p ※テストユーザーとしてログインできます。
+        %p テストユーザーでレシピの投稿をしているため、レシピの編集をすることが可能です。
+        .test-user__block
+          .test-user__block--nickname
+            テストユーザー用ニックネーム = 
+            .nickname-strong
+              テストユーザー
+          .test-user__block--email
+            テストユーザー用email = 
+            .email-strong
+              t@t.com
+          .test-user__block--password
+            テストユーザー用パスワード =
+            .password-strong
+              trtrtrtr
+
       .login-box
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .field-login.clearfix
             .field-login__label
-              = f.label :login
+              = f.label :ニックネームorメールアドレスを入力してください。
               %span.hissu 必須
             .field-login__input
-              = f.text_field :login, autofocus: true, placeholder: "ニックネームorメールアドレスを入力してください。", class: "field-login__input--inside"
+              = f.text_field :login, autofocus: true, placeholder: "テストユーザーでログインできます", class: "field-login__input--inside"
 
           .field-login.clearfix
             .field-login__label
               = f.label :password
               %span.hissu 必須
             .field-login__input
-              = f.password_field :password, autocomplete: "current-password", placeholder: "パスワードを入力してください。", class: "field-login__input--inside"
+              = f.password_field :password, autocomplete: "current-password", placeholder: "テストユーザーでログインできます", class: "field-login__input--inside"
 
           .actions-login
             = f.submit "ログイン", class: 'account-btn'

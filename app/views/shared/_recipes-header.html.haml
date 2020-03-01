@@ -19,7 +19,7 @@
               = fa_icon "user", class: "icon"
               マイページ
           %li
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user-signout"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user-signout", data: { confirm: 'ログアウトしますか?' }
           %li
             = link_to "レシピ投稿", new_recipe_path, class: "ourrecipes-posts" 
               

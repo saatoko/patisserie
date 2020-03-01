@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   before_action :set_categories
   before_action :category_post, only: [:new, :create]
 
-  PER = 15
+  PER = 12
 
   def index
     # Categoryのデータベースのテーブルから一致するidを取得

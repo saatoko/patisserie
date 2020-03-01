@@ -14,14 +14,14 @@
 @import "modules/recipes-header";
 @import "modules/recipes-footer";
 @import "modules/sweets-banner";
-@import "modules/login.scss";
-@import "modules/signup.scss";
-@import "modules/account-header.scss";
-@import "modules/account-footer.scss";
-@import "modules/error_messages.scss";
-@import "modules/flash.scss";
-@import "modules/pagetop-btn.scss";
-@import "modules/pagenation.scss";
+@import "modules/login";
+@import "modules/signup";
+@import "modules/account-header";
+@import "modules/account-footer";
+@import "modules/error_messages";
+@import "modules/flash";
+@import "modules/pagetop-btn";
+@import "modules/pagenation";
 
 // users
 @import "users/users_index";

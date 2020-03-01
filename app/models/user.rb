@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          authentication_keys: [:login]
 
-  validates_format_of :nickname, with: /^[ｧ-ﾝﾞﾟぁ-んァ-ンa-zA-Z0-9_\.]*$/, multiline: true
+  # validates_format_of :nickname, with: /^[ｧ-ﾝﾞﾟぁ-んァ-ンa-zA-Z0-9_\.]*$/, multiline: true
+
+  validates_format_of :nickname, with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々]|[-]?[0-9]+(\.[0-9]+)?|[a-zA-Z])+\z/, multiline: true
   validates :nickname,      presence: true, uniqueness: { case_sensitive: false }, length: { in: 2..20 }
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
