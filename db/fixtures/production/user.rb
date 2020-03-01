@@ -1,4 +1,4 @@
-User.seed do |s|
+User.seed(:id) do |s|
   s.id = 1
   s.nickname = 'テストユーザー'
   s.email = "t@t.com"
