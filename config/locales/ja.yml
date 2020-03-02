@@ -7,6 +7,48 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      user:
+      recipe:
+      recipe_image:
+      recipe_video:
+      recipe_ingredient:
+      category:
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: Eメール
+        gender_id: 性別
+        profession_id: 職業
+        profile: 一言メッセージ
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        login: ニックネーム or Eメール
+      recipe:
+        name: お菓子名
+        category: お菓子のカテゴリー
+        difficulty_id: 作業の難易度
+        servers: 何名分のレシピ
+        cookingtime: お菓子の調理時間
+        restingtime: 生地の休憩時間
+        bakingtime: 焼成時間
+        bakingtemperature: 焼成温度
+        instruments: 使用器具
+        cookingpoint: このお菓子作りのポイント
+        method: 作り方
+      recipe/recipe_images:
+        image: 写真を投稿してください(複数投稿可)
+      recipe/recipe_video:
+        video: 動画を投稿してください(一本のみ可)
+        description: 動画説明文
+      recipe/recipe_ingredients:
+        ingredients: 材料
+        quantity: 分量
+      recipe/category:
+        name: お菓子名
+        ancestry: 祖先
+
+
   date:
     abbr_day_names:
     - 日
@@ -109,6 +151,18 @@ ja:
   errors:
     format: "%{attribute}%{message}"
     messages:
+      carrierwave_processing_error: 処理できませんでした
+      carrierwave_integrity_error: は許可されていないファイルタイプです
+      carrierwave_download_error: はダウンロードできません
+      extension_whitelist_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: %{allowed_types}"
+      extension_blacklist_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできないファイルタイプ: %{prohibited_types}"
+      content_type_whitelist_error: "%{content_type}ファイルのアップロードは許可されていません"
+      content_type_blacklist_error: "%{content_type}ファイルのアップロードは許可されていません"
+      rmagick_processing_error: "rmagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      mini_magick_processing_error: "MiniMagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      min_size_error: "ファイルを%{min_size}バイト以上のサイズにしてください"
+      max_size_error: "ファイルを%{max_size}バイト以下のサイズにしてください"
+
       accepted: を受諾してください
       blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません
@@ -141,6 +195,7 @@ ja:
   helpers:
     select:
       prompt: 選択してください
+      include_blank: 選択してください
     submit:
       create: 登録する
       submit: 保存する
@@ -205,3 +260,14 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
+
+
+
+        # remember_me: 次回から自動的にログイン

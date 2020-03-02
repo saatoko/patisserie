@@ -1,1 +1,561 @@
-// idに対するレシピページ用
+.recipe-show {
+  @include scrollbar
+}
+
+.homemade-recipename__text--line {
+  @include design-line
+}
+
+.recipe-show {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  &__spacetop {
+    height: 120px;
+    width: 100%;
+    top: 0;
+    position: relative;
+    background-color: #FFE4E1;
+  }
+  &__contents {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: #FFE4E1;
+    &--spaceside {
+      background-color: $white;
+      height: auto;
+      width: 80%;
+      margin: 0 auto;
+      .homemade {
+        width: 100%;
+        height: auto;
+        box-shadow: 0 0 10px #7a6959;
+        &__header {
+          background-color: #6f4b3e;
+          background-image: linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%,), linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%, #664539);
+          background-position: 0 0, 25px 25px;
+          background-size: 50px 50px;
+          width: 100%;
+          color: $white;
+          font-weight: bold;
+          height: 90px;
+          line-height: 90px;
+          font-size: 3.0rem;
+          text-align: right;
+          letter-spacing: 20px;
+          text-shadow: 1px 1px 0 #83753a;
+          .coffee-show {
+            display: inline-block;
+            color: $white;
+            transition: 1s;
+            -webkit-transition: 1s;
+            &:hover {
+              transform: scale(1.5);
+            }
+          }
+        }
+        &__topblock {
+          width: 100%;
+          height: 450px;
+          background-color: $white;
+          &::after {
+            content: "";
+            display: block;
+            clear: both;
+          }
+          &--image {
+            float: left;
+            width: 60%;
+            height: 100%;
+            .fabrication-big {
+              width: 100%;
+              height: 80%;
+              overflow: hidden;
+              position: relative;
+              text-align: center;
+              box-sizing: border-box;
+              &__inner {
+                height: 100%;
+                width: 100%;
+                background-color: #FAE2E1;
+                
+                .big-photo {
+                  width: auto;
+                  height: 100%;
+                  margin: 0 auto;
+                  display: block;
+                  // object-fit: cover;
+                  // object-fit: contain;
+                }
+              }
+            }
+            .fabrication-small {
+              width: 100%;
+              height: 20%;
+              overflow-x: auto;
+              position: relative;
+              margin-top: 2px;
+              box-sizing: border-box;
+              &__inner {
+                display: flex;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                overflow-x: auto;
+                background-color: #6f4b3e;
+                background-image: linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%,), linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%, #664539);
+                background-position: 0 0, 25px 25px;
+                background-size: 50px 50px;
+                &--list {
+                  height: 100%;
+                  width: auto;
+                  .small-photo {
+                    border: 1px solid #fafafa;
+                    cursor: pointer;
+                    opacity: 0.7;
+                    height: 90px;
+                    width: 90px;
+                    &:hover {
+                      opacity: 1;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &--description {
+            float: right;
+            width: 40%;
+            position: relative;
+            height: 100%;
+            color: rgba(73, 61, 44, 0.897);
+            
+            
+            .homemade-recipename {
+              height: 20%;
+              padding: 1.2rem 1.5rem 0.5rem;
+              box-sizing: border-box;
+              
+              &__text {
+                width: auto;
+                word-wrap: break-word;
+                font-size: 2.0rem;
+                display: inline-block;
+              }
+            }
+            .homemade-usernickname {
+              height: 10%;
+              box-sizing: border-box;
+              padding: 0.5rem 1.5rem 1.0rem 1.5rem;
+              justify-content: flex-end;
+              display: flex;
+              word-wrap: break-word;
+              width: 100%;
+              &__text {
+                font-size: 1.2rem;
+              }
+              &__content {
+                font-size: 1.2rem;
+                font-weight: bold;
+              }
+            }
+            .homemade-userprofile {
+              height: 35%;
+              padding: 0.5rem 1.5rem 1.0rem 1.5rem;
+              box-sizing: border-box;
+              width: 100%;
+              word-wrap: break-word;
+              overflow-y: scroll;
+              &__text {
+                font-size: 1.5rem;
+                width: 100%;
+                height: auto;
+              }
+              &__content {
+                font-size: 1.2rem;
+                width: 100%;
+                height: auto;
+              }
+            }
+            .homemade-recipecookingpoint {
+              height: 35%;
+              width: 100%;
+              padding: 0.5rem 1.5rem 1.0rem 1.5rem;
+              box-sizing: border-box;
+              word-wrap: break-word;
+              overflow-y: scroll;
+              &__text {
+                font-size: 1.5rem;
+                width: 100%;
+                height: auto;
+              } 
+              &__content {
+                font-size: 1.2rem;
+                width: 100%;
+                height: auto;
+              }
+            }
+          }
+        }
+        &__various-buttons {
+          width: 100%;
+          display: grid;
+          grid-template-rows: 70px;
+          grid-template-columns: repeat(3, 1fr);
+          background-color: #b95c52;
+          
+          grid-gap: 3rem;
+          margin-top: 1.0rem;
+          text-align: center;
+          height: 100%;
+          font-weight: bold;
+          font-size: 1.4rem;
+          letter-spacing: 0.2rem;
+          
+          .homemade-nice {
+            grid-column: 1 / 2;
+            color: $white;
+            text-decoration: none;
+            background-color: #b8860b;
+            display: inline-grid;
+            height: 70px;
+            align-items: center;
+            -webkit-text-stroke: 0.3px $white;
+            font-size: 1.2rem;
+            
+          }
+          .homemade-hensyu{
+            grid-column: 2 / 3;
+            color: rgba(73, 61, 44, 0.897);
+            color: $white;
+            text-decoration: none;
+            display: inline-grid;
+            background-color: #b8860b;
+            height: 70px;
+            align-items: center;
+            -webkit-text-stroke: 0.3px $white;
+          }
+          .homemade-sakujo {
+            grid-column: 3 / 4;
+            color: $white;
+            text-decoration: none;
+            display: inline-grid;
+            background-color: #b8860b;
+            height: 70px;
+            align-items: center;
+            -webkit-text-stroke: 0.3px $white;
+          }
+        }
+        &__detail-icons {
+          margin-top: 1.0rem;
+          width: 100%;
+          display: grid;
+          grid-template-rows: 80px;
+          grid-template-columns: repeat(6, 1fr);
+          background-color: #b95c52;
+          grid-gap: 3rem;
+          text-align: center;
+          height: 100%;
+          font-weight: bold;
+          font-size: 0.8rem;
+          letter-spacing: 0.1rem;
+          .homemade-difficulty {
+            text-decoration: none;
+            color: $white; 
+            -webkit-text-stroke: 0.3px $white;
+            background-color: #b8860b;
+            padding: 5px;
+            grid-column: 1 / 2;
+            .homemade-icons {
+              font-size: 1.8rem;
+              color: $white;
+              -webkit-text-stroke: 0.3px rgba(73, 61, 44, 0.897);
+            }
+            &__detail {
+              font-size: 1.3rem;
+            }
+          }
+          .homemade-servers {
+            text-decoration: none;
+            color: $white;
+            -webkit-text-stroke: 0.3px $white;
+            background-color: #b8860b;
+            padding: 5px;
+            grid-column: 2 / 3;
+            .homemade-icons {
+              font-size: 1.8rem;
+              color: $white;
+              -webkit-text-stroke: 0.3px rgba(73, 61, 44, 0.897);
+            }
+            &__detail {
+              font-size: 1.3rem;
+            }
+          }
+          .homemade-cookingtime {
+            text-decoration: none;
+            color: $white;
+            -webkit-text-stroke: 0.3px $white;
+            background-color: #b8860b;
+            padding: 5px;
+            grid-column: 3 / 4;
+            .homemade-icons {
+              font-size: 1.8rem;
+              color: $white;
+              -webkit-text-stroke: 0.3px rgba(73, 61, 44, 0.897);
+            }
+            &__detail {
+              font-size: 1.3rem;
+            }
+          }
+          .homemade-restingtime {
+            text-decoration: none;
+            color: $white;
+            -webkit-text-stroke: 0.3px $white;
+            background-color: #b8860b;
+            padding: 5px;
+            grid-column: 4 / 5;
+            .homemade-icons {
+              font-size: 1.8rem;
+              color: $white;
+              -webkit-text-stroke: 0.3px rgba(73, 61, 44, 0.897);
+            }
+            &__detail {
+              font-size: 1.3rem;
+            }
+          }
+          .homemade-bakingtime {
+            text-decoration: none;
+            color: $white;
+            -webkit-text-stroke: 0.3px $white;
+            background-color: #b8860b;
+            padding: 5px;
+            grid-column: 5 / 6;
+            .homemade-icons {
+              font-size: 1.8rem;
+              color: $white;
+              -webkit-text-stroke: 0.3px rgba(73, 61, 44, 0.897);
+            }
+            &__detail {
+              font-size: 1.3rem;
+            }
+          }
+          .homemade-bakingtemperature {
+            text-decoration: none;
+            color: $white;
+            -webkit-text-stroke: 0.3px $white;
+            background-color: #b8860b;
+            padding: 5px;
+            grid-column: 6 / 7;
+            .homemade-icons {
+              font-size: 1.8rem;
+              color: $white;
+              -webkit-text-stroke: 0.3px rgba(73, 61, 44, 0.897);
+            }
+            &__detail {
+              font-size: 1.3rem;
+            }
+          }
+        }
+        &__part {
+          width: 100%;
+          height: auto;
+          &::after {
+            content: "";
+            display: block;
+            clear: both;
+          }
+          &--left {
+            float: left;
+            width: 70%;
+            height: auto;
+            .homemade-ingredients {
+              height: auto;
+              margin: 4rem 2rem 2rem;
+              &::after {
+                content: "";
+                display: block;
+                clear: both;
+              }
+              &__text {
+                text-align: left;
+                font-size: 2rem;
+                color: rgba(73, 61, 44, 0.897);
+                font-weight: bold;
+                letter-spacing: 0.6rem;
+                border-bottom: 1px solid #f7bc0a;
+                padding: 1rem 3rem 0.5rem 3rem;
+              }
+              &__content {
+                color: rgba(73, 61, 44, 0.897);
+                font-size: 1.4rem;
+                padding: 0 12rem 0 3rem;
+                display: grid;
+                grid-gap: 10px; 
+                grid-template-columns: 100px 2fr 2fr;
+                grid-auto-flow: row;
+                align-items: center;
+                justify-content: center;
+                &--checkbox {
+                  grid-column: 1 / 2;
+                  text-align: right;
+                  label {
+                    .checkbox{
+                      display: none;
+                    }
+                    .checkbox + .checkbox-icon {
+                      position: relative;
+                      vertical-align: middle;
+                      cursor: pointer;
+                    }
+                    .checkbox + .checkbox-icon:before {
+                      content: "\f372";
+                      content: "\f1a5";
+                      color: #ccc;
+                      font-size: 30px;
+                    }
+                    .checkbox:checked + .checkbox-icon:before {
+                      content: "\f374";
+                      color: #b95c52;
+                    }
+                  }
+                }
+                &--ingredient {
+                  grid-column: 2 / 3;   
+                }
+                &--quantity {
+                  grid-column: 3 / 4;               
+                }
+              }
+            }
+          }
+
+          &--right {
+            float: right;
+            width: 30%;
+            height: auto;
+            .homemade-instruments {
+              height: auto;
+              margin: 4rem 2rem 2rem;
+              &__text {
+                text-align: left;
+                font-size: 2rem;
+                color: rgba(73, 61, 44, 0.897);
+                font-weight: bold;
+                letter-spacing: 0.6rem;
+                border-bottom: 1px solid #f7bc0a;
+                padding: 1rem 3rem 0.5rem 3rem;
+              }
+              &__content {
+                white-space: normal;
+                color: rgba(73, 61, 44, 0.897);
+                font-size: 1.4rem;
+                padding: 0.5rem 3rem 1rem 3rem;
+              }
+            }
+          }
+        }
+        &__method {
+          width: 100%;
+          height: auto;
+          &--inner {
+            box-sizing: border-box;
+            margin: 2rem 2rem;
+            color: rgba(73, 61, 44, 0.897);
+            .method--text {
+              text-align: left;
+              font-size: 2rem;
+              font-weight: bold;
+              letter-spacing: 0.6rem;
+              padding: 1rem 3rem 0.5rem 3rem;
+              border-bottom: 1px solid #f7bc0a;
+            }
+            .method--content {
+              font-size: 1.4rem;
+              padding: 0.5rem 3rem 1.5rem 3rem;
+              // white-space: pre-wrap;
+              white-space: pre-line;
+            }
+          }
+        }
+        &__video {
+          width: 100%;
+          height: auto;
+          &--inner {
+            box-sizing: border-box;
+            padding: 2rem 2rem;
+            .video-text {
+            color: rgba(73, 61, 44, 0.897);
+            text-align: left;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 0.6rem;
+            padding: 1rem 3rem 0.5rem 3rem;
+            border-bottom: 1px solid #f7bc0a;
+            }
+            .vodeo-main {
+              padding: 0.5rem 3rem 1.5rem 3rem;
+              box-sizing: border-box;
+              width: 100%;
+              &::after {
+                content: "";
+                display: block;
+                clear: both;
+              }
+              &__emptypost {
+                text-align: center;
+                font-size: 1.4rem;
+                color: rgba(73, 61, 44, 0.897);
+              }
+              &__content {
+                float: left;
+                width: 60%;
+                padding: 0.5rem;
+                box-sizing: border-box;
+              }
+              &__description {
+                float: right;
+                width: 40%;
+                padding: 2rem 0.5rem;
+                box-sizing: border-box;
+                height: auto;
+                overflow-y: scroll;
+                word-wrap: break-word;
+                &--text {
+                  font-size: 1.5rem;
+                  color: rgba(73, 61, 44, 0.897);
+                  width: 100%;
+                }
+                &--content {
+                  font-size: 1.2rem;
+                  color: rgba(73, 61, 44, 0.897);
+                  white-space: pre-line;
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__footer {
+    width: 100%;
+    height: 120px;
+    position: relative;
+    bottom: 0;
+    top: 0;
+    background-color: #FFE4E1;
+    &--text {
+      font-size: 1.0rem;
+      text-align: center;
+      width: 100%;
+      color: #d49992;
+      line-height: 120px;
+      font-weight: bold;
+      letter-spacing: 0.5rem;
+    }
+  }
+}
+

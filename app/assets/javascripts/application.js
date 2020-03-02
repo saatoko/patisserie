@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require owl.carousel
+//= require nested_form_fields
+
 

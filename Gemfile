@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.5.7"
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -9,11 +11,12 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.18', '< 0.6.0'
+
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -38,6 +41,12 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  gem 'mysql2', '>= 0.3.18', '< 0.6.0'
+end
+
+group :production do
+  gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 end
 
 group :development do
@@ -61,3 +70,11 @@ gem 'mini_magick'
 gem 'active_hash'
 gem 'pry-rails'
 gem 'owlcarousel-rails'
+gem 'jquery-rails'
+gem 'nested_form_fields'
+gem 'ancestry'
+gem 'seed-fu'
+gem 'kaminari'
+
+
+

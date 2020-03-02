@@ -1,1 +1,148 @@
--# idに対するレシピページ用
+.recipe-show
+  .recipe-show__spacetop
+  .recipe-show__contents
+    .recipe-show__contents--spaceside
+      .homemade
+        .homemade__header
+          SWEETS SITE
+          = link_to recipes_path do
+            = fa_icon "coffee", class: "coffee-show"
+            
+        .homemade__topblock.clearfix
+          .homemade__topblock--image
+            .fabrication-big
+              .fabrication-big__inner
+                - @recipe.recipe_images.each do |image|
+                  = image_tag "#{image.image}", class: "big-photo", alt: "#{@recipe.name}"
+
+            .fabrication-small
+              %ul.fabrication-small__inner
+                - @recipe.recipe_images.each do |image|
+                  %li.fabrication-small__inner--list
+                    = image_tag "#{image.image}", class: "small-photo", alt: "#{@recipe.name}"
+            
+          .homemade__topblock--description
+            .homemade-recipename
+              .homemade-recipename__text
+                = @recipe.name
+                .homemade-recipename__text--line
+            .homemade-usernickname
+              .homemade-usernickname__text
+                by.
+              .homemade-usernickname__content
+                = @recipe.user.nickname
+
+            .homemade-userprofile
+              .homemade-userprofile__text
+                プロフィール
+              .homemade-userprofile__content
+                = @recipe.user.profile
+            .homemade-recipecookingpoint
+              .homemade-recipecookingpoint__text
+                レシピのポイント
+              .homemade-recipecookingpoint__content
+                = @recipe.cookingpoint
+            
+        .homemade__various-buttons
+          %li.homemade-nice
+            いいね!
+            %span{id: "like-buttons_#{@recipe.id}"}
+              = render partial: "votes/votes", locals: { recipe: @recipe }
+
+          - if user_signed_in? && current_user.id == @recipe.user_id
+          
+            = link_to "レシピの編集", edit_recipe_path(@recipe), method: :get, class: "homemade-hensyu", data: {confirm: "修正を行いますか?" }
+            = link_to "レシピの削除", recipe_path(@recipe), method: :delete, class: "homemade-sakujo", data: {confirm: "本当に削除してもよろしいですか?" }
+
+        .homemade__detail-icons
+          = link_to "#method-link", class: "homemade-difficulty" do
+            難易度
+            = fa_icon "line-chart", class: "homemade-icons"
+            .homemade-difficulty__detail
+              = @recipe.difficulty.name
+
+          = link_to "#ingredient-link", class: "homemade-servers" do
+            何名分
+            = fa_icon "pie-chart", class: "homemade-icons"
+            .homemade-servers__detail
+              = @recipe.servers
+              名分
+
+          = link_to "#method-link", class: "homemade-cookingtime" do
+            調理時間
+            = fa_icon "hourglass-half", class: "homemade-icons"
+            .homemade-cookingtime__detail
+              = @recipe.cookingtime
+
+          = link_to "#method-link", class: "homemade-restingtime" do
+            生地の休憩時間
+            = fa_icon "hourglass-half", class: "homemade-icons"
+            .homemade-restingtime__detail
+              = @recipe.restingtime
+
+          = link_to "#method-link", class: "homemade-bakingtime" do
+            焼成時間/蒸し時間
+            = fa_icon "hourglass-half", class: "homemade-icons"
+            .homemade-bakingtime__detail
+              = @recipe.bakingtime
+
+          = link_to "#method-link", class: "homemade-bakingtemperature" do
+            焼成温度
+            = fa_icon "signal", class: "homemade-icons"
+            .homemade-bakingtemperature__detail
+              = @recipe.bakingtemperature
+              ℃
+        .homemade__part.clearfix
+          .homemade__part--left
+            .homemade-ingredients.clearfix
+              .homemade-ingredients__text{id: "ingredient-link"}
+                材料と分量(用意したらチェック)
+              - @recipe.recipe_ingredients.each do |i|
+                .homemade-ingredients__content
+                  .homemade-ingredients__content--checkbox
+                    %label
+                      %input{type: "checkbox", class: "checkbox"}
+                      %span.checkbox-icon
+                  .homemade-ingredients__content--ingredient
+                    = i.ingredients
+                  .homemade-ingredients__content--quantity
+                    = i.quantity
+        
+          .homemade__part--right
+            .homemade-instruments
+              .homemade-instruments__text
+                使用器具
+              .homemade-instruments__content
+                = @recipe.instruments
+        
+        
+        .homemade__method
+          .homemade__method--inner
+            .method--text{id: "method-link"}
+              作り方
+            .method--content
+              = @recipe.method
+
+        .homemade__video
+          .homemade__video--inner
+            .video-text
+              動画
+            .vodeo-main.clearfix
+              - if @recipe.recipe_video.video.file.nil? 
+                .vodeo-main__emptypost
+                  動画は投稿されていません。
+              - else
+                .vodeo-main__content
+                  = video_tag "#{@recipe.recipe_video.video}", class: "show-video", controls: true, autoplay: false, size: 20*20
+
+              - if @recipe.recipe_video.video.file.nil? 
+              - else
+                .vodeo-main__description
+                  .vodeo-main__description--text
+                    (動画説明)
+                  .vodeo-main__description--content
+                    = @recipe.recipe_video.description
+
+  .recipe-show__footer
+    .recipe-show__footer--text
+      2019.SWEETS SITE

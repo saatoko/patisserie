@@ -1,0 +1,85 @@
+.hissu {
+  @include required;
+  background-color: #ea352d;
+} 
+
+.account-btn {
+  @include account;
+}
+
+.wrapper-signup {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  &__inner {
+    padding: 0;
+    width: 100%;
+    height: calc( 100vh - 70px - 70px );
+    &--content {
+      width: 60%;
+      margin: 70px auto;
+      padding: 50px;
+      background-color: $white;
+      border: 1px solid #b95c52;
+
+      border-radius: 5px;
+      .signup-text{
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+      }
+      .signup-box {
+        text-align: center;
+        display: block;
+        .field {
+          padding-top: 40px;
+          width: 100%;
+          height: 50px;
+          font-size: 1.2rem;
+          &::after {
+            content: "";
+            display: block;
+            clear: both;
+          }
+          .field-label {
+            float: left;
+            width: 50%;
+          }
+          .field-input {
+            float: right;
+            width: 50%;
+            
+            .input-signup {
+              width: 100%;
+              padding: 5px;
+              font-size: 0.9rem;
+              height: 40px;
+            }
+            #user_gender_id {
+              width: 100%;
+              padding: 5px;
+              font-size: 1.0rem;
+              height: 40px;
+            }
+            #user_profession_id {
+              width: 100%;
+              padding: 5px;
+              font-size: 1.0rem;
+              height: 40px;
+            }
+          }
+        }
+        .actions {
+          padding-top: 40px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+

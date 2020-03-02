@@ -1,0 +1,1 @@
+$('#like-buttons_<%= @recipe.id %>').html("<%= j(render partial: 'votes/votes', locals: {recipe: @recipe})%>");  

@@ -1,0 +1,117 @@
+.recipe-header{
+  position: relative;
+  top: 0;
+  left: 0px;  
+  width: 100%;
+  height: 150px;
+  background-color: #6f4b3e;
+  background-image: linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%,), linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%, #664539);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+  &__title {
+    width: 100%;
+    color: $white;
+    font-weight: bold;
+    height: 90px;
+    line-height: 90px;
+    font-size: 3.0rem;
+    text-align: right;
+    letter-spacing: 20px;
+    text-shadow: 1px 1px 0 #83753a;
+    .coffee-recipesheader {
+      color: $white;
+      .coffee-index {
+        transition: 1s;
+        -webkit-transition: 1s;
+        &:hover {
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+  &__navigation {
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    background-color: $white;
+    box-shadow: 0 0 15px #7a6959;
+    
+    position: relative;
+    &--inner {
+      justify-content: space-between;
+      max-width: 80%;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      .inner-right {
+        margin:0 0 0 auto;
+        display: flex;
+        li{
+          text-align: center;
+          line-height: 60px;
+          padding: 0 10px;
+          a {
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 20px;
+            border: solid 1px $white;
+            padding: 0.5rem 0.5rem;
+            transition: all .5s ease;
+            box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            &.sweets-banner.play {
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
+              &:hover {
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+              }
+            }
+            &.sweets-banner.stop {
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
+              &:hover {
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+              }
+            }
+            &.user-signin {
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
+              &:hover {
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+              }
+            }
+            &.user-signup {
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
+              &:hover {
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+              }
+            }
+            &.user-mypage {
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
+              &:hover {
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+              }
+            }
+            &.user-signout {
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
+              &:hover {
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+              }
+            }
+            &.ourrecipes-posts {
+              border: 0.2rem solid #b95c52;
+              color: #a79050;
+              &:hover {
+                box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

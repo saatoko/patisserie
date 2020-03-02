@@ -1,0 +1,35 @@
+.sweets-banner {
+  width: 100%;
+  position: relative;
+  background-color: rgb(255, 241, 240);
+  height: 200px;
+  padding: 2rem 0;
+  box-shadow:0px 0px 5px 3px rgba(0, 0, 0, 0.2) inset;
+  .owl-stage-outer {
+    height: 200px;
+    width: 100%;
+    .owl-stage {
+      height: 200px;
+      width: 100%;
+      .owl-item {
+        height: 200px;
+        width: 200px;
+        .sweets-banner__images {
+          height: 200px;
+          width: 200px;
+          &--item {
+            object-fit: cover;
+            border-radius: 100%;
+          }
+        }
+      }
+    }
+  }
+  .owl-dots {
+    display: none;
+    .owl-dot {
+      display: none;
+    }
+  }
+}
+

@@ -1,0 +1,23 @@
+-# 親カテゴリー
+%ul.inner-left
+  %li.inner-left__drop-down
+    菓子種類別検索
+    %ul.parents-category
+      %li.parents-category__parent      
+        -# - unless yougashi.blank? 
+        = link_to "洋菓子", category_recipes_path(yougashi.ids.first)
+        %ul.children-category
+          = render partial: "categories/child_category", collection: @category_children1, as: "category"
+              
+      %li.parents-category__parent
+        -# - unless wagashi.blank?
+        = link_to "和菓子", category_recipes_path(wagashi.ids.first)
+        %ul.children-category
+          = render partial: "categories/child_category", collection: @category_children2, as: "category"
+
+      %li.parents-category__parent
+        -# otherの文字列が空か、そもそもother自体が存在しない場合に処理をスキップ
+        -# - unless other.blank?
+        = link_to "その他", category_recipes_path(other.ids.last)
+        %ul.children-category
+          = render partial: "categories/child_category", collection: @category_children3, as: "category"

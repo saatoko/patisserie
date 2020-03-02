@@ -1,24 +1,146 @@
 .recipe-wrapper {
   width: 100vw;
-  height: 100vh;
-  // background-color: rgba(250, 202, 139, 0.897);
-  // background-image: linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%,), linear-gradient(45deg, rgba(255, 205, 139, 0.822) 25%, transparent 25%, transparent 75%, rgba(255, 205, 139, 0.822) 75%, rgba(255, 205, 139, 0.822));
-  // background-position: 0 0, 25px 25px;
-  // background-size: 50px 50px;
-
-  .recipe-main{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  .recipe-index__header {
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    border-style: dotted;
+    border-color: $white;
+    border-width: 1rem;
+  }
+  .recipe-index__contents {
     position: relative;
-    // margin: 0 auto;
-    // width: 80%;
-    // height: 85%;
-    &__space {
-      // display: flex;
-      // justify-content: space-between;
-      width: 80%;
-      padding: 65px 10%;
-      margin: 0 auto;
-      background-color: $white;
+    width: 100%;
+    height: auto;
+    background-color: #FFE4E1;
+    &--spacetop{
+      width: 100%;
+      height: 50px;
+      background-color: #FFE4E1;
+      border-top-style: dotted;
+      border-color: #a79050;
+      border-width: 1rem;
     }
-
+    &--spaceside {
+      background-color: $white;
+      height: auto;
+      text-align: center;
+      width: 70%;
+      margin: 0 auto;
+      .index-block {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 0 8px #7a6959;
+        &__grid {
+          padding-top: 20px;
+          height: auto;
+          margin: 0 auto;
+          width: 95%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-auto-flow: dense;
+          .someone-recipe {
+            border: 1px solid rgb(240, 231, 185);
+            display: block;
+            height: 435px;
+            padding: 0;
+            margin: 10px 10px 20px;
+            box-sizing: border-box;
+            position: relative;
+            
+            &__link {
+              text-decoration: none;
+              color: rgba(73, 61, 44, 0.897);
+            }
+            &:hover {
+              border: 1px solid #fcf3aa;
+              box-shadow: 0 0 10px #fcf3aa;
+            }
+            .grid-image {
+              position: relative;
+              background-color:#FAE2E1;
+              width: 100%;
+              height: 80%;
+              overflow: hidden;
+              &__inner {
+                height: 100%;
+                position: relative;
+                width: 100%;
+                object-fit: contain;
+                // object-fit: cover;
+              }
+            }
+            .grid-information {
+              display: block;
+              min-width: auto;
+              padding-top: 0;
+              width: auto;
+              height: 20%;
+              &::after {
+                content: "";
+                display: block;
+                clear: both;
+              }
+              &__content {
+                float: left;
+                text-align: left;
+                height: 100%;
+                width: 60%;
+                text-decoration: none;
+                &--recipename {
+                  height: 50%;
+                  width: 100%;
+                  .recipename-text {
+                    padding: 5px 10px;
+                    box-sizing: border-box;
+                    height: 100%;
+                    width: 100%;
+                    font-size: 1.2rem;
+                  }
+                }
+                &--usernickname {
+                  height: 50%;
+                  width: 100%;
+                  top: 50%;
+                  .usernickname-text {
+                    padding: 5px 10px;
+                    box-sizing: border-box;
+                    height: 100%;
+                    width: 100%;
+                    font-size: 1.0rem;
+                  }
+                }
+              }
+              &__heart {
+                float: right;
+                height: 100%;
+                width: 40%;
+                box-sizing: border-box;
+                padding: 5px 10px;
+                &--content {
+                  height: 100%;
+                  width: 100%;
+                  color: pink;
+                  text-shadow:1px 1px 0 rgb(212, 153, 146),-1px 1px 0 rgb(212, 153, 146),1px -1px 0 rgb(212, 153, 146),-1px -1px 0 rgb(212, 153, 146);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &--spacebottom {
+      width: 100%;
+      height: 50px;
+      background-color: #FFE4E1;
+    }
   }
 }

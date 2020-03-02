@@ -1,0 +1,15 @@
+.alert-warning {
+  padding: 20px 10px;
+  h2 {
+    background-color: rgb(255, 172, 172);
+    color: $white;
+    text-align: center;
+  }
+  ul {
+    border-style: dotted;
+    border-color: #b8860b;
+    li {
+      font-size: 1.1rem;
+    }
+  }
+}

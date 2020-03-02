@@ -1,0 +1,19 @@
+- if user_signed_in?
+  - if recipe.vote_user(current_user.id)
+    = button_to recipe_vote_path(recipe_id: recipe.id, id: recipe.votes[0].id), method: :delete, id: "likes-buttons", class: "iine-button", remote: true do
+      %i.fa.fa-heart.fa-3x{class: "iine-heart"}
+      %span{class: "iine-number"}
+        = recipe.votes_count
+
+  - else
+    = button_to recipe_votes_path(recipe.id), method: :post, id: "like-buttons", class: "uniine-button", remote: true do
+      %i.fa.fa-heart.fa-3x{class: "uniine-heart"}
+      %span{class: "uniine-number"}
+        = recipe.votes_count
+
+- else
+  %i.fa.fa-heart.fa-2x{class: "else-heart"}
+  
+  %span
+    = recipe.votes_count
+

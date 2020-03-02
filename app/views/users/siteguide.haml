@@ -8,20 +8,65 @@
       = link_to "スイーツページへ", "/recipes", class: "confectionery"
 
   .main-guide
-    %p.text-title
-      サイト内紹介
+    .main-guide__text
+      .main-guide__text--title
+        サイト内紹介
     .main-guide__contents
-      .aboutme-box{id: "aboutme-link"}
-        .aboutme-box__name
-          ABOUT ME
-        %p.aboutme-box__text
-          はじめまして。プログラミングの勉強を2019年10月から始めました。こちらは初めてのアプリ製作になります。ぜひご覧ください。
-      .thissite-box{id: "thissite-link"}
-        .thissite-box__description
-          どのような機能を用意したか
-        %p.thissite-box__text
-          このサイトでは、お菓子レシピの閲覧を全てのユーザーがすることができます。そして、ユーザー新規登録後は、レシピに対し、コメントを残すことができるようになっています。
-  
+      .main-guide__contents--inner
+        .aboutme-box{id: "aboutme-link"}
+          .aboutme-box__name
+            開発環境
+          .aboutme-box__text
+            (本番環境)
+            ・Rubyのバージョン
+            ruby 2.5.7
+            ・Railsのバージョン
+            Rails 5.0.7.2
+            ・データベース
+            MySQL2
+        .thissite-box{id: "thissite-link"}
+          .thissite-box__description
+            サイトの機能
+          .thissite-box__user
+            (ユーザー系)
+            新規登録
+            ログイン
+            (テストユーザーとしてログインできます)
+            ログアウト
+            (使用したgem)
+            devise 
+          .thissite-box__recipe
+            (レシピ系)
+            (未ログイン時)
+            レシピ閲覧
+            いいね数閲覧
+            カテゴリー検索
+            (ログイン後)
+            レシピ投稿
+            レシピ編集
+            レシピ削除
+            いいね機能
+            カテゴリー検索
+            (使用したgem)
+            nested_form_fields
+            ancestry
+            seed-fu 
+            carrierwave
+            mini_magick
+            active_hash
+          .thissite-box__gem
+            (レイアウト系)
+            ・コーヒーアイコンで、1ページ戻ります
+            ・１ページにつき、12レシピまで表示
+            (使用したgem)
+            haml-rails 
+            sassc-rails
+            font-awesome-rails
+            pry-rails
+            jquery-rails
+            owlcarousel-rails
+            kaminari
+
   .footer-guide
     = link_to "/users", class: "back" do
       = fa_icon "coffee"

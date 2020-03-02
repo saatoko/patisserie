@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: patisserie_production
-  username: patisserie
-  password: <%= ENV['PATISSERIE_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %> 
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  pool: 5

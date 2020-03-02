@@ -1,0 +1,14 @@
+@mixin ingredient-btn {
+  border-radius: 5px;
+  color: $white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.3rem;
+  padding: 4px 12px;
+  &.btn-ingredients__delete {
+    background-color: rgb(172, 1, 1);
+  }
+  &.btn-ingredients__add {
+    background-color: #0091ff;
+  }
+}
