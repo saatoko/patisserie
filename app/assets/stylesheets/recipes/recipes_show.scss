@@ -82,13 +82,10 @@
                 width: 100%;
                 background-color: #FAE2E1;
                 .big-photo {
-                  width: auto;
                   height: 100%;
-                  margin: 0 auto;
-                  display: block;
-                  object-position: center center;
-                  // object-fit: cover;
-                  // object-fit: contain;
+                  position: relative;
+                  width: 100%;
+                  object-fit: cover;
                 }
               }
             }
@@ -132,18 +129,18 @@
             position: relative;
             height: 100%;
             color: rgba(73, 61, 44, 0.897);
-            
-            
             .homemade-recipename {
               height: 20%;
               padding: 1.2rem 1.5rem 0.5rem;
               box-sizing: border-box;
-              
+              overflow-y: scroll;
               &__text {
+                height: 100%;
+                width: 100%;
+                font-weight: bold;
+                font-family: serif;
                 width: auto;
-                word-wrap: break-word;
                 font-size: 2.0rem;
-                display: inline-block;
               }
             }
             .homemade-usernickname {

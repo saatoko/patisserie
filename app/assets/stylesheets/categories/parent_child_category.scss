@@ -32,7 +32,7 @@
           display: block;
           a {
             background-color: $white;
-            color: #a79050;
+            color: #46130a;
             display: block;
             height: 50px;
             line-height: 50px;
@@ -40,6 +40,9 @@
             text-decoration: none;
             width: 170px;
             border: 1px solid #7a6959;
+            &:hover {
+              background-color: #e2f2d5
+            }
           }
           .children-category {
             margin: 0 auto;
@@ -56,7 +59,7 @@
               list-style: none;
               a {
                 background-color: $white;
-                color: #a79050;
+                color: #46130a;
                 width: 280px;
                 border: 1px solid #7a6959;
                 display: block;
@@ -64,6 +67,9 @@
                 line-height: 50px;
                 text-align: center;
                 text-decoration: none;
+                &:hover {
+                  background-color: #e2f2d5;
+                }
               }
             }
           }
