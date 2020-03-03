@@ -20,7 +20,7 @@
               = f.label :name
         
             .recipe-input
-              = f.text_field :name, placeholder: "例) マカロン", class: 'input-recipe'
+              = f.text_field :name, class: 'input-recipe'
 
           -# カテゴリー編集未実装
           .recipe.clearfix
@@ -46,37 +46,35 @@
               = f.label :servers
            
             .recipe-input
-              = f.text_field :servers, placeholder: "例) 4", class: 'input-recipe'
-              人分
+              = f.text_field :servers, class: 'input-recipe'
 
           .recipe.clearfix
             .recipe-label
               = f.label :cookingtime
             
             .recipe-input
-              = f.text_field :cookingtime, placeholder: "例) 1時間40分", class: 'input-recipe'
+              = f.text_field :cookingtime, class: 'input-recipe'
 
           .recipe.clearfix
             .recipe-label
               = f.label :restingtime
          
             .recipe-input
-              = f.text_field :restingtime, placeholder: "例) 一日", class: 'input-recipe'
+              = f.text_field :restingtime, class: 'input-recipe'
 
           .recipe.clearfix
             .recipe-label
               = f.label :bakingtime
             
             .recipe-input
-              = f.text_field :bakingtime, placeholder: "例) 10分", class: 'input-recipe'
+              = f.text_field :bakingtime, class: 'input-recipe'
 
           .recipe.clearfix
             .recipe-label
               = f.label :bakingtemperature
          
             .recipe-input
-              = f.text_field :bakingtemperature, placeholder: "例) 180", class: 'input-recipe'
-              ℃
+              = f.text_field :bakingtemperature, class: 'input-recipe'
 
           .recipe.clearfix
             .recipe-quantity
@@ -99,21 +97,21 @@
               = f.label :method
             
             .recipe-input
-              = f.text_area :method, placeholder: '例) 1...2...3...', rows: '8', class: "input-recipebig"
+              = f.text_area :method, rows: '8', class: "input-recipebig"
 
           .recipe.clearfix
             .recipe-label
               = f.label :cookingpoint
           
             .recipe-input
-              = f.text_area :cookingpoint, placeholder: '例) 立てすぎないこと。', rows: '4', class: "input-recipebig"
+              = f.text_area :cookingpoint, rows: '4', class: "input-recipebig"
 
           .recipe.clearfix
             .recipe-label
               = f.label :instruments
           
             .recipe-input
-              = f.text_area :instruments, placeholder: '例) ホイッパー、ボール、カード、ゴムベラ、鍋、波刃包丁、まな板、バット、天板、ベイキングシート、オーブン など。 特殊なものがあればぜひお書きください。', rows: '8', class: "input-recipebig"
+              = f.text_area :instruments, rows: '8', class: "input-recipebig"
 
           .recipe.clearfix
             .recipe-label

@@ -9,13 +9,16 @@
     background: -moz-linear-gradient(180deg, #ffd700 , $white 20%); 
     background: -webkit-linear-gradient(180deg, #ffd700 , $white 20%); 
     background: linear-gradient(180deg, #ffd700 , $white 20%); 
+
     &__header {
-      color: rgb(172, 140, 52);
+      color: #46130a;
       font-size: 3.4rem;
       transition: all .3s;
       padding: 0.5rem;
       box-sizing: border-box;
       animation: bound .7s ease infinite alternate;
+      font-family: serif;
+      font-weight: bold;
       @keyframes bound {
         0% {transform: translateY(0px);}
         100% {transform: translateY(-10px);}
@@ -30,7 +33,7 @@
         clear: both;
       }
       .aboutme {
-        color: rgb(226, 182, 61);
+        color: #46130a;
         font-weight: bold;
         text-decoration: none;
         float: left;
@@ -41,7 +44,7 @@
       }
       .thissite {
         float: left;
-        color: rgb(226, 182, 61);
+        color: #46130a;
         font-weight: bold;
         text-decoration: none;
         margin-right: 40px;
@@ -51,7 +54,7 @@
       }
       .confectionery {
         float: left;
-        color: rgb(226, 182, 61);
+        color: #46130a;
         font-weight: bold;
         text-decoration: none;
         margin-right: 40px;
@@ -90,9 +93,8 @@
     }
     &__contents {
       width: 100%;
-      height: 100%;
       position: relative;
-      height: 700px;
+      height: 800px;
       &--inner {
       display: grid;
       grid-template-columns: 25% 1fr;
@@ -201,6 +203,7 @@
       font-weight: bold;
       height: auto;
       @include hover-underline;
+      font-family: cursive;
     } 
   }
 }

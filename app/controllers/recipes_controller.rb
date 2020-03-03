@@ -126,16 +126,7 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to controller: 'recipes', action: 'index'
   end
-
-  # def select_category
-  #   @category = Category.new
-  #   respond_to do |format|
-  #     format.js do
-  #       @category = Category.find(params[:category_id])
-  #     end
-  #   end
-  # end
-
+  
   private
   def recipe_params
     params.require(:recipe).permit(

@@ -8,7 +8,7 @@
       = f.label :name
       %span.hissu.required 必須
     .recipe-input
-      = f.text_field :name, placeholder: "例) マカロン", class: 'input-recipe'
+      = f.text_field :name, placeholder: "例) クッキー", class: 'input-recipe'
 
   .recipe.clearfix
     .recipe-label
@@ -30,8 +30,7 @@
       = f.label :servers
       %span.hissu.require 必須
     .recipe-input
-      = f.text_field :servers, placeholder: "例) 4", class: 'input-recipe'
-      人分
+      = f.text_field :servers, placeholder: "例) 4人分, 20個分", class: 'input-recipe'
 
   .recipe.clearfix
     .recipe-label
@@ -45,7 +44,7 @@
       = f.label :restingtime
       %span.hissu.requere 必須
     .recipe-input
-      = f.text_field :restingtime, placeholder: "例) 一日", class: 'input-recipe'
+      = f.text_field :restingtime, placeholder: "例) 一日, なし", class: 'input-recipe'
 
   .recipe.clearfix
     .recipe-label
@@ -59,9 +58,8 @@
       = f.label :bakingtemperature
       %span.hissu.require 必須
     .recipe-input
-      = f.text_field :bakingtemperature, placeholder: "例) 180", class: 'input-recipe'
-      ℃
-
+      = f.text_field :bakingtemperature, placeholder: "例) 180℃, 蒸し器で蒸す", class: 'input-recipe'
+      
   .recipe.clearfix
     .recipe-quantity
       このお菓子の材料と分量
@@ -72,8 +70,8 @@
           %th 材料
           %th 分量
         = f.nested_fields_for :recipe_ingredients, wrapper_tag: :tr do |ff|
-          %td= ff.text_field :ingredients, class: "form-ingredients"
-          %td= ff.text_field :quantity, class: "form-ingredients"
+          %td= ff.text_field :ingredients, class: "form-ingredients", placeholder: "例) 全卵"
+          %td= ff.text_field :quantity, class: "form-ingredients", placeholder: "例) ２個"
           %td= ff.remove_nested_fields_link '削除', data: { confirm: '本当に削除しますか?' }, class: "recipe-btn btn-ingredients__delete", role: "button"
     .botton-position
       = f.add_nested_fields_link :recipe_ingredients, '入力枠の追加', class: "recipe-btn btn-ingredients__add", role: "button"
@@ -90,7 +88,7 @@
       = f.label :cookingpoint
       %span.hissu.require 必須
     .recipe-input
-      = f.text_area :cookingpoint, placeholder: '例) 立てすぎないこと。', rows: '4', class: "input-recipebig"
+      = f.text_area :cookingpoint, placeholder: '作業中に気をつけることを記述してください。', rows: '4', class: "input-recipebig"
 
   .recipe.clearfix
     .recipe-label
@@ -155,25 +153,3 @@
 
   .actions-recipe
     = f.submit "レシピを投稿する", class: 'account-btn', data: {disable_with: '投稿中...'}
-  
--# cocoon
--# 材料分量
--# .recipe.clearfix
--#   .ingredients-title このお菓子の材料と分量
--#   .hissu.require 必須
--#   #ingredients
--#     = f.fields_for :recipe_ingredients do |ingredient|
--#       = render 'recipe_ingredient_fields', f: ingredient
--#     .links
--#       = link_to_add_association '入力枠を増やす', f, :recipe_ingredients
-
--# カテゴリーjs.erb
--# .recipe.clearfix
--#   .recipe-label
--#     = f.label :お菓子のカテゴリーを選択してください。
--#     .hissu.required 必須
--#   .recipe-input
--#     -# 第一引数、第二引数、第三引数、第四引数、オプション、HTML情報
--#     = f.fields_for :@categories, remote: true, js: {class: "select_category"}, url: {controller: "recipes", action: "select_category"} do |c|
--#       = c.collection_select :name, @parent_categories, :id, :name, {prompt: "--"}, { id: "parent_category" }
--#       = c.collection_select :name, @default_child_categories, :id, :name, {prompt: "--"}, {id: "recipe_category_ids", name: "recipe[category_ids]"}

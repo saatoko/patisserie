@@ -95,6 +95,7 @@
                 &--recipename {
                   height: 50%;
                   width: 100%;
+                  overflow: scroll;
                   .recipename-text {
                     padding: 5px 10px;
                     box-sizing: border-box;
@@ -107,6 +108,7 @@
                   height: 50%;
                   width: 100%;
                   top: 50%;
+                  overflow: scroll;
                   .usernickname-text {
                     padding: 5px 10px;
                     box-sizing: border-box;

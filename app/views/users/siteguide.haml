@@ -10,7 +10,7 @@
   .main-guide
     .main-guide__text
       .main-guide__text--title
-        サイト内紹介
+        菓子レシピ投稿・検索アプリ
     .main-guide__contents
       .main-guide__contents--inner
         .aboutme-box{id: "aboutme-link"}
@@ -53,6 +53,7 @@
             seed-fu 
             carrierwave
             mini_magick
+            fog-aws
             active_hash
           .thissite-box__gem
             (レイアウト系)
@@ -66,11 +67,12 @@
             jquery-rails
             owlcarousel-rails
             kaminari
+            dotenv-rails
 
   .footer-guide
     = link_to "/users", class: "back" do
       = fa_icon "coffee"
-      トップページに戻る
+      Back
 
 
 

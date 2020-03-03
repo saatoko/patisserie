@@ -31,7 +31,3 @@ class Recipe < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :difficulty
 end
-
-# cocoon
-# has_many   :recipe_ingredients, dependent: :destroy, inverse_of: :recipe
-# accepts_nested_attributes_for :recipe_ingredients, reject_if: :all_blank, allow_destroy: true
