@@ -15,37 +15,47 @@
   &__inner {
     padding: 0;
     width: 100%;
-    height: calc( 100vh - 70px - 70px );
+    height: auto;
+    background-color: #fff1f0;
+    padding: 50px 0 50px;
     &--content {
-      width: 50%;
-      margin: 70px auto;
+      width: 60%;
+      margin: 0 auto;
       padding: 50px;
       background-color: $white;
-      border: 1px solid #b95c52;
+      box-shadow: 0 0 8px #d68f87;
       border-radius: 5px;
+      color: rgb(122, 105, 89);
       .login-text{
         height: 50px;
         line-height: 50px;
         text-align: center;
         font-weight: bold;
         font-size: 1.5rem;
-        letter-spacing: 4px;
+        font-family: serif;
+        letter-spacing: 1rem;
       }
       .test-user {
         height: auto;
         text-align: left;
         margin: 0.5rem;
         font-size: 1rem;
+        text-align: center;
+        padding: 20px;
+        font-weight: bold;
         &__block {
-          border: solid 2px #b8860b;
+          border: solid 2px #d38b07;
+          border-radius: 5px;
           margin: 0.5rem;
           display: inline-block;
+          padding: 30px;
           &--nickname {
             padding: 0.3rem;
             .nickname-strong {
               display: inline-block;
               font-weight: bold;
-              color: #b8860b;
+              color: #d38b07;
+              font-family: serif;
               font-size: 1.2rem;
             }
           }
@@ -55,7 +65,8 @@
               display: inline-block;
               font-weight: bold;
               font-size: 1.2rem;
-              color: #b8860b;
+              color: #d38b07;
+              font-family: serif;
             }
           }
           &--password {
@@ -64,7 +75,8 @@
               display: inline-block;
               font-weight: bold;
               font-size: 1.2rem;
-              color: #b8860b;
+              color: #d38b07;
+              font-family: serif;
             }
           }
         }
@@ -99,7 +111,7 @@
         }
         .actions-login {
           padding-top: 40px;
-          text-align: left;
+          text-align: center;
         }
       } 
     }

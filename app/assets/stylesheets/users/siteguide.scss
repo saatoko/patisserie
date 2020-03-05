@@ -4,20 +4,34 @@
   min-height: 100vh;
   width: 100vw;
   .header-guide {
-    padding: 150px 30px 80px;
-    height: 240px;
-    background: -moz-linear-gradient(180deg, #adbd37 , $white 20%); 
-    background: -webkit-linear-gradient(180deg, #adbd37 , $white 20%); 
-    background: linear-gradient(180deg, #adbd37 , $white 20%); 
-
-    &__header {
+    padding: 150px 30px 20px;
+    height: 300px;
+    background: linear-gradient(180deg, rgb(231, 157, 169) , $white 40%); 
+    border-bottom: 1rem solid rgb(70, 19, 10);
+    &__title {
       color: #46130a;
-      font-size: 3.4rem;
+      font-size: 4.5rem;
       transition: all .3s;
-      padding: 0.5rem;
+      padding: 0.5rem 0.5rem 0;
+      box-sizing: border-box;
+      animation: bound .7s ease infinite alternate;
+      font-family: cursive;
+      letter-spacing: 1.5rem;
+      font-weight: bold;
+      @keyframes bound {
+        0% {transform: translateY(0px);}
+        100% {transform: translateY(-10px);}
+      }
+    }
+    &__subtitle {
+      color: #46130a;
+      font-size: 1.7rem;
+      transition: all .3s;
+      padding: 0 7rem 0.5rem;
       box-sizing: border-box;
       animation: bound .7s ease infinite alternate;
       font-family: serif;
+      letter-spacing: 1rem;
       font-weight: bold;
       @keyframes bound {
         0% {transform: translateY(0px);}
@@ -25,7 +39,7 @@
       }
     }
     &__menu {
-      padding: 0.5rem 2rem;
+      padding: 4.5rem 2rem 0.5rem;
       box-sizing: border-box;
       &::after{
         content: "";
@@ -38,8 +52,9 @@
         text-decoration: none;
         float: left;
         margin-right: 40px;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         top: 0;
+        z-index: 2;
         @include hover-underline;
       }
       .thissite {
@@ -48,8 +63,8 @@
         font-weight: bold;
         text-decoration: none;
         margin-right: 40px;
-        margin-top: 30px;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+        z-index: 2;
         @include hover-underline;
       }
       .confectionery {
@@ -58,10 +73,29 @@
         font-weight: bold;
         text-decoration: none;
         margin-right: 40px;
-        margin-top: 60px;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         @include hover-underline;
+        z-index: 2;
       } 
+      &--reference {
+        white-space: pre-wrap;
+        float: right;
+        color: #46130a;
+        font-weight: bold;
+        top: 0;
+      }
+    }
+    &__image {
+      z-index: 1;
+      position: absolute;
+      opacity: 0.3;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 470px;
+      background-size:cover;
+      background-position: center center;
+      background-image: image-url('eclair-3366430_640.jpg');
     }
   }
 
@@ -76,8 +110,7 @@
       width: 100%;
       padding: 40px 0;
       box-sizing: border-box;
-      border-top: 2rem double pink;
-      border-bottom: 1rem solid rgb(70, 19, 10);
+      border-bottom: 2rem double pink;
       background-color: #6f4b3e;
       background-image: linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%), linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%, #664539);
       background-position: 0 0, 25px 25px;
@@ -120,7 +153,6 @@
             text-shadow: #5e1108 1px 1px 2px, $white 0 0 20px;
             color: #d49992;
             font-weight: bold;
-            border-top: 0.5rem double pink;
             border-bottom: 0.5rem double rgb(70, 19, 10);
             font-size: 1.8rem;
             background-color: rgb(253, 236, 234);
@@ -149,7 +181,6 @@
             text-shadow: #5e1108 1px 1px 2px, $white 0 0 20px;
             color: #d49992;
             font-weight: bold;
-            border-top: 0.5rem double pink;
             border-bottom: 0.5rem double rgb(70, 19, 10);
             font-size: 1.8rem;
             background-color: rgb(253, 236, 234);

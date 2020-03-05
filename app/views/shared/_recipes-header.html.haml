@@ -1,6 +1,6 @@
 .recipe-header
   .recipe-header__title{id: "pagetop-link"}
-    bonbon♡SWEETS
+    BonBon♡SWEETS
     = link_to "/users/siteguide", class: "coffee-recipesheader" do
       = fa_icon "coffee", class: "coffee-index"
 
@@ -14,10 +14,8 @@
         %li
           %a.sweets-banner.stop スライド停止
         - if user_signed_in?
-          %li
-            = link_to user_path(current_user.id), class: "user-mypage" do
-              = fa_icon "user", class: "icon"
-              マイページ
+          -# %li
+            -# = link_to "マイページ", user_path(current_user.id), class: "user-mypage" 
           %li
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user-signout", data: { confirm: 'ログアウトしますか?' }
           %li

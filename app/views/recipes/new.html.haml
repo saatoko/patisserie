@@ -1,14 +1,15 @@
 .recipe-post
   .recipe-post__title
     .recipe-post__title--text
-      レシピ投稿ページ
+      My RECIPE
       = link_to recipes_path do
         = fa_icon "coffee",class: "coffee-new" 
-
+  .recipe-post__space
   .recipe-post__main
     .recipe-post__main--content
       .head
         レシピ投稿フォーム
+      
       .my-recipe
         = render partial: 'form'
 

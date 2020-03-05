@@ -1,24 +1,25 @@
 .account-header{
-  position: sticky;
   top: 0;
   width: 100%;
-  height: 100px;
-  background-color: $white;
-  box-shadow: 0 0 15px rgb(122, 105, 89);
+  height: auto;
+  background-color: #fff1f079;
+  position: sticky;
+  padding: 20px 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   &__inner {
     width: 100%;
-    line-height: 100px;
-    font-size: 3.0rem;
+    height: auto;
+    font-size: 2.5rem;
     text-align: center;
+    letter-spacing: 1rem;
+    font-weight: bold;
+    font-family: cursive;
+    position: relative;
     &--coffee {
-      color: #b8860b;
-      .account-coffee {
-        transition: 1s;
-        -webkit-transition: 1s;
-        &:hover {
-          transform: scale(1.5);
-        }
-      }
+      color: #c5655a;
+      text-decoration: none;
+      @include hover-underline;
     }
   }
 }

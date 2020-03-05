@@ -1,12 +1,4 @@
 .recipe-show {
-  @include scrollbar
-}
-
-.homemade-recipename__text--line {
-  @include design-line
-}
-
-.recipe-show {
   width: 100vw;
   min-height: 100vh;
   margin: 0;
@@ -31,7 +23,7 @@
       .homemade {
         width: 100%;
         height: auto;
-        box-shadow: 0 0 10px #7a6959;
+        box-shadow: 0 0 10px #d68f87;
         &__header {
           background-color: #6f4b3e;
           background-image: linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%,), linear-gradient(45deg, #664539 25%, transparent 25%, transparent 75%, #664539 75%, #664539);
@@ -134,11 +126,11 @@
               padding: 1.2rem 1.5rem 0.5rem;
               box-sizing: border-box;
               overflow-y: scroll;
+              border-bottom: double 0.5rem #f7bc0a;
               &__text {
                 height: 100%;
                 width: 100%;
                 font-weight: bold;
-                font-family: serif;
                 width: auto;
                 font-size: 2.0rem;
               }
@@ -202,8 +194,7 @@
           display: grid;
           grid-template-rows: 70px;
           grid-template-columns: repeat(3, 1fr);
-          background-color: #b95c52;
-          
+          background-color: #c5655a;
           grid-gap: 3rem;
           margin-top: 1.0rem;
           text-align: center;
@@ -216,33 +207,39 @@
             grid-column: 1 / 2;
             color: $white;
             text-decoration: none;
-            background-color: #b8860b;
-            display: inline-grid;
+            background-color: #d38b07;
+            display: flex;
+            justify-content: center;
             height: 70px;
             align-items: center;
             -webkit-text-stroke: 0.3px $white;
             font-size: 1.2rem;
-            
+            padding-right: 1rem;
+            p {
+              padding-right: 1.4rem;
+            }
           }
           .homemade-hensyu{
             grid-column: 2 / 3;
             color: rgba(73, 61, 44, 0.897);
             color: $white;
             text-decoration: none;
-            display: inline-grid;
-            background-color: #b8860b;
+            background-color: #d38b07;
             height: 70px;
             align-items: center;
             -webkit-text-stroke: 0.3px $white;
+            display: flex;
+            justify-content: center;
           }
           .homemade-sakujo {
             grid-column: 3 / 4;
             color: $white;
             text-decoration: none;
-            display: inline-grid;
-            background-color: #b8860b;
+            background-color: #d38b07;
             height: 70px;
             align-items: center;
+            display: flex;
+            justify-content: center;
             -webkit-text-stroke: 0.3px $white;
           }
         }
@@ -252,7 +249,7 @@
           display: grid;
           grid-template-rows: 80px;
           grid-template-columns: repeat(6, 1fr);
-          background-color: #b95c52;
+          background-color: #c5655a;
           grid-gap: 3rem;
           text-align: center;
           height: 100%;
@@ -263,7 +260,7 @@
             text-decoration: none;
             color: $white; 
             -webkit-text-stroke: 0.3px $white;
-            background-color: #b8860b;
+            background-color: #d38b07;
             padding: 5px;
             grid-column: 1 / 2;
             .homemade-icons {
@@ -279,7 +276,7 @@
             text-decoration: none;
             color: $white;
             -webkit-text-stroke: 0.3px $white;
-            background-color: #b8860b;
+            background-color: #d38b07;
             padding: 5px;
             grid-column: 2 / 3;
             word-wrap: break-word;
@@ -297,7 +294,7 @@
             text-decoration: none;
             color: $white;
             -webkit-text-stroke: 0.3px $white;
-            background-color: #b8860b;
+            background-color: #d38b07;
             padding: 5px;
             grid-column: 3 / 4;
             word-wrap: break-word;
@@ -315,7 +312,7 @@
             text-decoration: none;
             color: $white;
             -webkit-text-stroke: 0.3px $white;
-            background-color: #b8860b;
+            background-color: #d38b07;
             padding: 5px;
             grid-column: 4 / 5;
             word-wrap: break-word;
@@ -333,7 +330,7 @@
             text-decoration: none;
             color: $white;
             -webkit-text-stroke: 0.3px $white;
-            background-color: #b8860b;
+            background-color: #d38b07;
             padding: 5px;
             grid-column: 5 / 6;
             word-wrap: break-word;
@@ -351,7 +348,7 @@
             text-decoration: none;
             color: $white;
             -webkit-text-stroke: 0.3px $white;
-            background-color: #b8860b;
+            background-color: #d38b07;
             padding: 5px;
             grid-column: 6 / 7;
             word-wrap: break-word;
@@ -425,7 +422,7 @@
                     }
                     .checkbox:checked + .checkbox-icon:before {
                       content: "\f374";
-                      color: #b95c52;
+                      color: #c5655a;
                     }
                   }
                 }
@@ -482,7 +479,6 @@
             .method--content {
               font-size: 1.4rem;
               padding: 0.5rem 3rem 1.5rem 3rem;
-              // white-space: pre-wrap;
               white-space: pre-line;
             }
           }
@@ -559,7 +555,7 @@
       font-size: 1.0rem;
       text-align: center;
       width: 100%;
-      color: #d49992;
+      color: #b95c52;
       line-height: 120px;
       font-weight: bold;
       letter-spacing: 0.5rem;

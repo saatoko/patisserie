@@ -6,8 +6,6 @@
 @import "mixin/required-btn";
 @import "mixin/account-btn";
 @import "mixin/ingredient-btn";
-@import "mixin/scrollbar";
-@import "mixin/design-line";
 @import "mixin/left-in-right";
 
 // modules
@@ -25,16 +23,14 @@
 
 // users
 @import "users/users_index";
-@import "users/users_show";
+// @import "users/users_show";
 @import "users/siteguide";
 
 // recipes
 @import "recipes/recipes_index";
-@import "recipes/recipes_new";
+@import "recipes/recipes_new_edit";
 @import "recipes/recipes_show";
-@import "recipes/recipes_edit";
 @import "recipes/recipes_form";
-// @import "recipes/recipes_recipe_ingredient_fields";
 
 // categories
 @import "categories/parent_child_category";

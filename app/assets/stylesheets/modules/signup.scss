@@ -16,22 +16,25 @@
   &__inner {
     padding: 0;
     width: 100%;
-    height: calc( 100vh - 70px - 70px );
+    height: auto;
+    background-color: #fff1f0;
+    padding: 50px 0 50px;
     &--content {
       width: 60%;
-      margin: 70px auto;
-      padding: 50px;
+      margin: 0 auto;
       background-color: $white;
-      border: 1px solid #b95c52;
-
+      padding: 50px;
+      box-shadow: 0 0 8px #d68f87;
       border-radius: 5px;
+      color: rgb(122, 105, 89);
       .signup-text{
         height: 50px;
         line-height: 50px;
         text-align: center;
         font-weight: bold;
         font-size: 1.5rem;
-        letter-spacing: 3px;
+        font-family: serif;
+        letter-spacing: 1rem;
       }
       .signup-box {
         text-align: center;

@@ -1,17 +1,19 @@
 .inner-left {
   display: flex;
   align-items: center;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 0;
   height: 46px;
   &__drop-down {
     text-align: center;
+    align-items: center;
+    justify-content: center;
     line-height: 60px;
     cursor: pointer;
     font-weight: bold;
     color: #b95c52;
-    font-size: 20px;
+    font-size: 30px;
     height: 60px;
-    width: 170px;
+    width: auto;
     position: relative;
     .parents-category {
       display: none; 
@@ -40,8 +42,9 @@
             text-decoration: none;
             width: 170px;
             border: 1px solid #7a6959;
+            font-size: 20px;
             &:hover {
-              background-color: #e2f2d5
+              background-color: #ffd88f;
             }
           }
           .children-category {
@@ -68,7 +71,7 @@
                 text-align: center;
                 text-decoration: none;
                 &:hover {
-                  background-color: #e2f2d5;
+                  background-color: #ffd88f;
                 }
               }
             }

@@ -1,7 +1,7 @@
 .recipe-post
   .recipe-post__title
     .recipe-post__title--text
-      レシピ編集ページ
+      My RECIPE
       = link_to recipes_path do
         = fa_icon "coffee", class: "coffee-new"
 
@@ -9,7 +9,6 @@
     .recipe-post__main--content
       .head
         レシピ編集フォーム
-    
       .my-recipe
         = form_for @recipe, html: {class: "double", id: "cake", name: "form-main"} do |f|
 

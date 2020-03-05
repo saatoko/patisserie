@@ -1,0 +1,68 @@
+.recipe-post {
+  position: relative;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  &__title {
+    height: 130px;
+    background-color: #fff1f077;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    text-align: left;
+    &--text {
+      text-align: center;
+      color: rgb(122, 105, 89);
+      font-weight: bold;
+      line-height: 130px;
+      font-size: 3.0rem;
+      letter-spacing: 20px;
+      display: inline-block;
+      font-family: cursive;
+      padding-left: 50px;
+
+    }
+    .coffee-new {
+      display: inline-block;
+      color: #d49992;
+      transition: 1s;
+      -webkit-transition: 1s;
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
+  &__main {
+    background-color: #FFE4E1;
+    height: auto;
+    position: relative;
+    padding: 40px 100px 100px 100px;
+    &--content {
+      padding: 50px;
+      margin: 0 auto;
+      width: 80%;
+      height: auto;
+      background-color: $white;
+      border-top-right-radius: 150px 210px;
+      border-bottom-left-radius: 150px 210px;
+      box-shadow: 4px 4px #d68f87, 10px 5px 10px 10px #d68f87;
+      .head {
+        padding: 50px 20px 25px;
+        font-size: 2.5rem;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 3px;
+        color: rgb(122, 105, 89);
+        position: relative;
+        font-family: serif;
+      }
+      .my-recipe {
+        padding: 25px 20px 50px;
+        font-size: 1.4rem;
+        color: rgb(87, 73, 60);
+        position: relative;
+      }
+    }
+  }
+}

@@ -1,11 +1,17 @@
 .site-guide
   .header-guide
-    .header-guide__header
-      お菓子づくりが好きな全ての人たちに...
+    .header-guide__title
+      BonBon♡SWEETS
+    .header-guide__subtitle
+      お菓子が好きな全ての人たちに...
     .header-guide__menu.clearfix
-      = link_to "自己紹介", "#aboutme-link", class: "aboutme"
+      = link_to "開発環境", "#aboutme-link", class: "aboutme"
       = link_to "このサイトについて", "#thissite-link", class: "thissite"
       = link_to "スイーツページへ", "/recipes", class: "confectionery"
+      .header-guide__menu--reference
+        ※RitaEによるPixabayからの画像より引用
+        ※Referenced from RitaE - Pixabay
+    .header-guide__image
 
   .main-guide
     .main-guide__text
@@ -58,7 +64,7 @@
           .thissite-box__gem
             (レイアウト系)
             ・コーヒーアイコンで、1ページ戻ります
-            ・１ページにつき、12レシピまで表示
+            ・１ページにつき、6レシピまで表示
             (使用したgem)
             haml-rails 
             sassc-rails
@@ -73,6 +79,3 @@
     = link_to "/users", class: "back" do
       = fa_icon "coffee"
       Back
-
-
-

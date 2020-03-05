@@ -4,7 +4,7 @@
     .recipe-show__contents--spaceside
       .homemade
         .homemade__header
-          bonbon♡SWEETS
+          BonBon♡SWEETS
           = link_to recipes_path do
             = fa_icon "coffee", class: "coffee-show"
             
@@ -45,7 +45,8 @@
             
         .homemade__various-buttons
           %li.homemade-nice
-            いいね!
+            %p.nicenice
+              いいね!
             %span{id: "like-buttons_#{@recipe.id}"}
               = render partial: "votes/votes", locals: { recipe: @recipe }
 
@@ -144,4 +145,4 @@
 
   .recipe-show__footer
     .recipe-show__footer--text
-      2019.bonbon♡SWEETS
+      2019.BonBon♡SWEETS

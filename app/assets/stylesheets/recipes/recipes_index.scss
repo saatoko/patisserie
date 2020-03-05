@@ -18,11 +18,11 @@
     background-color: #FFE4E1;
     &--spacetop{
       width: 100%;
-      height: 50px;
+      height: 20px;
       background-color: #FFE4E1;
-      border-top-style: dotted;
-      border-color: #a79050;
-      border-width: 1rem;
+      border-bottom-style: dotted;
+      border-color: $white;
+      border-width: 0.5rem;
     }
     &--spaceside {
       background-color: $white;
@@ -30,12 +30,13 @@
       text-align: center;
       width: 70%;
       margin: 0 auto;
+      margin-top: 40px;
       .index-block {
         display: flex;
         flex-direction: column;
         width: 100%;
         height: auto;
-        box-shadow: 0 0 8px #7a6959;
+        box-shadow: 0 0 8px rgb(214, 143, 135);
         &__grid {
           padding-top: 20px;
           height: auto;
@@ -59,7 +60,9 @@
             }
             &:hover {
               border: 1px solid #fcf3aa;
-              box-shadow: 0 0 10px #fcf3aa;
+              border: 1px solid #ec938d ;
+              box-shadow: 0 0 20px #fcf3aa;
+              box-shadow: 0 0 10px #af7672 ;
             }
             .grid-image {
               position: relative;
@@ -101,7 +104,6 @@
                     height: 100%;
                     width: 100%;
                     font-size: 1.2rem;
-                    font-family: serif;
                     font-weight: bold;
                   }
                 }
@@ -128,8 +130,7 @@
                 &--content {
                   height: 100%;
                   width: 100%;
-                  color: pink;
-                  text-shadow:1px 1px 0 rgb(212, 153, 146),-1px 1px 0 rgb(212, 153, 146),1px -1px 0 rgb(212, 153, 146),-1px -1px 0 rgb(212, 153, 146);
+                  color: #c5655a;
                   display: flex;
                   align-items: center;
                   justify-content: center;

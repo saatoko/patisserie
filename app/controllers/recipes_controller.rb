@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   before_action :set_categories
   before_action :category_post, only: [:new, :create]
 
-  PER = 12
+  PER = 6
 
   def index
     # Categoryのデータベースのテーブルから一致するidを取得
@@ -26,7 +26,6 @@ class RecipesController < ApplicationController
     @other = @OTHER.subtree
     @others1 = Recipe.all.where(category_id: @other).includes(:recipe_images, :recipe_ingredients, :category, :recipe_video).order('created_at DESC').page(params[:page]).per(PER) || @others = Recipe.all.where(category_id: @other).includes(:recipe_images, :recipe_ingredients, :category).order('created_at DESC').page(params[:page]).per(PER)
 
-    # クエリ文字列は含まれない
     @url = request.path_info
 
     if @recipes.present?

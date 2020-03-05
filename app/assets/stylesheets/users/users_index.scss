@@ -17,48 +17,23 @@
         background-size:cover;
 	      background-position: center center;
         position: relative;
-        background-image: image-url('P1020028.JPG');
+        background-image: image-url('bun-268237_640.jpg');
         &::after {
           content: '';
-          background-color: #34383880;
-          opacity: 0.5;
+          background-color: #5036077e;
           position: absolute;
           left: 0;
           right: 0;
           top: 0;
           bottom: 0;
         }
-        .subtitle {
-          margin: 0;
-          color: #FFF;
-          font-weight: bold;
-          position: relative;
-          z-index: 1;
-          padding: 120px 10px 0;
-          letter-spacing: 2px;
-          font-size: 2rem;
-          text-align: center;
-          font-family: serif;
-          &::before,
-          &::after {
-            content: "";
-            display: inline-block;
-            width: 20%;
-            height: 2px;
-            margin: 0 30px;
-            vertical-align: middle;
-            background-color: $white;
-          }
-        }
-        .title {
-          padding: 80px 10px 0;
+        &--reference {
+          white-space: pre-wrap;
           color: $white;
-          font-size: 3.3rem;
-          text-align: center;
-          font-weight: bold;
           z-index: 1;
-          position: relative;
-          font-family: serif;
+          position: absolute;
+          font-weight: bold;
+          top: 0;
         }
       }
     }
@@ -73,15 +48,23 @@
         background-size:cover;
 	      background-position: center center;
         position: relative;
-        background-image: image-url('P1010217.JPG');
+        background-image: image-url('waffles-3972360_640.jpg');
         &::after {
           content: '';
-          background-color: rgba(223, 139, 223, 0.158);
+          background-color: #74672170;
           position: absolute;
           left: 0;
           right: 0;
           top: 0;
           bottom: 0;
+        }
+        &--reference {
+          white-space: pre-wrap;
+          color: $white;
+          z-index: 1;
+          position: absolute;
+          font-weight: bold;
+          top: 0;
         }
       }
     }
@@ -96,14 +79,22 @@
         background-size:cover;
 	      background-position: center center;
         position: relative;
-        background-image: image-url('P1000337.JPG');
+        background-image: image-url('tart-2002829_640.jpg');
         &::after {
           content: '';
-          background-color: rgba(245, 225, 163, 0.514);
+          background-color: rgba(112, 90, 43, 0.603);
           position: absolute;
           left: 0;
           right: 0;
           top: 0;
+          bottom: 0;
+        }
+        &--reference {
+          white-space: pre-wrap;
+          color: $white;
+          z-index: 1;
+          position: absolute;
+          font-weight: bold;
           bottom: 0;
         }
       }
@@ -119,32 +110,38 @@
         background-size:cover;
 	      background-position: center center;
         position: relative;
-        background-image: image-url('P1000316.JPG');
+        background-image: image-url('waffle-3935713_640.jpg');
         &::after {
           content: '';
-          background-color: #feb64a42;
+          background-color: #573a0e93;
           position: absolute;
           left: 0;
           right: 0;
           top: 0;
           bottom: 0;
         }
+        &--reference {
+          white-space: pre-wrap;
+          color: $white;
+          z-index: 1;
+          position: absolute;
+          font-weight: bold;
+          bottom: 0;
+        }
       }
     }
   }
-  
-  .cookie {
-    text-shadow: 2px 2px 0 black;
-    font-family: cursive;
-    background: -moz-radial-gradient($white 20%, rgba(255, 255, 255, 0) 70%); 
-    background: -webkit-radial-gradient($white 20%, rgba(255, 255, 255, 0) 70%); 
-    background: radial-gradient($white 20%, rgba(255, 255, 255, 0) 70%); 
-    color: #806d3c;
+  .cookie-square {
+    text-shadow: 2px 2px 0 rgb(73, 69, 69);
+    background: radial-gradient(rgba(0, 0, 0, 0.692) 20%, rgba(0, 0, 0, 0.493)  50%, rgba(0, 0, 0, 0.329) 80%, rgba(0, 0, 0, 0.233) 90%, rgba(0, 0, 0, 0.11) 100% );
+    background-color: #46130a;
+    color: $white;
     text-decoration: none;
-    letter-spacing: 1px;
+    font-family: serif;
+    letter-spacing: 1.7rem;
     font-size: 4.0rem;
+    white-space: nowrap;
     font-weight: bold;
-    border-radius: 100%;
     border-color: $white;
     position: absolute;
     top: 0;
@@ -152,21 +149,10 @@
     bottom: 0;
     left: 0;
     margin: auto;
-    width: 20%;
+    width: 100%;
     height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: Flash1 5s infinite;
-    @keyframes Flash1{
-      50%{
-        // box-shadow: 0 1px 15px 0 #feffbd;
-        border-style: dotted;
-        border-width: 0.8rem;
-      }
-    }
-    .cookie-icon {
-      color: #a79050;
-    }
   }
 }
