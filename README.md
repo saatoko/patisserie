@@ -25,6 +25,8 @@
 |Ruby on Rails|Rails 5.0.7.2|
 |Ruby|ruby 2.5.7|
 |jQuery||
+|HTML|Haml記法|
+|CSS|SCSS記法|
 
 ## データベース
 - 開発環境、本番環境とも、mysql2を使用
