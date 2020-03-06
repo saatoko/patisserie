@@ -90,13 +90,6 @@ class RecipesController < ApplicationController
     # 登録されている商品の子カテゴリーのレコードを取得
     @selected_child_category = @recipe.category
 
-    # 子カテゴリー選択肢用の配列作成
-    @category_children_array = [{id: "---", name: "---"}]
-    # @category_children_array = [{id: @selected_child_category.id, name: @selected_child_category.name}]
-    Category.find("#{@selected_child_category.id}").siblings.each do |child|
-      @children_hash = {id: "#{child.id}", name: "#{child.name}"}
-      @category_children_array << @children_hash
-    end
     # 選択されている親カテゴリーのレコードを取得
     @selected_parent_category = @selected_child_category.parent
 
@@ -108,7 +101,6 @@ class RecipesController < ApplicationController
       @category_parents_array << @parent_hash
 
     end
-
   end
 
   def update

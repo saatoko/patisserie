@@ -21,17 +21,13 @@
             .recipe-input
               = f.text_field :name, class: 'input-recipe'
 
-          -# カテゴリー編集未実装
           .recipe.clearfix
             .recipe-label
               = f.label :お菓子のカテゴリーを選択してください。
             
             .recipe-select-wrapper
               .recipe-select-wrapper__box
-                -# = f.select :category, options_for_select(@category_parents_array.map{|c| [c[:name], c[:id]]}, selected: params[:category_id].to_i), {}
-                
-                -# = f.select :category, options_for_select(@category_children_array.map{|c|[c[:name], c[:id]]}, selected: params[:category_id].to_i), {}
-
+                = f.select :category, options_for_select(@category_parents_array.map{|c| [c[:name], c[:name]]}, selected: @selected_parent_category.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
 
           .recipe.clearfix
             .recipe-label
