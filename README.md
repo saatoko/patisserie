@@ -1,3 +1,55 @@
+# アプリ名
+  BonBon♡SWEETS
+
+## このアプリの説明
+- お菓子好きのためのレシピの投稿、閲覧アプリを作成しました。
+
+### ユーザー機能
+- 新規登録, ログイン(レシピを投稿したテストユーザーからログインができます。), ログアウト機能
+
+### レシピ機能
+- ログイン後、レシピの投稿、投稿したレシピの編集と削除機能
+
+### カテゴリー機能
+- カテゴリーからのレシピ検索、レシピ閲覧機能
+
+### いいね機能
+- ログイン後、レシピにいいねを行えるようになります。
+- 未ログイン時は、いいね数の閲覧機能
+
+
+
+# 開発環境
+|言語|バージョン|
+|----|----------|
+|Ruby on Rails|Rails 5.0.7.2|
+|Ruby|ruby 2.5.7|
+|jQuery||
+
+## データベース
+- 開発環境、本番環境とも、mysql2を使用
+
+### 使用したGem
+- gem 'devise'
+- gem 'haml-rails'
+- gem 'sassc-rails'
+- gem 'pry-rails'
+- gem 'font-awesome-rails'
+- gem 'carrierwave'
+- gem 'mini_magick'
+- gem 'fog-aws'
+- gem 'active_hash'
+- gem 'seed-fu'
+- gem 'owlcarousel-rails'
+- gem 'jquery-rails'
+- gem 'nested_form_fields'
+- gem 'ancestry'
+- gem 'kaminari'
+- gem 'dotenv-rails'
+- gem 'mysql2'
+
+
+
 # DB設計
 
 ## usersテーブル
